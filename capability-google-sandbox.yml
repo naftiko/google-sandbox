@@ -1,0 +1,508 @@
+naftiko:
+  schema: >-
+    https://github.com/naftiko/schema/blob/main/core/capability/capabiity-schema.yml
+info:
+  name: Google API & MCP Sandbox
+  description: >-
+    This is a Google sandbox that uses OpenAPI, Microcks, Bruno, and Backstage
+    to provide a 3rd-party REST API and MCP sandbox for Google.
+  tags:
+    - Artificial Intelligence
+    - AI
+    - Models
+    - Email
+    - Calendar
+    - Documents
+    - Sheets
+ports:
+  source:
+    - aid: google-sandbox
+      title: Google Calendar API
+      description: >-
+        The Google Calendar API allows developers to integrate their
+        applications with Google Calendar, enabling them to create, modify, and
+        manage events and settings programmatically. This API is robust,
+        offering functionalities like managing calendar lists, events, access
+        permissions, and user settings.
+      openApi:
+        - $ref: openapi/google-calendar-api-openapi.yml
+    - aid: google-sandbox
+      title: Google Docs API
+      description: Reads and writes Google Docs documents.
+      openApi:
+        - $ref: openapi/google-docs-api-openapi.yml
+    - aid: google-sandbox
+      title: Google Drive Activity API
+      description: Provides a historical view of activity in Google Drive.
+      openApi:
+        - $ref: openapi/google-drive-activity-api-openapi.yml
+    - aid: google-sandbox
+      title: Google Drive API
+      description: >-
+        The Google Drive API allows clients to access resources from Google
+        Drive.
+      openApi:
+        - $ref: openapi/google-drive-api-openapi.yml
+    - aid: google-sandbox
+      title: Google Drive Labels API
+      description: An API for managing Drive Labels
+      openApi:
+        - $ref: openapi/google-drive-labels-api-openapi.yml
+    - aid: google-sandbox
+      title: Gemini API
+      description: >-
+        The Gemini API can generate text output from various inputs, including
+        text, images, video, and audio, leveraging Gemini models.
+      openApi:
+        - $ref: openapi/google-gemini-api-openapi.yml
+    - aid: google-sandbox
+      title: Google Gmail API
+      description: >-
+        The Gmail API is a RESTful API that can be used to access Gmail
+        mailboxes and send mail. For most web applications the Gmail API is the
+        best choice for authorized access to a user's Gmail data and is suitable
+        for various applications.
+      openApi:
+        - $ref: openapi/google-gmail-api-openapi.yml
+    - aid: google-sandbox
+      title: Google Sheets API
+      description: >-
+        The Google Sheets API is a RESTful interface that lets you read and
+        modify a spreadsheet's data..
+      openApi:
+        - $ref: openapi/google-sheets-api-openapi.yml
+virtualization:
+  sandboxes:
+    - name: Google Calendar API REST Sandbox
+      type: http://localhost:8080/rest/google-calendar-api/1.0.0
+    - name: Google Calendar MCP Sandbox
+      type: http://localhost:8080/rest/google-calendar-api/1.0.0/sse
+    - name: Google Docs API REST Sandbox
+      type: http://localhost:8080/rest/google-docs-api/1.0.0
+    - name: Google Docs MCP Sandbox
+      type: http://localhost:8080/rest/google-docs-api/1.0.0/sse
+    - name: Google Drive Activity API REST Sandbox
+      type: http://localhost:8080/rest/google-drive-activity-api/1.0.0
+    - name: Google Drive Activity MCP Sandbox
+      type: http://localhost:8080/rest/google-drive-activity-api/1.0.0/sse
+    - name: Google Drive API REST Sandbox
+      type: http://localhost:8080/rest/google-drive-api/1.0.0
+    - name: Google Drive MCP Sandbox
+      type: http://localhost:8080/rest/google-drive-api/1.0.0/sse
+    - name: Google Drive Labels API REST Sandbox
+      type: http://localhost:8080/rest/google-drive-labels-api/1.0.0
+    - name: Google Drive Labels MCP Sandbox
+      type: http://localhost:8080/rest/google-drive-labels-api/1.0.0/sse
+    - name: Gemini API REST Sandbox
+      type: http://localhost:8080/rest/gemini-api/1.0.0
+    - name: Gemini MCP Sandbox
+      type: http://localhost:8080/rest/gemini-api/1.0.0/sse
+    - name: Google Gmail API REST Sandbox
+      type: http://localhost:8080/rest/google-gmail-api/1.0.0
+    - name: Google Gmail MCP Sandbox
+      type: http://localhost:8080/rest/google-gmail-api/1.0.0/sse
+    - name: Google Sheets API REST Sandbox
+      type: http://localhost:8080/rest/google-sheets-api/1.0.0
+    - name: Google Sheets MCP Sandbox
+      type: http://localhost:8080/rest/google-sheets-api/1.0.0/sse
+distribution:
+  backstage:
+    - title: Google Calendar API
+      description: >-
+        The Google Calendar API allows developers to integrate their
+        applications with Google Calendar, enabling them to create, modify, and
+        manage events and settings programmatically. This API is robust,
+        offering functionalities like managing calendar lists, events, access
+        permissions, and user settings.
+      entity: backstage/google-calendar-api-api-sandbox-backstage.yml
+    - title: Google Docs API
+      description: Reads and writes Google Docs documents.
+      entity: backstage/google-docs-api-api-sandbox-backstage.yml
+    - title: Google Drive Activity API
+      description: Provides a historical view of activity in Google Drive.
+      entity: backstage/google-drive-activity-api-api-sandbox-backstage.yml
+    - title: Google Drive API
+      description: >-
+        The Google Drive API allows clients to access resources from Google
+        Drive.
+      entity: backstage/google-drive-api-api-sandbox-backstage.yml
+    - title: Google Drive Labels API
+      description: An API for managing Drive Labels
+      entity: backstage/google-drive-labels-api-api-sandbox-backstage.yml
+    - title: Gemini API
+      description: >-
+        The Gemini API can generate text output from various inputs, including
+        text, images, video, and audio, leveraging Gemini models.
+      entity: backstage/google-gemini-api-api-sandbox-backstage.yml
+    - title: Google Gmail API
+      description: >-
+        The Gmail API is a RESTful API that can be used to access Gmail
+        mailboxes and send mail. For most web applications the Gmail API is the
+        best choice for authorized access to a user's Gmail data and is suitable
+        for various applications.
+      entity: backstage/google-gmail-api-api-sandbox-backstage.yml
+    - title: Google Sheets API
+      description: >-
+        The Google Sheets API is a RESTful interface that lets you read and
+        modify a spreadsheet's data..
+      entity: backstage/google-sheets-api-api-sandbox-backstage.yml
+metrics:
+  numberOfPaths: 140
+  numberOfOperations: 209
+  numberOfReadOperations: 74
+  numberOfWriteOperations: 135
+  numberOfSchemas: 754
+  numberOfResponses: 0
+  numberOfParameters: 44
+  numberOfExamples: 112
+  numberOfRequestBodies: 0
+  numberOfHeaders: 0
+  tags:
+    - About
+    - Activity
+    - Address
+    - Addresses
+    - Append
+    - Applications
+    - Attachments
+    - Audio Understanding
+    - Auto
+    - Batch
+    - Calendar Acl Rules
+    - Calendar Acls
+    - Calendar Events
+    - Calendars
+    - Changes
+    - Channels
+    - Clear
+    - Colors
+    - Comments
+    - Content Generation
+    - Copy
+    - Create
+    - Data
+    - Default
+    - Delegates
+    - Deletes
+    - Developer
+    - Disables
+    - Document Understanding
+    - Documents
+    - Drafts
+    - Drives
+    - Enables
+    - File Api
+    - Files
+    - Filter
+    - Free Busy
+    - Get
+    - History
+    - Image Generation
+    - Import
+    - Info
+    - Insert
+    - Labels
+    - Language
+    - Limits
+    - Lists
+    - Messages
+    - Modify
+    - Notifications
+    - Obliterate
+    - Patch
+    - Permissions
+    - Pop
+    - Profile
+    - Replies
+    - Revisions
+    - Search
+    - Send
+    - Sets
+    - Setting
+    - Settings
+    - Sheet
+    - Speech Generation
+    - Stop
+    - Streaming
+    - Team Drives
+    - Threads
+    - Trash
+    - Update
+    - User Calendars
+    - User Settings
+    - Users
+    - Vacation
+    - Values
+    - Verify
+    - Video Understanding
+    - Watch
+  operations:
+    - Append Values
+    - Batch Clear Values
+    - Batch Clear Values by Data Filter
+    - Batch Delete
+    - Batch Modify
+    - Batch Update Sheets
+    - Batch Update Values
+    - Calendar
+    - Clear Calendar
+    - Clear Values
+    - Copy To Sheet
+    - Count Tokens
+    - Create An Event
+    - Create CSE Identites
+    - Create CSE Keypairs
+    - Create Delegates
+    - Create Drafts
+    - Create Filters
+    - Create Forwarding Address
+    - Create Labels
+    - Create Labels
+    - Create Name:delta
+    - Create Name:disable
+    - Create Name:enable
+    - Create Name:publish
+    - Create Name:updatelabelcopymode
+    - Create Parent Permissions
+    - Create Parent Permissions:batchdelete
+    - Create Parent Permissions:batchupdate
+    - Create Send As
+    - Create Sheet
+    - Delete  Name
+    - Delete Access Control Rule
+    - Delete CSE Idenities
+    - Delete Calendar
+    - Delete Delegates
+    - Delete Drafts
+    - Delete Drives Driveid
+    - Delete Event
+    - Delete Files Fileid
+    - Delete Files Fileid Comments Commentid
+    - Delete Files Fileid Comments Commentid Replies Replyid
+    - Delete Files Fileid Permissions Permissionid
+    - Delete Files Fileid Revisions Revisionid
+    - Delete Files Trash
+    - Delete Filters
+    - Delete Forwarding Addresses
+    - Delete Labels
+    - Delete Messages
+    - Delete Send As
+    - Delete Send As SMIME INfo
+    - Delete Teamdrives Teamdriveid
+    - Delete Threads
+    - Disable CSE Keypairs
+    - Enable CSE Keypairs
+    - GET CSE Idenetites
+    - GET CSE Keypairs
+    - GET IMAP
+    - Generate Content
+    - Generate Images
+    - Generate Speech (Text-to-Speech)
+    - Get About
+    - Get Access Control Rule
+    - Get Apps
+    - Get Apps Appid
+    - Get Attachments
+    - Get Auto Forwarding Settings
+    - Get Calendar
+    - Get Calendar Colors
+    - Get Calendar List
+    - Get Calendar Settings
+    - Get Changes
+    - Get Changes Startpagetoken
+    - Get Delegates
+    - Get Developer Metadata
+    - Get Documents
+    - Get Drafts
+    - Get Drives
+    - Get Drives Driveid
+    - Get Event
+    - Get File Metadata
+    - Get Files
+    - Get Files Fileid
+    - Get Files Fileid Comments
+    - Get Files Fileid Comments Commentid
+    - Get Files Fileid Comments Commentid Replies
+    - Get Files Fileid Comments Commentid Replies Replyid
+    - Get Files Fileid Export
+    - Get Files Fileid Listlabels
+    - Get Files Fileid Permissions
+    - Get Files Fileid Permissions Permissionid
+    - Get Files Fileid Revisions
+    - Get Files Fileid Revisions Revisionid
+    - Get Files Generateids
+    - Get Filters
+    - Get Forwarding Addresses
+    - Get Labels
+    - Get Language Settings
+    - Get Messages
+    - Get POP Settings
+    - Get Profile
+    - Get Send As
+    - Get Send As
+    - Get Send As SMIME Info
+    - Get Sheet
+    - Get Sheet by Data Filter
+    - Get Teamdrives
+    - Get Teamdrives Teamdriveid
+    - Get Threads
+    - Get Vacation Settings
+    - Get Values
+    - Get Values Batch
+    - Get Values By Data Filter
+    - Import Event
+    - Import Messages
+    - Insert Access Control Rule
+    - Insert Calendar On List
+    - Insert Event
+    - Insert Messages
+    - Insert SMIME Info
+    - List CSE Identites
+    - List CSE Keypairs
+    - List Calendar Settings
+    - List Calendars
+    - List Delegates
+    - List Drafts
+    - List Filters
+    - List Forwarding Addresses
+    - List History
+    - List Labels
+    - List Messages
+    - List SMIME Info
+    - List Threads
+    - Modify Messages
+    - Modify Threads
+    - Move Event
+    - Obliterate CSE Keypairs
+    - PATCH CSE Identites
+    - Patch  Parent Permissions
+    - Patch Access Control Rule
+    - Patch Calendar
+    - Patch Calendar List
+    - Patch Drives Driveid
+    - Patch Event
+    - Patch Files Fileid
+    - Patch Files Fileid Comments Commentid
+    - Patch Files Fileid Comments Commentid Replies Replyid
+    - Patch Files Fileid Permissions Permissionid
+    - Patch Files Fileid Revisions Revisionid
+    - Patch Labels
+    - Patch Send As
+    - Patch Teamdrives Teamdriveid
+    - Post  Activity:query
+    - Post Changes Watch
+    - Post Channels Stop
+    - Post Documents
+    - Post Documents Batch Update
+    - Post Drives
+    - Post Drives Driveid Hide
+    - Post Drives Driveid Unhide
+    - Post Files
+    - Post Files Fileid Comments
+    - Post Files Fileid Comments Commentid Replies
+    - Post Files Fileid Copy
+    - Post Files Fileid Modifylabels
+    - Post Files Fileid Permissions
+    - Post Files Fileid Watch
+    - Post Teamdrives
+    - Query Free Busy
+    - Quick Add Event
+    - Remove Calendar On List
+    - Retrieve Labels
+    - Retrieve Limits Label
+    - Retrieve Name
+    - Retrieve Parent Locks
+    - Retrieve Parent Permissions
+    - Return Access Control Rules
+    - Return Events From Calendar
+    - Search Developer Metadata
+    - Send Drafts
+    - Send Messages
+    - Set default S/MIME config
+    - Stop Calendar Channel
+    - Stop Notifications for User
+    - Stream Generate Content
+    - Trash Messsages
+    - Trash Threads
+    - Untrash Messages
+    - Update Access Control Rule
+    - Update Auto Forwarding
+    - Update Calendar
+    - Update Calendar List
+    - Update Drafts
+    - Update Event
+    - Update IMAP
+    - Update Labels
+    - Update Language Settings
+    - Update POP Settings
+    - Update Send As Setting
+    - Update Vacation Settings
+    - Update Values
+    - Update by Data Filter
+    - Upload File (Resumable)
+    - Verify Send As
+    - Watch Access Control Rules
+    - Watch Calendar List
+    - Watch Calendar Settings
+    - Watch Events
+    - Watch Users
+useCase:
+  - $ref: >-
+      https://github.com/naftiko/schema/blob/main/secondary/use-case/examples/use-case-example-api-sandbox.yml
+stakeholders:
+  - FN: Kin Lane
+    ROLE: Chief Community Officer (CCO)
+    EMAIL: kinlane@naftiko.io
+    SOCIALPROFILE: https://www.linkedin.com/in/kinlane/
+change:
+  state: New
+  schemaVersion: 0.1.0
+  capabilityVersion: 0.1.0
+  updated: '2026-1-28T00:00:00Z'
+  created: '2026-1-28T00:00:00Z'
+source:
+  httpUrl: https://github.com/naftiko/google-sandbox
+  sshUrl: git@github.com:naftiko/google-sandbox.git
+support:
+  issues: https://github.com/naftiko/google-sandbox/issues
+  discussions: https://github.com/orgs/naftiko/discussions
+standards:
+  - name: Naftiko Capabilities
+    description: This uses a exploratory schema to help inform and shape capabilities.
+    docUrl: https://naftiko.github.io/technology/docs/capabilities/
+  - name: OpenAPI
+    description: This uses OpenAPI to define access to all HTTP APIs.
+    docUrl: https://naftiko.github.io/technology/docs/standards/openapi/
+  - name: JSON Schema
+    description: This uses JSON Schema to define and validate all entities used.
+    docUrl: 'https://naftiko.github.io/technology/docs/standards/json-schema/ '
+  - name: Model Context Protocol
+    description: This uses MCP expresed as JSON schema to define each MCP server.
+    docUrl: >-
+      https://naftiko.github.io/technology/docs/standards/model-context-protocol/
+  - name: Bruno Collections
+    description: >-
+      This uses Bruno Collections to define each executable HTTP API
+      integration.
+    docUrl: https://naftiko.github.io/technology/docs/standards/bruno-collections/
+  - name: Bruno Environments
+    description: >-
+      This uses Bruno Environments to store keys for each API to use in
+      automation.
+    docUrl: https://naftiko.github.io/technology/docs/standards/bruno-environments/
+  - name: API Commons
+    description: This uses an API Commons schema to define the plans and rate limits.
+    docUrl: https://naftiko.github.io/technology/docs/standards/api-commons/
+services:
+  - aid: google
+    name: Google API & MCP Sandbox
+    description: >-
+      This is a Google sandbox that uses OpenAPI, Microcks, Bruno, and Backstage
+      to provide a 3rd-party REST API and MCP sandbox for Google.
+    docUrl: https://naftiko.github.io/technology/docs/services/google/
+    apisJson: >-
+      https://raw.githubusercontent.com/api-evangelist/google/refs/heads/main/apis.yml
+    privacyPolicyUrl: https://policies.google.com/privacy
+    termsOfServiceUrl: https://developers.google.com/terms/site-terms
+observability:
+  visibility: Public
