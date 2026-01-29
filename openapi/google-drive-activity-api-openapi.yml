@@ -13,6 +13,8 @@ info:
 servers:
   - url: https://driveactivity.googleapis.com
     description: Google Drive Activity API Server
+  - url: http://localhost:8080/rest/google-drive-activity-api/v2
+    description: Sandbox
 tags:
   - name: Activity
     description: Operations related to Activity

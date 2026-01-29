@@ -35,6 +35,8 @@ spec:
     servers:
       - url: https://generativelanguage.googleapis.com/v1beta
         description: Gemini API Server
+      - url: http://localhost:8080/rest/gemini-api/1.0.0
+        description: Sandbox
     security:
       - ApiKeyHeader: []
     tags:

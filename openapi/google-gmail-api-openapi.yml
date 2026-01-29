@@ -10,6 +10,8 @@ info:
 servers:
   - url: https://gmail.googleapis.com
     description: Google Gmail API Server
+  - url: http://localhost:8080/rest/google-gmail-api/1.0.0
+    description: Sandbox
 security:
   - oauth2Auth: []
 tags:

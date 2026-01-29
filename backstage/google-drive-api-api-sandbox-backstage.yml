@@ -39,6 +39,8 @@ spec:
     servers:
       - url: https://www.googleapis.com/drive/v3
         description: Google Drive API Server
+      - url: http://localhost:8080/rest/google-drive-api/v3
+        description: Sandbox
     tags:
       - name: About
         description: Operations related to About

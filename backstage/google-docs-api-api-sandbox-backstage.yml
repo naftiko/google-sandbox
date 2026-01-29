@@ -29,6 +29,8 @@ spec:
     servers:
       - url: https://docs.googleapis.com
         description: Google Docs API Server
+      - url: http://localhost:8080/rest/google-docs-api/v1
+        description: Sandbox
     tags:
       - name: Documents
         description: Operations related to Documents
