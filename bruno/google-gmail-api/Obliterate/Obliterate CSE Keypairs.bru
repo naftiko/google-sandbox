@@ -1,0 +1,65 @@
+meta {
+  name: Obliterate CSE Keypairs
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:obliterate
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  keyPairId: 123
+}
+
+headers {
+  ~Content-Type: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:obliterate
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+      keyPairId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+    }
+  
+    body:json: {
+      {}
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

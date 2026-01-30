@@ -1,0 +1,76 @@
+meta {
+  name: Batch Modify
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/messages/batchModify
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/messages/batchModify
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+    }
+  
+    body:json: {
+      {
+        "ids": [
+          "ullamco aliqua anim dolo",
+          "irure ea"
+        ],
+        "addLabelIds": [
+          "irure Lorem ex proident",
+          "proident "
+        ],
+        "removeLabelIds": [
+          "do anim ad nulla",
+          "minim irure"
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

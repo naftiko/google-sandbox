@@ -1,0 +1,108 @@
+meta {
+  name: Update Access Control Rule
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/calendars/:calendarId/acl/:ruleId
+  body: json
+  auth: inherit
+}
+
+params:query {
+  ~sendNotifications: 
+  ~alt: naftiko
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~userIp: 
+}
+
+params:path {
+  calendarId: 123
+  ruleId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId/acl/:ruleId
+    method: PUT
+    mode: json
+    params:query: {
+      ~sendNotifications: 
+      ~alt: naftiko
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~userIp: 
+    }
+  
+    params:path: {
+      calendarId: 123
+      ruleId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "etag": "velit eu voluptate",
+        "id": "ex dolore in sint",
+        "kind": "calendar#aclRule",
+        "role": "et",
+        "scope": {
+          "type": "sit eiusmod culpa do",
+          "value": "quis esse"
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "etag": "velit eu voluptate",
+          "id": "ex dolore in sint",
+          "kind": "calendar#aclRule",
+          "role": "et",
+          "scope": {
+            "type": "sit eiusmod culpa do",
+            "value": "quis esse"
+          }
+        }
+      '''
+    }
+  }
+}

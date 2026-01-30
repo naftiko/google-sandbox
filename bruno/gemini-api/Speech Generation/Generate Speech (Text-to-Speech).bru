@@ -1,0 +1,268 @@
+meta {
+  name: Generate Speech (Text-to-Speech)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/models/:ttsModel:generateContent
+  body: json
+  auth: inherit
+}
+
+params:path {
+  ttsmodel: model_name
+}
+
+body:json {
+  {
+    "contents": [
+      {
+        "role": "",
+        "parts": [
+          {}
+        ]
+      }
+    ],
+    "generationConfig": {
+      "responseModalities": [],
+      "speechConfig": {}
+    }
+  }
+}
+
+example {
+  name: 200 Response
+  description: Successful response with generated audio
+  
+  request: {
+    url: {{baseUrl}}/models/:ttsModel:generateContent
+    method: POST
+    mode: json
+    params:path: {
+      ttsmodel: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "generationConfig": {
+          "responseModalities": [],
+          "speechConfig": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "inlineData": {
+                      "mimeType": "",
+                      "data": ""
+                    }
+                  }
+                ]
+              },
+              "finishReason": "",
+              "index": 0
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 0,
+            "candidatesTokenCount": 0,
+            "totalTokenCount": 0
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Response
+  description: Bad request
+  
+  request: {
+    url: {{baseUrl}}/models/:ttsModel:generateContent
+    method: POST
+    mode: json
+    params:path: {
+      ttsmodel: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "generationConfig": {
+          "responseModalities": [],
+          "speechConfig": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 400
+      text: Bad Request
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 401 Response
+  description: Unauthorized - Invalid API key
+  
+  request: {
+    url: {{baseUrl}}/models/:ttsModel:generateContent
+    method: POST
+    mode: json
+    params:path: {
+      ttsmodel: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "generationConfig": {
+          "responseModalities": [],
+          "speechConfig": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 401
+      text: Unauthorized
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 429 Response
+  description: Too many requests
+  
+  request: {
+    url: {{baseUrl}}/models/:ttsModel:generateContent
+    method: POST
+    mode: json
+    params:path: {
+      ttsmodel: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "generationConfig": {
+          "responseModalities": [],
+          "speechConfig": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 429
+      text: Too Many Requests
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}

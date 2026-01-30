@@ -1,0 +1,63 @@
+meta {
+  name: GET CSE Idenetites
+  type: http
+  seq: 16
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  cseEmailAddress: 
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+      cseEmailAddress: 
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "emailAddress": "aliquip quis id",
+          "primaryKeyPairId": "in exercitation esse",
+          "signAndEncryptKeyPairs": {
+            "signingKeyPairId": "est deserunt",
+            "encryptionKeyPairId": "elit nulla esse ut"
+          }
+        }
+      '''
+    }
+  }
+}

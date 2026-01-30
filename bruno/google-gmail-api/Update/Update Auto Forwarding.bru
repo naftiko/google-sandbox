@@ -1,0 +1,72 @@
+meta {
+  name: Update Auto Forwarding
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/autoForwarding
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/autoForwarding
+    method: PUT
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "enabled": false,
+        "emailAddress": "officia ullamco Ut laboris eu",
+        "disposition": "trash"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "enabled": false,
+          "emailAddress": "officia ullamco Ut laboris eu",
+          "disposition": "trash"
+        }
+      '''
+    }
+  }
+}

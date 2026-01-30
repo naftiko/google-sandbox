@@ -1,0 +1,134 @@
+meta {
+  name: Retrieve Limits Label
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v2/limits/label
+  body: none
+  auth: oauth2
+}
+
+params:query {
+  ~name: naftiko
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive.admin.labels https://www.googleapis.com/auth/drive.admin.labels.readonly https://www.googleapis.com/auth/drive.labels https://www.googleapis.com/auth/drive.labels.readonly
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/v2/limits/label
+    method: GET
+    mode: none
+    params:query: {
+      ~name: naftiko
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "fieldLimits": {
+            "dateLimits": {
+              "maxValue": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+              },
+              "minValue": {}
+            },
+            "integerLimits": {
+              "maxValue": "",
+              "minValue": ""
+            },
+            "longTextLimits": {
+              "maxLength": 0,
+              "minLength": 0
+            },
+            "maxDescriptionLength": 0,
+            "maxDisplayNameLength": 0,
+            "maxIdLength": 0,
+            "selectionLimits": {
+              "listLimits": {
+                "maxEntries": 0
+              },
+              "maxChoices": 0,
+              "maxDeletedChoices": 0,
+              "maxDisplayNameLength": 0,
+              "maxIdLength": 0
+            },
+            "textLimits": {
+              "maxLength": 0,
+              "minLength": 0
+            },
+            "userLimits": {
+              "listLimits": {}
+            }
+          },
+          "maxDeletedFields": 0,
+          "maxDescriptionLength": 0,
+          "maxDraftRevisions": 0,
+          "maxFields": 0,
+          "maxTitleLength": 0,
+          "name": ""
+        }
+      '''
+    }
+  }
+}

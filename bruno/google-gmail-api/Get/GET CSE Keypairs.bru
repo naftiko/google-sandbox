@@ -1,0 +1,88 @@
+meta {
+  name: GET CSE Keypairs
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  keyPairId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+      keyPairId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "keyPairId": "Lorem eiusmod",
+          "pkcs7": "ex incididunt",
+          "pem": "irure quis",
+          "subjectEmailAddresses": [
+            "Excepteur Ut commodo aliquip",
+            "eu Lorem nulla"
+          ],
+          "enablementState": "disabled",
+          "disableTime": "cill",
+          "privateKeyMetadata": [
+            {
+              "privateKeyMetadataId": "proident fugiat eu dolore",
+              "kaclsKeyMetadata": {
+                "kaclsUri": "voluptate ipsum ad",
+                "kaclsData": "Duis laborum aute"
+              },
+              "hardwareKeyMetadata": {
+                "description": "mollit la"
+              }
+            },
+            {
+              "privateKeyMetadataId": "nulla ullamco",
+              "kaclsKeyMetadata": {
+                "kaclsUri": "minim in",
+                "kaclsData": "sint eiusmod"
+              },
+              "hardwareKeyMetadata": {
+                "description": "ut"
+              }
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

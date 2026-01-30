@@ -1,0 +1,136 @@
+meta {
+  name: Batch Clear Values By Data Filter
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v4/spreadsheets/:spreadsheetId/values:batchClearByDataFilter
+  body: json
+  auth: oauth2
+}
+
+params:path {
+  spreadsheetId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/v2/auth
+  access_token_url: https://oauth2.googleapis.com/token
+  refresh_token_url: {{oauth_refresh_url}}
+  client_id: {{oauth_client_id}}
+  client_secret: {{oauth_client_secret}}
+  scope: https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly
+  state: {{oauth_state}}
+  pkce: false
+  credentials_placement: header
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+  auto_refresh_token: true
+}
+
+body:json {
+  {
+    "dataFilters": [
+      {
+        "developerMetadataLookup": {
+          "locationType": "",
+          "metadataLocation": {
+            "locationType": "",
+            "spreadsheet": false,
+            "sheetId": 0,
+            "dimensionRange": {
+              "sheetId": 0,
+              "dimension": "",
+              "startIndex": 0,
+              "endIndex": 0
+            }
+          },
+          "locationMatchingStrategy": "",
+          "metadataId": 0,
+          "metadataKey": "",
+          "metadataValue": "",
+          "visibility": ""
+        },
+        "a1Range": "",
+        "gridRange": {
+          "sheetId": 0,
+          "startRowIndex": 0,
+          "endRowIndex": 0,
+          "startColumnIndex": 0,
+          "endColumnIndex": 0
+        }
+      }
+    ]
+  }
+}
+
+example {
+  name: Successful response for batch clearing values by data filter (Request to batch clear values by data filter)
+  
+  request: {
+    url: {{baseUrl}}/v4/spreadsheets/:spreadsheetId/values:batchClearByDataFilter
+    method: POST
+    mode: json
+    params:path: {
+      spreadsheetId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "dataFilters": [
+          {
+            "a1Range": "Sheet1!A1:D5"
+          },
+          {
+            "gridRange": {
+              "sheetId": 0,
+              "startRowIndex": 0,
+              "endRowIndex": 10,
+              "startColumnIndex": 0,
+              "endColumnIndex": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+          "clearedRanges": [
+            "Sheet1!A1:D5",
+            "Sheet1!A1:E10"
+          ]
+        }
+      '''
+    }
+  }
+}

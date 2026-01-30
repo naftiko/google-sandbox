@@ -1,0 +1,191 @@
+meta {
+  name: Upload File (Resumable)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/files
+  body: json
+  auth: inherit
+}
+
+headers {
+  X-Goog-Upload-Protocol: 
+  X-Goog-Upload-Command: 
+  ~X-Goog-Upload-Header-Content-Length: 
+  ~X-Goog-Upload-Header-Content-Type: 
+  ~X-Goog-Upload-Offset: 
+  ~Content-Length: 
+}
+
+body:json {
+  {
+    "file": {
+      "display_name": ""
+    }
+  }
+}
+
+example {
+  name: 200 Response
+  description: Upload initiated or completed successfully
+  
+  request: {
+    url: {{baseUrl}}/files
+    method: POST
+    mode: json
+    headers: {
+      X-Goog-Upload-Protocol: 
+      X-Goog-Upload-Command: 
+      ~X-Goog-Upload-Header-Content-Length: 
+      ~X-Goog-Upload-Header-Content-Type: 
+      ~X-Goog-Upload-Offset: 
+      ~Content-Length: 
+    }
+  
+    body:json: {
+      {
+        "file": {
+          "display_name": ""
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "file": {
+            "name": "",
+            "display_name": "",
+            "mime_type": "",
+            "size_bytes": "",
+            "create_time": "",
+            "update_time": "",
+            "expiration_time": "",
+            "sha256_hash": "",
+            "uri": "",
+            "state": "",
+            "error": {
+              "message": ""
+            }
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Response
+  description: Bad request
+  
+  request: {
+    url: {{baseUrl}}/files
+    method: POST
+    mode: json
+    headers: {
+      X-Goog-Upload-Protocol: 
+      X-Goog-Upload-Command: 
+      ~X-Goog-Upload-Header-Content-Length: 
+      ~X-Goog-Upload-Header-Content-Type: 
+      ~X-Goog-Upload-Offset: 
+      ~Content-Length: 
+    }
+  
+    body:json: {
+      {
+        "file": {
+          "display_name": ""
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 400
+      text: Bad Request
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 401 Response
+  description: Unauthorized
+  
+  request: {
+    url: {{baseUrl}}/files
+    method: POST
+    mode: json
+    headers: {
+      X-Goog-Upload-Protocol: 
+      X-Goog-Upload-Command: 
+      ~X-Goog-Upload-Header-Content-Length: 
+      ~X-Goog-Upload-Header-Content-Type: 
+      ~X-Goog-Upload-Offset: 
+      ~Content-Length: 
+    }
+  
+    body:json: {
+      {
+        "file": {
+          "display_name": ""
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 401
+      text: Unauthorized
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}

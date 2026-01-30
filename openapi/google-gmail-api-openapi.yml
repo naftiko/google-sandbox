@@ -144,9 +144,9 @@ paths:
         ChooseTags: true
         WriteDescription: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersProfileGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersProfileGetResponseExample"
   /gmail/v1/users/{userId}/watch:
     post:
       tags:
@@ -208,9 +208,9 @@ paths:
         ChooseTags: true
         WriteDescription: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersWatchPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersWatchPostResponseExample"
   /gmail/v1/users/{userId}/stop:
     post:
       tags:
@@ -239,9 +239,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/drafts/send:
     post:
       tags:
@@ -292,9 +292,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersDraftsSendPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersDraftsSendPostResponseExample"
   /gmail/v1/users/{userId}/drafts/{id}:
     get:
       tags:
@@ -339,9 +339,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersDraftsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersDraftsGetResponseExample"
     put:
       tags:
         - Update
@@ -396,9 +396,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersDraftsPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersDraftsPutResponseExample"
     delete:
       tags:
         - Deletes
@@ -432,9 +432,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/drafts:
     get:
       tags:
@@ -473,9 +473,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersDraftsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersDraftsGetResponse1Example"
     post:
       tags:
         - Create
@@ -523,9 +523,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersDraftsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersDraftsPostResponseExample"
   /gmail/v1/users/{userId}/history:
     get:
       tags:
@@ -566,9 +566,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersHistoryGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersHistoryGetResponseExample"
   /gmail/v1/users/{userId}/messages/{id}/trash:
     post:
       tags:
@@ -615,9 +615,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesTrashPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMessagesTrashPostResponseExample"
   /gmail/v1/users/{userId}/messages/{id}/untrash:
     post:
       tags:
@@ -665,9 +665,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesUntrashPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMessagesUntrashPostResponseExample"
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       tags:
@@ -723,9 +723,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesModifyPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMessagesModifyPostResponseExample"
   /gmail/v1/users/{userId}/messages/batchDelete:
     post:
       tags:
@@ -763,9 +763,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/messages/import:
     post:
       tags:
@@ -819,9 +819,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesImportPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMessagesImportPostResponseExample"
   /gmail/v1/users/{userId}/messages/send:
     post:
       tags:
@@ -873,9 +873,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesSendPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMessagesSendPostResponseExample"
   /gmail/v1/users/{userId}/messages/batchModify:
     post:
       tags:
@@ -911,9 +911,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/messages:
     get:
       tags:
@@ -967,9 +967,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersMessagesGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersMessagesGetResponseExample"
     post:
       tags:
         - Insert
@@ -1020,9 +1020,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersMessagesPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersMessagesPostResponseExample"
   /gmail/v1/users/{userId}/messages/{id}:
     get:
       tags:
@@ -1068,9 +1068,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersMessagesGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersMessagesGetResponse1Example"
     delete:
       tags:
         - Deletes
@@ -1104,9 +1104,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}:
     get:
       tags:
@@ -1160,9 +1160,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesAttachmentsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMessagesAttachmentsGetResponseExample"
   /gmail/v1/users/{userId}/labels:
     get:
       tags:
@@ -1201,9 +1201,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersLabelsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersLabelsGetResponseExample"
     post:
       tags:
         - Create
@@ -1251,9 +1251,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersLabelsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersLabelsPostResponseExample"
   /gmail/v1/users/{userId}/labels/{id}:
     get:
       tags:
@@ -1299,9 +1299,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersLabelsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersLabelsGetResponse1Example"
     put:
       tags:
         - Update
@@ -1356,9 +1356,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersLabelsPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersLabelsPutResponseExample"
     patch:
       tags:
         - Patch
@@ -1413,9 +1413,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersLabelsPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersLabelsPatchResponseExample"
     delete:
       tags:
         - Deletes
@@ -1449,9 +1449,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/threads/{id}:
     get:
       tags:
@@ -1497,9 +1497,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersThreadsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersThreadsGetResponseExample"
     delete:
       tags:
         - Deletes
@@ -1534,9 +1534,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/threads/{id}/modify:
     post:
       tags:
@@ -1594,9 +1594,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersThreadsModifyPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersThreadsModifyPostResponseExample"
   /gmail/v1/users/{userId}/threads/{id}/trash:
     post:
       tags:
@@ -1646,9 +1646,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersThreadsTrashPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersThreadsTrashPostResponseExample"
   /gmail/v1/users/{userId}/threads:
     get:
       tags:
@@ -1687,9 +1687,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersThreadsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GmailUsersThreadsGetResponse1Example"
   /gmail/v1/users/{userId}/settings/imap:
     get:
       tags:
@@ -1727,9 +1727,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsImapGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsImapGetResponseExample"
     put:
       tags:
         - Update
@@ -1776,9 +1776,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsImapPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsImapPutResponseExample"
   /gmail/v1/users/{userId}/settings/pop:
     get:
       tags:
@@ -1818,9 +1818,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsPopGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsPopGetResponseExample"
     put:
       tags:
         - Update
@@ -1869,9 +1869,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsPopPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsPopPutResponseExample"
   /gmail/v1/users/{userId}/settings/vacation:
     get:
       tags:
@@ -1912,9 +1912,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsVacationGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsVacationGetResponseExample"
     put:
       tags:
         - Update
@@ -1964,9 +1964,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsVacationPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsVacationPutResponseExample"
   /gmail/v1/users/{userId}/settings/language:
     get:
       tags:
@@ -2007,9 +2007,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsLanguageGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsLanguageGetResponseExample"
     put:
       tags:
         - Update
@@ -2065,9 +2065,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsLanguagePutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsLanguagePutResponseExample"
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       tags:
@@ -2108,9 +2108,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsAutoForwardingGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsAutoForwardingGetResponseExample"
     put:
       tags:
         - Update
@@ -2163,9 +2163,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsAutoForwardingPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsAutoForwardingPutResponseExample"
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault:
     post:
       tags:
@@ -2207,9 +2207,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
     get:
       tags:
@@ -2264,9 +2264,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsSendAsSmimeInfoGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsSendAsSmimeInfoGetResponseExample"
     delete:
       tags:
         - Deletes
@@ -2306,9 +2306,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
     get:
       tags:
@@ -2355,9 +2355,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsSendAsSmimeInfoGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsSendAsSmimeInfoGetResponse1Example"
     post:
       tags:
         - Insert
@@ -2415,9 +2415,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsSendAsSmimeInfoPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsSendAsSmimeInfoPostResponseExample"
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
     post:
       tags:
@@ -2455,9 +2455,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
     get:
       tags:
@@ -2505,9 +2505,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsSendAsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsSendAsGetResponseExample"
     put:
       tags:
         - Update
@@ -2567,9 +2567,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsSendAsPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsSendAsPutResponseExample"
     patch:
       tags:
         - Patch
@@ -2625,9 +2625,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsSendAsPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsSendAsPatchResponseExample"
     delete:
       tags:
         - Deletes
@@ -2662,9 +2662,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/sendAs:
     get:
       tags:
@@ -2706,9 +2706,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsSendAsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsSendAsGetResponse1Example"
     post:
       tags:
         - Create
@@ -2765,9 +2765,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsSendAsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsSendAsPostResponseExample"
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:enable:
     post:
       tags:
@@ -2823,9 +2823,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseKeypairsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseKeypairsPostResponseExample"
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:
     get:
       tags:
@@ -2870,9 +2870,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseKeypairsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseKeypairsGetResponseExample"
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable:
     post:
       tags:
@@ -2931,9 +2931,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseKeypairsPostResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseKeypairsPostResponse1Example"
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate:
     post:
       tags:
@@ -2979,9 +2979,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/cse/keypairs:
     get:
       tags:
@@ -3019,9 +3019,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseKeypairsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseKeypairsGetResponse1Example"
     post:
       tags:
         - Create
@@ -3071,9 +3071,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseKeypairsPostResponse2Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseKeypairsPostResponse2Example"
   /gmail/v1/users/{userId}/settings/cse/identities:
     get:
       tags:
@@ -3112,9 +3112,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseIdentitiesGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseIdentitiesGetResponseExample"
     post:
       tags:
         - Create
@@ -3167,9 +3167,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseIdentitiesPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseIdentitiesPostResponseExample"
   /gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}:
     patch:
       tags:
@@ -3228,9 +3228,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseIdentitiesPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseIdentitiesPatchResponseExample"
   /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}:
     get:
       tags:
@@ -3276,9 +3276,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SettingsCseIdentitiesGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SettingsCseIdentitiesGetResponse1Example"
     delete:
       tags:
         - Deletes
@@ -3313,9 +3313,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/filters/{id}:
     get:
       tags:
@@ -3360,9 +3360,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsFiltersGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsFiltersGetResponseExample"
     delete:
       tags:
         - Deletes
@@ -3393,9 +3393,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/filters:
     get:
       tags:
@@ -3434,9 +3434,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsFiltersGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsFiltersGetResponse1Example"
     post:
       tags:
         - Create
@@ -3484,9 +3484,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsFiltersPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsFiltersPostResponseExample"
   /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
     get:
       tags:
@@ -3534,9 +3534,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsForwardingAddressesGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsForwardingAddressesGetResponseExample"
     delete:
       tags:
         - Deletes
@@ -3571,9 +3571,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/forwardingAddresses:
     get:
       tags:
@@ -3614,9 +3614,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsForwardingAddressesGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsForwardingAddressesGetResponse1Example"
     post:
       tags:
         - Create
@@ -3672,9 +3672,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsForwardingAddressesPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsForwardingAddressesPostResponseExample"
   /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
     get:
       tags:
@@ -3725,9 +3725,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsDelegatesGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsDelegatesGetResponseExample"
     delete:
       tags:
         - Deletes
@@ -3764,9 +3764,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /gmail/v1/users/{userId}/settings/delegates:
     get:
       tags:
@@ -3809,9 +3809,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsDelegatesGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsDelegatesGetResponse1Example"
     post:
       tags:
         - Create
@@ -3872,9 +3872,9 @@ paths:
       x-api-evangelist-processing:
         ChooseTags: true
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsDelegatesPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersSettingsDelegatesPostResponseExample"
 components:
   schemas:
     GmailUsersDraftsGetResponse:

@@ -1,0 +1,75 @@
+meta {
+  name: Clear Calendar
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/calendars/:calendarId/clear
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~alt: naftiko
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~userIp: 
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Authorization: 
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId/clear
+    method: POST
+    mode: none
+    params:query: {
+      ~alt: naftiko
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~userIp: 
+    }
+  
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

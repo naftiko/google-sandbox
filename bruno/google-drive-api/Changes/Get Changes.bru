@@ -1,0 +1,433 @@
+meta {
+  name: Get Changes
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/changes
+  body: none
+  auth: oauth2
+}
+
+params:query {
+  pageToken: 
+  ~driveId: 123
+  ~includeCorpusRemovals: 
+  ~includeItemsFromAllDrives: 
+  ~includeLabels: 
+  ~includePermissionsForView: 
+  ~includeRemoved: 
+  ~includeTeamDriveItems: 
+  ~pageSize: 
+  ~restrictToMyDrive: 
+  ~spaces: 
+  ~supportsAllDrives: 
+  ~supportsTeamDrives: 
+  ~teamDriveId: 123
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.apps.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.scripts
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/changes
+    method: GET
+    mode: none
+    params:query: {
+      pageToken: 
+      ~driveId: 123
+      ~includeCorpusRemovals: 
+      ~includeItemsFromAllDrives: 
+      ~includeLabels: 
+      ~includePermissionsForView: 
+      ~includeRemoved: 
+      ~includeTeamDriveItems: 
+      ~pageSize: 
+      ~restrictToMyDrive: 
+      ~spaces: 
+      ~supportsAllDrives: 
+      ~supportsTeamDrives: 
+      ~teamDriveId: 123
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "changes": [
+            {
+              "changeType": "",
+              "drive": {
+                "backgroundImageFile": {
+                  "id": "",
+                  "width": 0,
+                  "xCoordinate": 0,
+                  "yCoordinate": 0
+                },
+                "backgroundImageLink": "",
+                "capabilities": {
+                  "canAddChildren": false,
+                  "canChangeCopyRequiresWriterPermissionRestriction": false,
+                  "canChangeDomainUsersOnlyRestriction": false,
+                  "canChangeDriveBackground": false,
+                  "canChangeDriveMembersOnlyRestriction": false,
+                  "canChangeSharingFoldersRequiresOrganizerPermissionRestriction": false,
+                  "canComment": false,
+                  "canCopy": false,
+                  "canDeleteChildren": false,
+                  "canDeleteDrive": false,
+                  "canDownload": false,
+                  "canEdit": false,
+                  "canListChildren": false,
+                  "canManageMembers": false,
+                  "canReadRevisions": false,
+                  "canRename": false,
+                  "canRenameDrive": false,
+                  "canResetDriveRestrictions": false,
+                  "canShare": false,
+                  "canTrashChildren": false
+                },
+                "colorRgb": "",
+                "createdTime": "",
+                "hidden": false,
+                "id": "",
+                "kind": "",
+                "name": "",
+                "orgUnitId": "",
+                "restrictions": {
+                  "adminManagedRestrictions": false,
+                  "copyRequiresWriterPermission": false,
+                  "domainUsersOnly": false,
+                  "driveMembersOnly": false,
+                  "sharingFoldersRequiresOrganizerPermission": false
+                },
+                "themeId": ""
+              },
+              "driveId": "",
+              "file": {
+                "appProperties": {},
+                "capabilities": {
+                  "canAcceptOwnership": false,
+                  "canAddChildren": false,
+                  "canAddFolderFromAnotherDrive": false,
+                  "canAddMyDriveParent": false,
+                  "canChangeCopyRequiresWriterPermission": false,
+                  "canChangeSecurityUpdateEnabled": false,
+                  "canChangeViewersCanCopyContent": false,
+                  "canComment": false,
+                  "canCopy": false,
+                  "canDelete": false,
+                  "canDeleteChildren": false,
+                  "canDownload": false,
+                  "canEdit": false,
+                  "canListChildren": false,
+                  "canModifyContent": false,
+                  "canModifyContentRestriction": false,
+                  "canModifyEditorContentRestriction": false,
+                  "canModifyLabels": false,
+                  "canModifyOwnerContentRestriction": false,
+                  "canMoveChildrenOutOfDrive": false,
+                  "canMoveChildrenOutOfTeamDrive": false,
+                  "canMoveChildrenWithinDrive": false,
+                  "canMoveChildrenWithinTeamDrive": false,
+                  "canMoveItemIntoTeamDrive": false,
+                  "canMoveItemOutOfDrive": false,
+                  "canMoveItemOutOfTeamDrive": false,
+                  "canMoveItemWithinDrive": false,
+                  "canMoveItemWithinTeamDrive": false,
+                  "canMoveTeamDriveItem": false,
+                  "canReadDrive": false,
+                  "canReadLabels": false,
+                  "canReadRevisions": false,
+                  "canReadTeamDrive": false,
+                  "canRemoveChildren": false,
+                  "canRemoveContentRestriction": false,
+                  "canRemoveMyDriveParent": false,
+                  "canRename": false,
+                  "canShare": false,
+                  "canTrash": false,
+                  "canTrashChildren": false,
+                  "canUntrash": false
+                },
+                "contentHints": {
+                  "indexableText": "",
+                  "thumbnail": {
+                    "image": "",
+                    "mimeType": ""
+                  }
+                },
+                "contentRestrictions": [
+                  {
+                    "ownerRestricted": false,
+                    "readOnly": false,
+                    "reason": "",
+                    "restrictingUser": {
+                      "displayName": "",
+                      "emailAddress": "",
+                      "kind": "",
+                      "me": false,
+                      "permissionId": "",
+                      "photoLink": ""
+                    },
+                    "restrictionTime": "",
+                    "systemRestricted": false,
+                    "type": ""
+                  }
+                ],
+                "copyRequiresWriterPermission": false,
+                "createdTime": "",
+                "description": "",
+                "driveId": "",
+                "explicitlyTrashed": false,
+                "exportLinks": {},
+                "fileExtension": "",
+                "folderColorRgb": "",
+                "fullFileExtension": "",
+                "hasAugmentedPermissions": false,
+                "hasThumbnail": false,
+                "headRevisionId": "",
+                "iconLink": "",
+                "id": "",
+                "imageMediaMetadata": {
+                  "aperture": 0,
+                  "cameraMake": "",
+                  "cameraModel": "",
+                  "colorSpace": "",
+                  "exposureBias": 0,
+                  "exposureMode": "",
+                  "exposureTime": 0,
+                  "flashUsed": false,
+                  "focalLength": 0,
+                  "height": 0,
+                  "isoSpeed": 0,
+                  "lens": "",
+                  "location": {
+                    "altitude": 0,
+                    "latitude": 0,
+                    "longitude": 0
+                  },
+                  "maxApertureValue": 0,
+                  "meteringMode": "",
+                  "rotation": 0,
+                  "sensor": "",
+                  "subjectDistance": 0,
+                  "time": "",
+                  "whiteBalance": "",
+                  "width": 0
+                },
+                "isAppAuthorized": false,
+                "kind": "",
+                "labelInfo": {
+                  "labels": [
+                    {
+                      "fields": {},
+                      "id": "",
+                      "kind": "",
+                      "revisionId": ""
+                    }
+                  ]
+                },
+                "lastModifyingUser": {},
+                "linkShareMetadata": {
+                  "securityUpdateEligible": false,
+                  "securityUpdateEnabled": false
+                },
+                "md5Checksum": "",
+                "mimeType": "",
+                "modifiedByMe": false,
+                "modifiedByMeTime": "",
+                "modifiedTime": "",
+                "name": "",
+                "originalFilename": "",
+                "ownedByMe": false,
+                "owners": [
+                  {}
+                ],
+                "parents": [],
+                "permissionIds": [],
+                "permissions": [
+                  {
+                    "allowFileDiscovery": false,
+                    "deleted": false,
+                    "displayName": "",
+                    "domain": "",
+                    "emailAddress": "",
+                    "expirationTime": "",
+                    "id": "",
+                    "kind": "",
+                    "pendingOwner": false,
+                    "permissionDetails": [
+                      {
+                        "inherited": false,
+                        "inheritedFrom": "",
+                        "permissionType": "",
+                        "role": ""
+                      }
+                    ],
+                    "photoLink": "",
+                    "role": "",
+                    "teamDrivePermissionDetails": [
+                      {
+                        "inherited": false,
+                        "inheritedFrom": "",
+                        "role": "",
+                        "teamDrivePermissionType": ""
+                      }
+                    ],
+                    "type": "",
+                    "view": ""
+                  }
+                ],
+                "properties": {},
+                "quotaBytesUsed": "",
+                "resourceKey": "",
+                "sha1Checksum": "",
+                "sha256Checksum": "",
+                "shared": false,
+                "sharedWithMeTime": "",
+                "sharingUser": {},
+                "shortcutDetails": {
+                  "targetId": "",
+                  "targetMimeType": "",
+                  "targetResourceKey": ""
+                },
+                "size": "",
+                "spaces": [],
+                "starred": false,
+                "teamDriveId": "",
+                "thumbnailLink": "",
+                "thumbnailVersion": "",
+                "trashed": false,
+                "trashedTime": "",
+                "trashingUser": {},
+                "version": "",
+                "videoMediaMetadata": {
+                  "durationMillis": "",
+                  "height": 0,
+                  "width": 0
+                },
+                "viewedByMe": false,
+                "viewedByMeTime": "",
+                "viewersCanCopyContent": false,
+                "webContentLink": "",
+                "webViewLink": "",
+                "writersCanShare": false
+              },
+              "fileId": "",
+              "kind": "",
+              "removed": false,
+              "teamDrive": {
+                "backgroundImageFile": {
+                  "id": "",
+                  "width": 0,
+                  "xCoordinate": 0,
+                  "yCoordinate": 0
+                },
+                "backgroundImageLink": "",
+                "capabilities": {
+                  "canAddChildren": false,
+                  "canChangeCopyRequiresWriterPermissionRestriction": false,
+                  "canChangeDomainUsersOnlyRestriction": false,
+                  "canChangeSharingFoldersRequiresOrganizerPermissionRestriction": false,
+                  "canChangeTeamDriveBackground": false,
+                  "canChangeTeamMembersOnlyRestriction": false,
+                  "canComment": false,
+                  "canCopy": false,
+                  "canDeleteChildren": false,
+                  "canDeleteTeamDrive": false,
+                  "canDownload": false,
+                  "canEdit": false,
+                  "canListChildren": false,
+                  "canManageMembers": false,
+                  "canReadRevisions": false,
+                  "canRemoveChildren": false,
+                  "canRename": false,
+                  "canRenameTeamDrive": false,
+                  "canResetTeamDriveRestrictions": false,
+                  "canShare": false,
+                  "canTrashChildren": false
+                },
+                "colorRgb": "",
+                "createdTime": "",
+                "id": "",
+                "kind": "",
+                "name": "",
+                "orgUnitId": "",
+                "restrictions": {
+                  "adminManagedRestrictions": false,
+                  "copyRequiresWriterPermission": false,
+                  "domainUsersOnly": false,
+                  "sharingFoldersRequiresOrganizerPermission": false,
+                  "teamMembersOnly": false
+                },
+                "themeId": ""
+              },
+              "teamDriveId": "",
+              "time": "",
+              "type": ""
+            }
+          ],
+          "kind": "",
+          "newStartPageToken": "",
+          "nextPageToken": ""
+        }
+      '''
+    }
+  }
+}

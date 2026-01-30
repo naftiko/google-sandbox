@@ -1,0 +1,152 @@
+meta {
+  name: Update Drafts
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/gmail/v1/users/:userId/drafts/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  id: 
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/drafts/:id
+    method: PUT
+    mode: json
+    params:path: {
+      userId: 123
+      id: 
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "id": "elit Lorem",
+        "message": {
+          "id": "elit",
+          "threadId": "enim ut ut fugiat",
+          "labelIds": [
+            "incididunt et non cupidatat",
+            "laboris deserunt do nostrud"
+          ],
+          "snippet": "nostrud in",
+          "historyId": "ullamco",
+          "internalDate": "dolor ullamco elit fugiat",
+          "payload": {
+            "partId": "consequat ipsum qui",
+            "mimeType": "enim quis dolor aliqua veniam",
+            "filename": "laboris ad",
+            "headers": [
+              {
+                "name": "labore aute nisi",
+                "value": "reprehenderit esse ex elit"
+              },
+              {
+                "name": "sed",
+                "value": "anim ut veniam elit"
+              }
+            ],
+            "body": {
+              "attachmentId": "irure",
+              "size": -58003592,
+              "data": "officia laboris"
+            },
+            "parts": [
+              {
+                "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+              },
+              {
+                "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+              }
+            ]
+          },
+          "sizeEstimate": -74092231,
+          "raw": "in enim sit pariatur"
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "elit Lorem",
+          "message": {
+            "id": "elit",
+            "threadId": "enim ut ut fugiat",
+            "labelIds": [
+              "incididunt et non cupidatat",
+              "laboris deserunt do nostrud"
+            ],
+            "snippet": "nostrud in",
+            "historyId": "ullamco",
+            "internalDate": "dolor ullamco elit fugiat",
+            "payload": {
+              "partId": "consequat ipsum qui",
+              "mimeType": "enim quis dolor aliqua veniam",
+              "filename": "laboris ad",
+              "headers": [
+                {
+                  "name": "labore aute nisi",
+                  "value": "reprehenderit esse ex elit"
+                },
+                {
+                  "name": "sed",
+                  "value": "anim ut veniam elit"
+                }
+              ],
+              "body": {
+                "attachmentId": "irure",
+                "size": -58003592,
+                "data": "officia laboris"
+              },
+              "parts": [
+                {
+                  "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                },
+                {
+                  "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                }
+              ]
+            },
+            "sizeEstimate": -74092231,
+            "raw": "in enim sit pariatur"
+          }
+        }
+      '''
+    }
+  }
+}

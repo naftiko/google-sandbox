@@ -1,0 +1,78 @@
+meta {
+  name: Create CSE Identites
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "emailAddress": "aliquip quis id",
+        "primaryKeyPairId": "in exercitation esse",
+        "signAndEncryptKeyPairs": {
+          "signingKeyPairId": "est deserunt",
+          "encryptionKeyPairId": "elit nulla esse ut"
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "emailAddress": "aliquip quis id",
+          "primaryKeyPairId": "in exercitation esse",
+          "signAndEncryptKeyPairs": {
+            "signingKeyPairId": "est deserunt",
+            "encryptionKeyPairId": "elit nulla esse ut"
+          }
+        }
+      '''
+    }
+  }
+}

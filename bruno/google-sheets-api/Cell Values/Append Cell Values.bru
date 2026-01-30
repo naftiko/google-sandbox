@@ -1,0 +1,119 @@
+meta {
+  name: Append Cell Values
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v4/spreadsheets/:spreadsheetId/values/:range:append
+  body: json
+  auth: oauth2
+}
+
+params:query {
+  valueInputOption: 
+  ~insertDataOption: 
+}
+
+params:path {
+  spreadsheetId: 123
+  range: 
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/v2/auth
+  access_token_url: https://oauth2.googleapis.com/token
+  refresh_token_url: {{oauth_refresh_url}}
+  client_id: {{oauth_client_id}}
+  client_secret: {{oauth_client_secret}}
+  scope: https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly
+  state: {{oauth_state}}
+  pkce: false
+  credentials_placement: header
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+  auto_refresh_token: true
+}
+
+body:json {
+  {
+    "range": "",
+    "majorDimension": "",
+    "values": []
+  }
+}
+
+example {
+  name: Successful response for appending cell values (Request to append cell values)
+  
+  request: {
+    url: {{baseUrl}}/v4/spreadsheets/:spreadsheetId/values/:range:append
+    method: POST
+    mode: json
+    params:query: {
+      valueInputOption: 
+      ~insertDataOption: 
+    }
+  
+    params:path: {
+      spreadsheetId: 123
+      range: 
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "range": "Sheet1!A1:C1",
+        "majorDimension": "ROWS",
+        "values": [
+          [
+            "Mike",
+            35,
+            "Chicago"
+          ]
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+          "tableRange": "Sheet1!A1:C10",
+          "updates": {
+            "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+            "updatedRange": "Sheet1!A11:C11",
+            "updatedRows": 1,
+            "updatedColumns": 3,
+            "updatedCells": 3
+          }
+        }
+      '''
+    }
+  }
+}

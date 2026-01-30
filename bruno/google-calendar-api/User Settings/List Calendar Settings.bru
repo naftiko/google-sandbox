@@ -1,0 +1,67 @@
+meta {
+  name: List Calendar Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/users/me/settings
+  body: none
+  auth: inherit
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/users/me/settings
+    method: GET
+    mode: none
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "etag": "in officia sed exercitation sit",
+          "items": [
+            {
+              "etag": "do commodo",
+              "id": "dolor Ut",
+              "kind": "calendar#setting",
+              "value": "non labore occaecat ut"
+            },
+            {
+              "etag": "culpa labore ut",
+              "id": "ullamco ut quis",
+              "kind": "calendar#setting",
+              "value": "laborum consectetur eu in"
+            }
+          ],
+          "kind": "calendar#settings",
+          "nextPageToken": "ullamco",
+          "nextSyncToken": "mag"
+        }
+      '''
+    }
+  }
+}

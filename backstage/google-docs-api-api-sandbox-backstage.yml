@@ -148,9 +148,9 @@ spec:
           x-api-evangelist-certified: '2025-07-20'
           x-api-naftiko-published: '2025-07-20'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /v1/documents/{documentId}:
         get:
           tags:
@@ -282,9 +282,9 @@ spec:
           x-api-evangelist-certified: '2025-07-20'
           x-api-naftiko-published: '2025-07-20'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /v1/documents/{documentId}:batchUpdate:
         post:
           tags:
@@ -411,9 +411,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/BatchUpdateDocumentResponse'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
     components:
       schemas:
         AutoText:

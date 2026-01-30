@@ -1,0 +1,55 @@
+meta {
+  name: Remove Calendar On List
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/users/me/calendarList/:calendarId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Authorization: 
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/users/me/calendarList/:calendarId
+    method: DELETE
+    mode: none
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

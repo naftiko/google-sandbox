@@ -1,0 +1,65 @@
+meta {
+  name: List Forwarding Addresses
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "forwardingAddresses": [
+            {
+              "forwardingEmail": "consequat",
+              "verificationStatus": "accepted"
+            },
+            {
+              "forwardingEmail": "proident ad nulla occaecat dolore",
+              "verificationStatus": "verificationStatusUnspecified"
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

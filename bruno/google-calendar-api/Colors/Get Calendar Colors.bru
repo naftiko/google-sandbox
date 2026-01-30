@@ -1,0 +1,71 @@
+meta {
+  name: Get Calendar Colors
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/colors
+  body: none
+  auth: inherit
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/colors
+    method: GET
+    mode: none
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "calendar": {
+            "qui_15": {
+              "background": "dolore et occaecat",
+              "foreground": "et est cupidatat ullamco"
+            },
+            "nulla_2": {
+              "background": "cupidatat ipsum Duis",
+              "foreground": "officia elit Excepteur dolore"
+            },
+            "laborisaf": {
+              "background": "ex proident culpa consectetur veniam",
+              "foreground": "cupidatat dolore mollit laborum"
+            }
+          },
+          "event": {
+            "Excepteure8": {
+              "background": "in",
+              "foreground": "Ut reprehenderit officia Duis"
+            }
+          },
+          "kind": "calendar#colors",
+          "updated": "1990-01-21T16:25:35.908Z"
+        }
+      '''
+    }
+  }
+}

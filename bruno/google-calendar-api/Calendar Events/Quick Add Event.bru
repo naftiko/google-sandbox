@@ -1,0 +1,85 @@
+meta {
+  name: Quick Add Event
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/calendars/:calendarId/events/quickAdd
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~text: 
+  ~sendNotifications: 
+  ~sendUpdates: 
+  ~alt: naftiko
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~userIp: 
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId/events/quickAdd
+    method: POST
+    mode: none
+    params:query: {
+      ~text: 
+      ~sendNotifications: 
+      ~sendUpdates: 
+      ~alt: naftiko
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~userIp: 
+    }
+  
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "example-id",
+          "name": "Example Name"
+        }
+      '''
+    }
+  }
+}

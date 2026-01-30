@@ -1,0 +1,339 @@
+meta {
+  name: Post Activity:query
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v2/activity:query
+  body: json
+  auth: oauth2
+}
+
+params:query {
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive.activity https://www.googleapis.com/auth/drive.activity.readonly
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+body:json {
+  {
+    "ancestorName": "",
+    "consolidationStrategy": {
+      "legacy": {},
+      "none": {}
+    },
+    "filter": "",
+    "itemName": "",
+    "pageSize": 0,
+    "pageToken": ""
+  }
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/v2/activity:query
+    method: POST
+    mode: json
+    params:query: {
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "ancestorName": "",
+        "consolidationStrategy": {
+          "legacy": {},
+          "none": {}
+        },
+        "filter": "",
+        "itemName": "",
+        "pageSize": 0,
+        "pageToken": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "activities": [
+            {
+              "actions": [
+                {
+                  "actor": {
+                    "administrator": {},
+                    "anonymous": {},
+                    "impersonation": {
+                      "impersonatedUser": {
+                        "deletedUser": {},
+                        "knownUser": {
+                          "isCurrentUser": false,
+                          "personName": ""
+                        },
+                        "unknownUser": {}
+                      }
+                    },
+                    "system": {
+                      "type": ""
+                    },
+                    "user": {}
+                  },
+                  "detail": {
+                    "appliedLabelChange": {
+                      "changes": [
+                        {
+                          "fieldChanges": [
+                            {
+                              "displayName": "",
+                              "fieldId": "",
+                              "newValue": {
+                                "date": {
+                                  "value": ""
+                                },
+                                "integer": {
+                                  "value": ""
+                                },
+                                "selection": {
+                                  "displayName": "",
+                                  "value": ""
+                                },
+                                "selectionList": {
+                                  "values": [
+                                    {}
+                                  ]
+                                },
+                                "text": {
+                                  "value": ""
+                                },
+                                "textList": {
+                                  "values": [
+                                    {}
+                                  ]
+                                },
+                                "user": {
+                                  "value": ""
+                                },
+                                "userList": {
+                                  "values": [
+                                    {}
+                                  ]
+                                }
+                              },
+                              "oldValue": {}
+                            }
+                          ],
+                          "label": "",
+                          "title": "",
+                          "types": []
+                        }
+                      ]
+                    },
+                    "comment": {
+                      "assignment": {
+                        "assignedUser": {},
+                        "subtype": ""
+                      },
+                      "mentionedUsers": [
+                        {}
+                      ],
+                      "post": {
+                        "subtype": ""
+                      },
+                      "suggestion": {
+                        "subtype": ""
+                      }
+                    },
+                    "create": {
+                      "copy": {
+                        "originalObject": {
+                          "drive": {
+                            "name": "",
+                            "title": ""
+                          },
+                          "driveItem": {
+                            "driveFile": {},
+                            "driveFolder": {
+                              "type": ""
+                            },
+                            "file": {},
+                            "folder": {
+                              "type": ""
+                            },
+                            "name": "",
+                            "title": ""
+                          },
+                          "teamDrive": {
+                            "name": "",
+                            "title": ""
+                          }
+                        }
+                      },
+                      "new": {},
+                      "upload": {}
+                    },
+                    "delete": {
+                      "type": ""
+                    },
+                    "dlpChange": {
+                      "type": ""
+                    },
+                    "edit": {},
+                    "move": {
+                      "addedParents": [
+                        {}
+                      ],
+                      "removedParents": [
+                        {}
+                      ]
+                    },
+                    "permissionChange": {
+                      "addedPermissions": [
+                        {
+                          "allowDiscovery": false,
+                          "anyone": {},
+                          "domain": {
+                            "legacyId": "",
+                            "name": ""
+                          },
+                          "group": {
+                            "email": "",
+                            "title": ""
+                          },
+                          "role": "",
+                          "user": {}
+                        }
+                      ],
+                      "removedPermissions": [
+                        {}
+                      ]
+                    },
+                    "reference": {
+                      "type": ""
+                    },
+                    "rename": {
+                      "newTitle": "",
+                      "oldTitle": ""
+                    },
+                    "restore": {
+                      "type": ""
+                    },
+                    "settingsChange": {
+                      "restrictionChanges": [
+                        {
+                          "feature": "",
+                          "newRestriction": ""
+                        }
+                      ]
+                    }
+                  },
+                  "target": {
+                    "drive": {
+                      "name": "",
+                      "root": {
+                        "driveFile": {},
+                        "driveFolder": {},
+                        "file": {},
+                        "folder": {},
+                        "mimeType": "",
+                        "name": "",
+                        "owner": {
+                          "domain": {},
+                          "drive": {},
+                          "teamDrive": {},
+                          "user": {}
+                        },
+                        "title": ""
+                      },
+                      "title": ""
+                    },
+                    "driveItem": {},
+                    "fileComment": {
+                      "legacyCommentId": "",
+                      "legacyDiscussionId": "",
+                      "linkToDiscussion": "",
+                      "parent": {}
+                    },
+                    "teamDrive": {
+                      "name": "",
+                      "root": {},
+                      "title": ""
+                    }
+                  },
+                  "timeRange": {
+                    "endTime": "",
+                    "startTime": ""
+                  },
+                  "timestamp": ""
+                }
+              ],
+              "actors": [
+                {}
+              ],
+              "primaryActionDetail": {},
+              "targets": [
+                {}
+              ],
+              "timeRange": {},
+              "timestamp": ""
+            }
+          ],
+          "nextPageToken": ""
+        }
+      '''
+    }
+  }
+}

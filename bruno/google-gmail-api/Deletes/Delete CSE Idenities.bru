@@ -1,0 +1,49 @@
+meta {
+  name: Delete CSE Idenities
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  cseEmailAddress: 
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress
+    method: DELETE
+    mode: none
+    params:path: {
+      userId: 123
+      cseEmailAddress: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

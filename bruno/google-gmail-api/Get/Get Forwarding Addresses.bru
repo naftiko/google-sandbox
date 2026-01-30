@@ -1,0 +1,59 @@
+meta {
+  name: Get Forwarding Addresses
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  forwardingemail: kinlane@naftiko.io
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+      forwardingemail: kinlane@naftiko.io
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "forwardingEmail": "ad tempor dolor",
+          "verificationStatus": "pending"
+        }
+      '''
+    }
+  }
+}

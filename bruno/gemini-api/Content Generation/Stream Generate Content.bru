@@ -1,0 +1,242 @@
+meta {
+  name: Stream Generate Content
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/models/:model:streamGenerateContent?alt=naftiko
+  body: json
+  auth: inherit
+}
+
+params:query {
+  alt: naftiko
+}
+
+params:path {
+  model: naftiko
+}
+
+body:json {
+  {
+    "contents": [
+      {
+        "role": "",
+        "parts": [
+          {}
+        ]
+      }
+    ],
+    "system_instruction": {},
+    "generationConfig": {
+      "stopSequences": [],
+      "temperature": 0,
+      "topP": 0,
+      "topK": 0,
+      "maxOutputTokens": 0,
+      "thinkingConfig": {
+        "thinkingBudget": 0
+      },
+      "response_mime_type": "",
+      "response_schema": {}
+    }
+  }
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/models/:model:streamGenerateContent
+    method: POST
+    mode: json
+    params:query: {
+      alt: naftiko
+    }
+  
+    params:path: {
+      model: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "system_instruction": {},
+        "generationConfig": {
+          "stopSequences": [],
+          "temperature": 0,
+          "topP": 0,
+          "topK": 0,
+          "maxOutputTokens": 0,
+          "thinkingConfig": {
+            "thinkingBudget": 0
+          },
+          "response_mime_type": "",
+          "response_schema": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/event-stream
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+        string-value
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Response
+  description: Bad request
+  
+  request: {
+    url: {{baseUrl}}/models/:model:streamGenerateContent
+    method: POST
+    mode: json
+    params:query: {
+      alt: naftiko
+    }
+  
+    params:path: {
+      model: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "system_instruction": {},
+        "generationConfig": {
+          "stopSequences": [],
+          "temperature": 0,
+          "topP": 0,
+          "topK": 0,
+          "maxOutputTokens": 0,
+          "thinkingConfig": {
+            "thinkingBudget": 0
+          },
+          "response_mime_type": "",
+          "response_schema": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 400
+      text: Bad Request
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 401 Response
+  description: Unauthorized - Invalid API key
+  
+  request: {
+    url: {{baseUrl}}/models/:model:streamGenerateContent
+    method: POST
+    mode: json
+    params:query: {
+      alt: naftiko
+    }
+  
+    params:path: {
+      model: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "role": "",
+            "parts": [
+              {}
+            ]
+          }
+        ],
+        "system_instruction": {},
+        "generationConfig": {
+          "stopSequences": [],
+          "temperature": 0,
+          "topP": 0,
+          "topK": 0,
+          "maxOutputTokens": 0,
+          "thinkingConfig": {
+            "thinkingBudget": 0
+          },
+          "response_mime_type": "",
+          "response_schema": {}
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 401
+      text: Unauthorized
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}

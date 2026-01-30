@@ -1,0 +1,49 @@
+meta {
+  name: Verify Send As
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/verify
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  sendAsemail: kinlane@naftiko.io
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/verify
+    method: POST
+    mode: none
+    params:path: {
+      userId: 123
+      sendAsemail: kinlane@naftiko.io
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

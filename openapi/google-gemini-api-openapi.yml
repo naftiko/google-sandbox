@@ -112,6 +112,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileUploadResponse'
+              examples:
+                UploadFileResponseExample:
+                  $ref: '#/components/examples/UploadFileResponseExample'
         '400':
           description: Bad request
           content:
@@ -125,9 +128,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UploadFileResponseExample"
   /files/{name}:
     get:
       tags:
@@ -154,6 +157,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileUploadResponse'
+              examples:
+                GetFileResponseExample:
+                  $ref: '#/components/examples/GetFileResponseExample'
         '401':
           description: Unauthorized
           content:
@@ -167,9 +173,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GetFileResponseExample"
   /models/{model}:countTokens:
     post:
       tags:
@@ -198,8 +204,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelsPostRequest'
             examples:
-              ModelsPostRequestExample:
-                $ref: '#/components/examples/ModelsPostRequestExample'
+              CountTokensRequestExample:
+                $ref: '#/components/examples/CountTokensRequestExample'
       responses:
         '200':
           description: Token count retrieved successfully
@@ -207,6 +213,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountTokensResponse'
+              examples:
+                CountTokensResponseExample:
+                  $ref: '#/components/examples/CountTokensResponseExample'
         '400':
           description: Bad request
           content:
@@ -220,9 +229,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CountTokensResponseExample"
   /models/{model}:generateContent:
     post:
       tags:
@@ -292,6 +301,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/GenerateContentRequest'
+            examples:
+              GenerateContentRequestExample:
+                $ref: '#/components/examples/GenerateContentRequestExample'
       responses:
         '200':
           description: Successful response
@@ -299,6 +311,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GenerateContentResponse'
+              examples:
+                GenerateContentResponseExample:
+                  $ref: '#/components/examples/GenerateContentResponseExample'
         '400':
           description: Bad request
           content:
@@ -318,9 +333,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "GenerateContentResponseExample"
   /models/{ttsModel}:generateContent:
     post:
       tags:
@@ -370,6 +385,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SpeechGenerationRequest'
+            examples:
+              SpeechGenerationRequestExample:
+                $ref: '#/components/examples/SpeechGenerationRequestExample'
       responses:
         '200':
           description: Successful response with generated audio
@@ -377,6 +395,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SpeechGenerationResponse'
+              examples:
+                SpeechGenerationResponseExample:
+                  $ref: '#/components/examples/SpeechGenerationResponseExample'
         '400':
           description: Bad request
           content:
@@ -396,9 +417,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SpeechGenerationResponseExample"
   /models/{model}:streamGenerateContent:
     post:
       tags:
@@ -435,6 +456,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/GenerateContentRequest'
+            examples:
+              StreamGenerateContentRequestExample:
+                $ref: '#/components/examples/StreamGenerateContentRequestExample'
       responses:
         '200':
           description: Successful streaming response
@@ -443,8 +467,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ModelsPostResponse'
               examples:
-                ModelsPostResponseExample:
-                  $ref: '#/components/examples/ModelsPostResponseExample'
+                StreamGenerateContentResponseExample:
+                  $ref: '#/components/examples/StreamGenerateContentResponseExample'
         '400':
           description: Bad request
           content:
@@ -458,9 +482,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: ModelsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "StreamGenerateContentResponseExample"
   /models/{imageModel}:generateContent:
     post:
       tags:
@@ -490,6 +514,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ImageGenerationRequest'
+            examples:
+              ImageGenerationRequestExample:
+                $ref: '#/components/examples/ImageGenerationRequestExample'
       responses:
         '200':
           description: Successful response with generated image
@@ -497,6 +524,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ImageGenerationResponse'
+              examples:
+                ImageGenerationResponseExample:
+                  $ref: '#/components/examples/ImageGenerationResponseExample'
         '400':
           description: Bad request
           content:
@@ -516,9 +546,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "ImageGenerationResponseExample"
 components:
   schemas:
     AudioCandidate:
@@ -1191,18 +1221,167 @@ components:
         prebuiltVoiceConfig:
           $ref: '#/components/schemas/PrebuiltVoiceConfig'
   examples:
-    ModelsPostRequestExample:
-      summary: Example request for POST /models/{model}:countTokens
+    # File Upload Examples
+    UploadFileResponseExample:
+      summary: Successful file upload response
+      value:
+        file:
+          name: files/abc123xyz
+          display_name: sample_video.mp4
+          mime_type: video/mp4
+          size_bytes: "52428800"
+          create_time: "2025-01-15T10:30:00Z"
+          update_time: "2025-01-15T10:30:05Z"
+          expiration_time: "2025-01-17T10:30:00Z"
+          sha256_hash: "a1b2c3d4e5f6..."
+          uri: https://generativelanguage.googleapis.com/v1beta/files/abc123xyz
+          state: ACTIVE
+    GetFileResponseExample:
+      summary: Successful get file metadata response
+      value:
+        file:
+          name: files/abc123xyz
+          display_name: sample_document.pdf
+          mime_type: application/pdf
+          size_bytes: "1048576"
+          create_time: "2025-01-15T09:00:00Z"
+          update_time: "2025-01-15T09:00:02Z"
+          expiration_time: "2025-01-17T09:00:00Z"
+          sha256_hash: "f6e5d4c3b2a1..."
+          uri: https://generativelanguage.googleapis.com/v1beta/files/abc123xyz
+          state: ACTIVE
+    # Count Tokens Examples
+    CountTokensRequestExample:
+      summary: Example request for counting tokens
       value:
         contents:
           - parts:
-              - file_data:
-                  mime_type: audio/mp3
-                  file_uri: >-
-                    https://generativelanguage.googleapis.com/v1beta/files/abc123
-    ModelsPostResponseExample:
-      summary: Successful 200 response
-      value: string-value
+              - text: "What is the meaning of life?"
+    CountTokensResponseExample:
+      summary: Successful token count response
+      value:
+        totalTokens: 7
+        totalBillableCharacters: 28
+    # Generate Content Examples
+    GenerateContentRequestExample:
+      summary: Example request for content generation
+      value:
+        contents:
+          - role: user
+            parts:
+              - text: "Explain quantum computing in simple terms."
+        generationConfig:
+          temperature: 0.7
+          maxOutputTokens: 1024
+    GenerateContentResponseExample:
+      summary: Successful content generation response
+      value:
+        candidates:
+          - content:
+              role: model
+              parts:
+                - text: "Quantum computing is a type of computation that harnesses quantum mechanical phenomena like superposition and entanglement. Unlike classical computers that use bits (0 or 1), quantum computers use quantum bits or 'qubits' that can exist in multiple states simultaneously. This allows quantum computers to process vast amounts of information in parallel, making them potentially much faster for certain types of problems like cryptography, drug discovery, and optimization."
+            finishReason: STOP
+            index: 0
+            safetyRatings:
+              - category: HARM_CATEGORY_HARASSMENT
+                probability: NEGLIGIBLE
+              - category: HARM_CATEGORY_HATE_SPEECH
+                probability: NEGLIGIBLE
+        usageMetadata:
+          promptTokenCount: 8
+          candidatesTokenCount: 95
+          totalTokenCount: 103
+    # Speech Generation Examples
+    SpeechGenerationRequestExample:
+      summary: Example request for speech generation
+      value:
+        contents:
+          - role: user
+            parts:
+              - text: "Hello, welcome to our product demonstration."
+        generationConfig:
+          responseModalities:
+            - AUDIO
+          speechConfig:
+            voiceConfig:
+              prebuiltVoiceConfig:
+                voiceName: Kore
+    SpeechGenerationResponseExample:
+      summary: Successful speech generation response
+      value:
+        candidates:
+          - content:
+              parts:
+                - inlineData:
+                    mimeType: audio/pcm
+                    data: "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA="
+            finishReason: STOP
+            index: 0
+        usageMetadata:
+          promptTokenCount: 10
+          candidatesTokenCount: 50
+          totalTokenCount: 60
+    # Stream Generate Content Examples
+    StreamGenerateContentRequestExample:
+      summary: Example request for streaming content generation
+      value:
+        contents:
+          - role: user
+            parts:
+              - text: "Write a short poem about the ocean."
+        generationConfig:
+          temperature: 0.9
+          maxOutputTokens: 256
+    StreamGenerateContentResponseExample:
+      summary: Successful streaming response (SSE format)
+      value: |
+        data: {"candidates":[{"content":{"role":"model","parts":[{"text":"Waves"}]},"index":0}]}
+
+        data: {"candidates":[{"content":{"role":"model","parts":[{"text":" crash upon"}]},"index":0}]}
+
+        data: {"candidates":[{"content":{"role":"model","parts":[{"text":" the shore,\nSalt"}]},"index":0}]}
+
+        data: {"candidates":[{"content":{"role":"model","parts":[{"text":" and sand"}]},"finishReason":"STOP","index":0}],"usageMetadata":{"promptTokenCount":9,"candidatesTokenCount":25,"totalTokenCount":34}}
+
+        data: [DONE]
+    # Image Generation Examples
+    ImageGenerationRequestExample:
+      summary: Example request for image generation
+      value:
+        contents:
+          - role: user
+            parts:
+              - text: "Generate an image of a sunset over mountains"
+        generationConfig:
+          responseModalities:
+            - TEXT
+            - IMAGE
+          imageConfig:
+            aspectRatio: "16:9"
+            imageSize: 2K
+    ImageGenerationResponseExample:
+      summary: Successful image generation response
+      value:
+        candidates:
+          - content:
+              role: model
+              parts:
+                - text: "Here's a beautiful sunset over mountain peaks with warm orange and purple hues."
+                - inline_data:
+                    mime_type: image/png
+                    data: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+            finishReason: STOP
+            index: 0
+            safetyRatings:
+              - category: HARM_CATEGORY_HARASSMENT
+                probability: NEGLIGIBLE
+              - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
+                probability: NEGLIGIBLE
+        usageMetadata:
+          promptTokenCount: 10
+          candidatesTokenCount: 150
+          totalTokenCount: 160
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

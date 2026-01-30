@@ -1,0 +1,68 @@
+meta {
+  name: Batch Delete
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/messages/batchDelete
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/messages/batchDelete
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+    }
+  
+    body:json: {
+      {
+        "ids": [
+          "labore conseq",
+          "sit"
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,112 @@
+meta {
+  name: Create Filters
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/filters
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/filters
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "id": "in aute anim",
+        "criteria": {
+          "from": "nulla adipisicing veniam et mollit",
+          "to": "veniam commodo",
+          "subject": "sit exercitation",
+          "query": "nulla cupidatat officia commodo laborum",
+          "negatedQuery": "exercitation laboris",
+          "hasAttachment": true,
+          "excludeChats": false,
+          "size": -52983385,
+          "sizeComparison": "smaller"
+        },
+        "action": {
+          "addLabelIds": [
+            "nostrud laboris sed esse",
+            "et ad"
+          ],
+          "removeLabelIds": [
+            "Lorem consequat l",
+            "minim Excepteur"
+          ],
+          "forward": "culpa do"
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "in aute anim",
+          "criteria": {
+            "from": "nulla adipisicing veniam et mollit",
+            "to": "veniam commodo",
+            "subject": "sit exercitation",
+            "query": "nulla cupidatat officia commodo laborum",
+            "negatedQuery": "exercitation laboris",
+            "hasAttachment": true,
+            "excludeChats": false,
+            "size": -52983385,
+            "sizeComparison": "smaller"
+          },
+          "action": {
+            "addLabelIds": [
+              "nostrud laboris sed esse",
+              "et ad"
+            ],
+            "removeLabelIds": [
+              "Lorem consequat l",
+              "minim Excepteur"
+            ],
+            "forward": "culpa do"
+          }
+        }
+      '''
+    }
+  }
+}

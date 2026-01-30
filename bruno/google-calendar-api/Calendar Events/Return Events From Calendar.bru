@@ -1,0 +1,115 @@
+meta {
+  name: Return Events From Calendar
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/calendars/:calendarId/events
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~alwaysIncludeemail: kinlane@naftiko.io
+  ~eventTypes: 
+  ~iCalUID: 
+  ~maxAttendees: 
+  ~maxResults: 
+  ~orderBy: 
+  ~pageToken: 
+  ~privateExtendedProperty: 
+  ~q: 
+  ~sharedExtendedProperty: 
+  ~showDeleted: 
+  ~showHiddenInvitations: 
+  ~singleEvents: 
+  ~syncToken: 
+  ~timeMax: 
+  ~timeMin: 
+  ~timeZone: 
+  ~updatedMin: 
+  ~alt: naftiko
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~userIp: 
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId/events
+    method: GET
+    mode: none
+    params:query: {
+      ~alwaysIncludeemail: kinlane@naftiko.io
+      ~eventTypes: 
+      ~iCalUID: 
+      ~maxAttendees: 
+      ~maxResults: 
+      ~orderBy: 
+      ~pageToken: 
+      ~privateExtendedProperty: 
+      ~q: 
+      ~sharedExtendedProperty: 
+      ~showDeleted: 
+      ~showHiddenInvitations: 
+      ~singleEvents: 
+      ~syncToken: 
+      ~timeMax: 
+      ~timeMin: 
+      ~timeZone: 
+      ~updatedMin: 
+      ~alt: naftiko
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~userIp: 
+    }
+  
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "example-id",
+          "name": "Example Name"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,156 @@
+meta {
+  name: Update Calendar List
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/users/me/calendarList/:calendarId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/users/me/calendarList/:calendarId
+    method: PUT
+    mode: json
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "accessRole": "dolore deserunt nisi sunt",
+        "backgroundColor": "consequat tempor esse voluptate",
+        "colorId": "eiusmod pariatur et",
+        "conferenceProperties": {
+          "allowedConferenceSolutionTypes": [
+            "culpa elit",
+            "cillum"
+          ]
+        },
+        "defaultReminders": [
+          {
+            "method": "Excepteur",
+            "minutes": 35541699
+          },
+          {
+            "method": "in magna culpa consequat",
+            "minutes": 74169785
+          }
+        ],
+        "deleted": "false",
+        "description": "nulla",
+        "etag": "incididunt elit in",
+        "foregroundColor": "labore fugiat",
+        "hidden": "false",
+        "id": "nulla",
+        "kind": "calendar#calendarListEntry",
+        "location": "aliqua",
+        "notificationSettings": {
+          "notifications": [
+            {
+              "method": "id dolor minim",
+              "type": "ut occaecat sit e"
+            },
+            {
+              "method": "consequat minim nisi consecte",
+              "type": "nulla id"
+            }
+          ]
+        },
+        "primary": "false",
+        "selected": "false",
+        "summary": "anim Duis culpa quis consequ",
+        "summaryOverride": "deserunt elit reprehenderit",
+        "timeZone": "minim commodo incididunt reprehenderit sed"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "accessRole": "dolore deserunt nisi sunt",
+          "backgroundColor": "consequat tempor esse voluptate",
+          "colorId": "eiusmod pariatur et",
+          "conferenceProperties": {
+            "allowedConferenceSolutionTypes": [
+              "culpa elit",
+              "cillum"
+            ]
+          },
+          "defaultReminders": [
+            {
+              "method": "Excepteur",
+              "minutes": 35541699
+            },
+            {
+              "method": "in magna culpa consequat",
+              "minutes": 74169785
+            }
+          ],
+          "deleted": "false",
+          "description": "nulla",
+          "etag": "incididunt elit in",
+          "foregroundColor": "labore fugiat",
+          "hidden": "false",
+          "id": "nulla",
+          "kind": "calendar#calendarListEntry",
+          "location": "aliqua",
+          "notificationSettings": {
+            "notifications": [
+              {
+                "method": "id dolor minim",
+                "type": "ut occaecat sit e"
+              },
+              {
+                "method": "consequat minim nisi consecte",
+                "type": "nulla id"
+              }
+            ]
+          },
+          "primary": "false",
+          "selected": "false",
+          "summary": "anim Duis culpa quis consequ",
+          "summaryOverride": "deserunt elit reprehenderit",
+          "timeZone": "minim commodo incididunt reprehenderit sed"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,147 @@
+meta {
+  name: List Drafts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/drafts
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/drafts
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "drafts": [
+            {
+              "id": "labore do cupidatat dolor consectetur",
+              "message": {
+                "id": "cillum incididunt eiusmod anim",
+                "threadId": "quis non proident",
+                "labelIds": [
+                  "dolor dol",
+                  "nulla ad sed exercitation"
+                ],
+                "snippet": "aute ad",
+                "historyId": "quis anim a",
+                "internalDate": "sint dolore",
+                "payload": {
+                  "partId": "enim nulla ad",
+                  "mimeType": "id ani",
+                  "filename": "pariatur",
+                  "headers": [
+                    {
+                      "name": "dolor est",
+                      "value": "veniam ut nostrud culpa"
+                    },
+                    {
+                      "name": "sed minim",
+                      "value": "ipsum occaecat sed dolor"
+                    }
+                  ],
+                  "body": {
+                    "attachmentId": "dolore quis et",
+                    "size": -13145088,
+                    "data": "pariatur magna in Duis in"
+                  },
+                  "parts": [
+                    {
+                      "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                    },
+                    {
+                      "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                    }
+                  ]
+                },
+                "sizeEstimate": -49941379,
+                "raw": "non veniam eiusmod"
+              }
+            },
+            {
+              "id": "anim",
+              "message": {
+                "id": "consectetur",
+                "threadId": "veniam in fugiat adipisicing esse",
+                "labelIds": [
+                  "ut",
+                  "anim proident magna esse"
+                ],
+                "snippet": "quis tempor laborum officia fugiat",
+                "historyId": "dolor",
+                "internalDate": "cupidatat velit ut sint in",
+                "payload": {
+                  "partId": "tempor",
+                  "mimeType": "deseru",
+                  "filename": "dolore veniam",
+                  "headers": [
+                    {
+                      "name": "veni",
+                      "value": "eu in"
+                    },
+                    {
+                      "name": "qui irure aliqua cupidatat",
+                      "value": "commodo laborum nostrud id"
+                    }
+                  ],
+                  "body": {
+                    "attachmentId": "non eiusmod Excepteur",
+                    "size": 69980865,
+                    "data": "Excepteur reprehenderit proident sed"
+                  },
+                  "parts": [
+                    {
+                      "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                    },
+                    {
+                      "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                    }
+                  ]
+                },
+                "sizeEstimate": 15653869,
+                "raw": "ipsum dolor qui"
+              }
+            }
+          ],
+          "nextPageToken": "veniam laborum labore Ut aliquip",
+          "resultSizeEstimate": 46963148
+        }
+      '''
+    }
+  }
+}

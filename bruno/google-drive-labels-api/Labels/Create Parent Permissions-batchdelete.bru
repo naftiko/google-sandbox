@@ -1,0 +1,120 @@
+meta {
+  name: Create Parent Permissions:batchdelete
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/v2/:parent/permissions:batchDelete
+  body: json
+  auth: oauth2
+}
+
+params:query {
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+params:path {
+  parent: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive.admin.labels https://www.googleapis.com/auth/drive.admin.labels.readonly https://www.googleapis.com/auth/drive.labels https://www.googleapis.com/auth/drive.labels.readonly
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "name": "",
+        "useAdminAccess": false
+      }
+    ],
+    "useAdminAccess": false
+  }
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/v2/:parent/permissions:batchDelete
+    method: POST
+    mode: json
+    params:query: {
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    params:path: {
+      parent: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "requests": [
+          {
+            "name": "",
+            "useAdminAccess": false
+          }
+        ],
+        "useAdminAccess": false
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {}
+      '''
+    }
+  }
+}

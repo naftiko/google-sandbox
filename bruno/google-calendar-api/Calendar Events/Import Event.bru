@@ -1,0 +1,93 @@
+meta {
+  name: Import Event
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/calendars/:calendarId/events/import
+  body: json
+  auth: inherit
+}
+
+params:query {
+  ~conferenceDataVersion: 
+  ~supportsAttachments: 
+  ~alt: naftiko
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~userIp: 
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId/events/import
+    method: POST
+    mode: json
+    params:query: {
+      ~conferenceDataVersion: 
+      ~supportsAttachments: 
+      ~alt: naftiko
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~userIp: 
+    }
+  
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {}
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "example-id",
+          "name": "Example Name"
+        }
+      '''
+    }
+  }
+}

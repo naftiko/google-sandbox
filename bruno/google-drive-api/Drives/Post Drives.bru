@@ -1,0 +1,233 @@
+meta {
+  name: Post Drives
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/drives
+  body: json
+  auth: oauth2
+}
+
+params:query {
+  requestId: 123
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.apps.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.scripts
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+body:json {
+  {
+    "backgroundImageFile": {
+      "id": "",
+      "width": 0,
+      "xCoordinate": 0,
+      "yCoordinate": 0
+    },
+    "backgroundImageLink": "",
+    "capabilities": {
+      "canAddChildren": false,
+      "canChangeCopyRequiresWriterPermissionRestriction": false,
+      "canChangeDomainUsersOnlyRestriction": false,
+      "canChangeDriveBackground": false,
+      "canChangeDriveMembersOnlyRestriction": false,
+      "canChangeSharingFoldersRequiresOrganizerPermissionRestriction": false,
+      "canComment": false,
+      "canCopy": false,
+      "canDeleteChildren": false,
+      "canDeleteDrive": false,
+      "canDownload": false,
+      "canEdit": false,
+      "canListChildren": false,
+      "canManageMembers": false,
+      "canReadRevisions": false,
+      "canRename": false,
+      "canRenameDrive": false,
+      "canResetDriveRestrictions": false,
+      "canShare": false,
+      "canTrashChildren": false
+    },
+    "colorRgb": "",
+    "createdTime": "",
+    "hidden": false,
+    "id": "",
+    "kind": "",
+    "name": "",
+    "orgUnitId": "",
+    "restrictions": {
+      "adminManagedRestrictions": false,
+      "copyRequiresWriterPermission": false,
+      "domainUsersOnly": false,
+      "driveMembersOnly": false,
+      "sharingFoldersRequiresOrganizerPermission": false
+    },
+    "themeId": ""
+  }
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/drives
+    method: POST
+    mode: json
+    params:query: {
+      requestId: 123
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "backgroundImageFile": {
+          "id": "",
+          "width": 0,
+          "xCoordinate": 0,
+          "yCoordinate": 0
+        },
+        "backgroundImageLink": "",
+        "capabilities": {
+          "canAddChildren": false,
+          "canChangeCopyRequiresWriterPermissionRestriction": false,
+          "canChangeDomainUsersOnlyRestriction": false,
+          "canChangeDriveBackground": false,
+          "canChangeDriveMembersOnlyRestriction": false,
+          "canChangeSharingFoldersRequiresOrganizerPermissionRestriction": false,
+          "canComment": false,
+          "canCopy": false,
+          "canDeleteChildren": false,
+          "canDeleteDrive": false,
+          "canDownload": false,
+          "canEdit": false,
+          "canListChildren": false,
+          "canManageMembers": false,
+          "canReadRevisions": false,
+          "canRename": false,
+          "canRenameDrive": false,
+          "canResetDriveRestrictions": false,
+          "canShare": false,
+          "canTrashChildren": false
+        },
+        "colorRgb": "",
+        "createdTime": "",
+        "hidden": false,
+        "id": "",
+        "kind": "",
+        "name": "",
+        "orgUnitId": "",
+        "restrictions": {
+          "adminManagedRestrictions": false,
+          "copyRequiresWriterPermission": false,
+          "domainUsersOnly": false,
+          "driveMembersOnly": false,
+          "sharingFoldersRequiresOrganizerPermission": false
+        },
+        "themeId": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "backgroundImageFile": {
+            "id": "",
+            "width": 0,
+            "xCoordinate": 0,
+            "yCoordinate": 0
+          },
+          "backgroundImageLink": "",
+          "capabilities": {
+            "canAddChildren": false,
+            "canChangeCopyRequiresWriterPermissionRestriction": false,
+            "canChangeDomainUsersOnlyRestriction": false,
+            "canChangeDriveBackground": false,
+            "canChangeDriveMembersOnlyRestriction": false,
+            "canChangeSharingFoldersRequiresOrganizerPermissionRestriction": false,
+            "canComment": false,
+            "canCopy": false,
+            "canDeleteChildren": false,
+            "canDeleteDrive": false,
+            "canDownload": false,
+            "canEdit": false,
+            "canListChildren": false,
+            "canManageMembers": false,
+            "canReadRevisions": false,
+            "canRename": false,
+            "canRenameDrive": false,
+            "canResetDriveRestrictions": false,
+            "canShare": false,
+            "canTrashChildren": false
+          },
+          "colorRgb": "",
+          "createdTime": "",
+          "hidden": false,
+          "id": "",
+          "kind": "",
+          "name": "",
+          "orgUnitId": "",
+          "restrictions": {
+            "adminManagedRestrictions": false,
+            "copyRequiresWriterPermission": false,
+            "domainUsersOnly": false,
+            "driveMembersOnly": false,
+            "sharingFoldersRequiresOrganizerPermission": false
+          },
+          "themeId": ""
+        }
+      '''
+    }
+  }
+}

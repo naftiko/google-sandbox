@@ -1,0 +1,87 @@
+meta {
+  name: List Labels
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/labels
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/labels
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "labels": [
+            {
+              "id": "mollit enim dolore reprehenderit",
+              "name": "non consequat",
+              "messageListVisibility": "show",
+              "labelListVisibility": "labelShow",
+              "type": "user",
+              "messagesTotal": -89757017,
+              "messagesUnread": 37713675,
+              "threadsTotal": -34499465,
+              "threadsUnread": 38690910,
+              "color": {
+                "textColor": "ut minim Excepteur Ut",
+                "backgroundColor": "dolor id fugiat consectetur"
+              }
+            },
+            {
+              "id": "ut incididunt anim esse dolore",
+              "name": "magna voluptate in aliquip et",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelShow",
+              "type": "user",
+              "messagesTotal": -45069202,
+              "messagesUnread": -69687222,
+              "threadsTotal": -63655159,
+              "threadsUnread": -93904503,
+              "color": {
+                "textColor": "irure t",
+                "backgroundColor": "occaecat aliquip"
+              }
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

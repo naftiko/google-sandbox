@@ -68,7 +68,9 @@ ports:
       title: Google Sheets API
       description: >-
         The Google Sheets API is a RESTful interface that lets you read and
-        modify a spreadsheet's data..
+        modify a spreadsheet's data. You can use this API to create
+        spreadsheets, read and write cell values, update formatting, manage
+        sheets, and work with developer metadata.
       openApi:
         - $ref: openapi/google-sheets-api-openapi.yml
 virtualization:
@@ -144,17 +146,19 @@ distribution:
     - title: Google Sheets API
       description: >-
         The Google Sheets API is a RESTful interface that lets you read and
-        modify a spreadsheet's data..
+        modify a spreadsheet's data. You can use this API to create
+        spreadsheets, read and write cell values, update formatting, manage
+        sheets, and work with developer metadata.
       entity: backstage/google-sheets-api-api-sandbox-backstage.yml
 metrics:
   numberOfPaths: 140
   numberOfOperations: 209
   numberOfReadOperations: 74
   numberOfWriteOperations: 135
-  numberOfSchemas: 754
+  numberOfSchemas: 644
   numberOfResponses: 0
-  numberOfParameters: 44
-  numberOfExamples: 112
+  numberOfParameters: 48
+  numberOfExamples: 125
   numberOfRequestBodies: 0
   numberOfHeaders: 0
   tags:
@@ -162,29 +166,28 @@ metrics:
     - Activity
     - Address
     - Addresses
-    - Append
     - Applications
     - Attachments
     - Audio Understanding
     - Auto
     - Batch
+    - Batch Operations
     - Calendar Acl Rules
     - Calendar Acls
     - Calendar Events
     - Calendars
+    - Cell Values
     - Changes
     - Channels
-    - Clear
     - Colors
     - Comments
     - Content Generation
-    - Copy
     - Create
-    - Data
+    - Data Filters
     - Default
     - Delegates
     - Deletes
-    - Developer
+    - Developer Metadata
     - Disables
     - Document Understanding
     - Documents
@@ -193,7 +196,6 @@ metrics:
     - Enables
     - File Api
     - Files
-    - Filter
     - Free Busy
     - Get
     - History
@@ -215,13 +217,13 @@ metrics:
     - Profile
     - Replies
     - Revisions
-    - Search
     - Send
     - Sets
     - Setting
     - Settings
-    - Sheet
+    - Sheet Management
     - Speech Generation
+    - Spreadsheet Management
     - Stop
     - Streaming
     - Team Drives
@@ -232,22 +234,24 @@ metrics:
     - User Settings
     - Users
     - Vacation
-    - Values
     - Verify
     - Video Understanding
     - Watch
   operations:
-    - Append Values
-    - Batch Clear Values
-    - Batch Clear Values by Data Filter
+    - Append Cell Values
+    - Batch Clear Cell Values
+    - Batch Clear Values By Data Filter
     - Batch Delete
+    - Batch Get Cell Values
+    - Batch Get Values By Data Filter
     - Batch Modify
-    - Batch Update Sheets
-    - Batch Update Values
+    - Batch Update Cell Values
+    - Batch Update Spreadsheet
+    - Batch Update Values By Data Filter
     - Calendar
     - Clear Calendar
-    - Clear Values
-    - Copy To Sheet
+    - Clear Cell Values
+    - Copy Sheet To Another Spreadsheet
     - Count Tokens
     - Create An Event
     - Create CSE Identites
@@ -267,7 +271,7 @@ metrics:
     - Create Parent Permissions:batchdelete
     - Create Parent Permissions:batchupdate
     - Create Send As
-    - Create Sheet
+    - Create Spreadsheet
     - Delete  Name
     - Delete Access Control Rule
     - Delete CSE Idenities
@@ -308,6 +312,7 @@ metrics:
     - Get Calendar Colors
     - Get Calendar List
     - Get Calendar Settings
+    - Get Cell Values
     - Get Changes
     - Get Changes Startpagetoken
     - Get Delegates
@@ -341,15 +346,12 @@ metrics:
     - Get Send As
     - Get Send As
     - Get Send As SMIME Info
-    - Get Sheet
-    - Get Sheet by Data Filter
+    - Get Spreadsheet
+    - Get Spreadsheet By Data Filter
     - Get Teamdrives
     - Get Teamdrives Teamdriveid
     - Get Threads
     - Get Vacation Settings
-    - Get Values
-    - Get Values Batch
-    - Get Values By Data Filter
     - Import Event
     - Import Messages
     - Insert Access Control Rule
@@ -429,6 +431,7 @@ metrics:
     - Update Auto Forwarding
     - Update Calendar
     - Update Calendar List
+    - Update Cell Values
     - Update Drafts
     - Update Event
     - Update IMAP
@@ -437,8 +440,6 @@ metrics:
     - Update POP Settings
     - Update Send As Setting
     - Update Vacation Settings
-    - Update Values
-    - Update by Data Filter
     - Upload File (Resumable)
     - Verify Send As
     - Watch Access Control Rules
@@ -458,8 +459,8 @@ change:
   state: New
   schemaVersion: 0.1.0
   capabilityVersion: 0.1.0
-  updated: '2026-1-28T00:00:00Z'
-  created: '2026-1-28T00:00:00Z'
+  updated: '2026-1-30T00:00:00Z'
+  created: '2026-1-30T00:00:00Z'
 source:
   httpUrl: https://github.com/naftiko/google-sandbox
   sshUrl: git@github.com:naftiko/google-sandbox.git

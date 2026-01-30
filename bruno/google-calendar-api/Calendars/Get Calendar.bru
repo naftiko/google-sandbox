@@ -1,0 +1,70 @@
+meta {
+  name: Get Calendar
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/calendars/:calendarId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId
+    method: GET
+    mode: none
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "conferenceProperties": {
+            "allowedConferenceSolutionTypes": [
+              "anim enim ut veniam",
+              "sit labore"
+            ]
+          },
+          "description": "officia enim aliquip ex",
+          "etag": "labore adipisicing fugiat",
+          "id": "est pro",
+          "kind": "calendar#calendar",
+          "location": "in voluptate commodo",
+          "summary": "labore adipisicing enim",
+          "timeZone": "cupidatat sed"
+        }
+      '''
+    }
+  }
+}

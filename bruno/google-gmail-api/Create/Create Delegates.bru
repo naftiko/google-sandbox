@@ -1,0 +1,70 @@
+meta {
+  name: Create Delegates
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/delegates
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/delegates
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "delegateEmail": "Duis commodo enim irure",
+        "verificationStatus": "rejected"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "delegateEmail": "Duis commodo enim irure",
+          "verificationStatus": "rejected"
+        }
+      '''
+    }
+  }
+}

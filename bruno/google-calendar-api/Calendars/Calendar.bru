@@ -1,0 +1,86 @@
+meta {
+  name: Calendar
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/calendars
+  body: json
+  auth: inherit
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars
+    method: POST
+    mode: json
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "conferenceProperties": {
+          "allowedConferenceSolutionTypes": [
+            "anim enim ut veniam",
+            "sit labore"
+          ]
+        },
+        "description": "officia enim aliquip ex",
+        "etag": "labore adipisicing fugiat",
+        "id": "est pro",
+        "kind": "calendar#calendar",
+        "location": "in voluptate commodo",
+        "summary": "labore adipisicing enim",
+        "timeZone": "cupidatat sed"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "conferenceProperties": {
+            "allowedConferenceSolutionTypes": [
+              "anim enim ut veniam",
+              "sit labore"
+            ]
+          },
+          "description": "officia enim aliquip ex",
+          "etag": "labore adipisicing fugiat",
+          "id": "est pro",
+          "kind": "calendar#calendar",
+          "location": "in voluptate commodo",
+          "summary": "labore adipisicing enim",
+          "timeZone": "cupidatat sed"
+        }
+      '''
+    }
+  }
+}

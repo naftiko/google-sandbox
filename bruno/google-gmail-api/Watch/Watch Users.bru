@@ -1,0 +1,75 @@
+meta {
+  name: Watch Users
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/watch
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/watch
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "labelIds": [
+          "officia ex reprehenderit et",
+          "labore ullamco ut"
+        ],
+        "labelFilterAction": "exclude",
+        "labelFilterBehavior": "include",
+        "topicName": "Ut enim in in"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "historyId": "quis aute sed",
+          "expiration": "dolore non exercitation Excepteur est"
+        }
+      '''
+    }
+  }
+}

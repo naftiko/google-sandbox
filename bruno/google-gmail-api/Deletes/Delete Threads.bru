@@ -1,0 +1,49 @@
+meta {
+  name: Delete Threads
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/gmail/v1/users/:userId/threads/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  id: 
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/threads/:id
+    method: DELETE
+    mode: none
+    params:path: {
+      userId: 123
+      id: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

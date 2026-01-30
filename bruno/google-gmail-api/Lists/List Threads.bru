@@ -1,0 +1,237 @@
+meta {
+  name: List Threads
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/threads
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/threads
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "threads": [
+            {
+              "id": "commodo",
+              "snippet": "eiusmod consequat qui non quis",
+              "historyId": "sunt dolore",
+              "messages": [
+                {
+                  "id": "enim",
+                  "threadId": "dolore quis exercitation",
+                  "labelIds": [
+                    "Duis sint dolore",
+                    "in labore ut commodo"
+                  ],
+                  "snippet": "nostrud dolore consectetur Excepteur",
+                  "historyId": "ea elit consectet",
+                  "internalDate": "proident ullamco",
+                  "payload": {
+                    "partId": "consectetur pariatur dolore",
+                    "mimeType": "ad occaecat culpa ullamco",
+                    "filename": "officia elit",
+                    "headers": [
+                      {
+                        "name": "co",
+                        "value": "deserunt ut"
+                      },
+                      {
+                        "name": "do",
+                        "value": "ea dolor"
+                      }
+                    ],
+                    "body": {
+                      "attachmentId": "quis elit commodo",
+                      "size": 44099715,
+                      "data": "irure dolore ut"
+                    },
+                    "parts": [
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      },
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      }
+                    ]
+                  },
+                  "sizeEstimate": 21887814,
+                  "raw": "nulla ipsum Ut"
+                },
+                {
+                  "id": "in dolor proident",
+                  "threadId": "dolore culpa fugiat",
+                  "labelIds": [
+                    "in ut amet",
+                    "Ut sit dolor ut"
+                  ],
+                  "snippet": "nisi Duis deserunt labore",
+                  "historyId": "sunt pariatur elit laboris ex",
+                  "internalDate": "esse pariatur",
+                  "payload": {
+                    "partId": "laboris nulla et",
+                    "mimeType": "dolore ullamco consectetur nostrud",
+                    "filename": "aliqua commodo",
+                    "headers": [
+                      {
+                        "name": "Ut",
+                        "value": "laborum"
+                      },
+                      {
+                        "name": "consequat",
+                        "value": "esse"
+                      }
+                    ],
+                    "body": {
+                      "attachmentId": "qui consequat minim",
+                      "size": 83387838,
+                      "data": "id"
+                    },
+                    "parts": [
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      },
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      }
+                    ]
+                  },
+                  "sizeEstimate": 70145632,
+                  "raw": "cillum in ipsum ex"
+                }
+              ]
+            },
+            {
+              "id": "qui ipsum veniam irure fugiat",
+              "snippet": "elit occaecat magna",
+              "historyId": "mollit",
+              "messages": [
+                {
+                  "id": "laborum et",
+                  "threadId": "elit sint quis",
+                  "labelIds": [
+                    "sunt amet aute dolore fugiat",
+                    "Ut aliqua"
+                  ],
+                  "snippet": "do magna",
+                  "historyId": "aliqua enim labore",
+                  "internalDate": "laboris tempor anim voluptate",
+                  "payload": {
+                    "partId": "aute Ut nisi eiusmod",
+                    "mimeType": "non deserunt anim",
+                    "filename": "magna",
+                    "headers": [
+                      {
+                        "name": "est sunt fugiat",
+                        "value": "deserunt exer"
+                      },
+                      {
+                        "name": "consectetur anim",
+                        "value": "laborum elit"
+                      }
+                    ],
+                    "body": {
+                      "attachmentId": "dolor id esse proident",
+                      "size": -31164209,
+                      "data": "irure consectetur"
+                    },
+                    "parts": [
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      },
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      }
+                    ]
+                  },
+                  "sizeEstimate": -76389446,
+                  "raw": "nulla dolor nisi reprehenderit sint"
+                },
+                {
+                  "id": "ea laborum sint",
+                  "threadId": "laboris magna",
+                  "labelIds": [
+                    "velit ",
+                    "ad sint sunt ex n"
+                  ],
+                  "snippet": "ea in magna ve",
+                  "historyId": "sit tempor",
+                  "internalDate": "qui laborum",
+                  "payload": {
+                    "partId": "aute dolore deserunt do veniam",
+                    "mimeType": "voluptate ut ad irure est",
+                    "filename": "nostrud Lorem aliquip elit anim",
+                    "headers": [
+                      {
+                        "name": "voluptate sed",
+                        "value": "in ullamco consequat"
+                      },
+                      {
+                        "name": "ullamco",
+                        "value": "ex"
+                      }
+                    ],
+                    "body": {
+                      "attachmentId": "elit eiusmod sint",
+                      "size": 93740460,
+                      "data": "in non nulla anim"
+                    },
+                    "parts": [
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      },
+                      {
+                        "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                      }
+                    ]
+                  },
+                  "sizeEstimate": 76344706,
+                  "raw": "nisi nostrud"
+                }
+              ]
+            }
+          ],
+          "nextPageToken": "Exce",
+          "resultSizeEstimate": -82340850
+        }
+      '''
+    }
+  }
+}

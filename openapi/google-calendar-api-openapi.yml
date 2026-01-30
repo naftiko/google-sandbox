@@ -118,9 +118,9 @@ paths:
                 CalendarsAclGetResponseExample:
                   $ref: '#/components/examples/CalendarsAclGetResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsAclGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsAclGetResponseExample"
     put:
       tags:
         - Calendar ACL Rules
@@ -225,9 +225,9 @@ paths:
                 CalendarsAclPutResponseExample:
                   $ref: '#/components/examples/CalendarsAclPutResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsAclPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsAclPutResponseExample"
     patch:
       tags:
         - Calendar ACL Rules
@@ -332,9 +332,9 @@ paths:
                 CalendarsAclPatchResponseExample:
                   $ref: '#/components/examples/CalendarsAclPatchResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsAclPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsAclPatchResponseExample"
     delete:
       tags:
         - Calendar ACL Rules
@@ -416,9 +416,9 @@ paths:
               schema:
                 type: string
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /calendars/{calendarId}/acl:
     get:
       tags:
@@ -524,9 +524,9 @@ paths:
                 CalendarsAclGetResponse1Example:
                   $ref: '#/components/examples/CalendarsAclGetResponse1Example'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsAclGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsAclGetResponse1Example"
     post:
       tags:
         - Calendar ACLs
@@ -626,9 +626,9 @@ paths:
                 CalendarsAclPostResponseExample:
                   $ref: '#/components/examples/CalendarsAclPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsAclPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsAclPostResponseExample"
   /calendars/{calendarId}/acl/watch:
     post:
       tags:
@@ -744,9 +744,9 @@ paths:
                 CalendarsAclWatchPostResponseExample:
                   $ref: '#/components/examples/CalendarsAclWatchPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsAclWatchPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsAclWatchPostResponseExample"
   /calendars/{calendarId}/events/{eventId}:
     get:
       tags:
@@ -856,9 +856,9 @@ paths:
                   $ref: '#/components/examples/CalendarsEventsGetResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsGetResponseExample"
     put:
       tags:
         - Calendar Events
@@ -988,9 +988,9 @@ paths:
                 CalendarsEventsPutResponseExample:
                   $ref: '#/components/examples/CalendarsEventsPutResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsPutResponseExample"
     patch:
       tags:
         - Calendar Events
@@ -1120,9 +1120,9 @@ paths:
                 CalendarsEventsPatchResponseExample:
                   $ref: '#/components/examples/CalendarsEventsPatchResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsPatchResponseExample"
     delete:
       tags:
         - Calendar Events
@@ -1214,9 +1214,9 @@ paths:
               schema:
                 type: string
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /calendars/{calendarId}/events/{eventId}/instances:
     get:
       tags:
@@ -1353,9 +1353,9 @@ paths:
                   $ref: >-
                     #/components/examples/CalendarsEventsInstancesGetResponseExample
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsInstancesGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsInstancesGetResponseExample"
   /calendars/{calendarId}/events/{eventId}/move:
     post:
       tags:
@@ -1467,9 +1467,9 @@ paths:
                 CalendarsEventsMovePostResponseExample:
                   $ref: '#/components/examples/CalendarsEventsMovePostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsMovePostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsMovePostResponseExample"
   /calendars/{calendarId}/events:
     get:
       tags:
@@ -1646,9 +1646,9 @@ paths:
                   $ref: '#/components/examples/CalendarsEventsGetResponse1Example'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsGetResponse1Example"
     post:
       tags:
         - Calendar Events
@@ -1768,9 +1768,9 @@ paths:
                 CalendarsEventsPostResponseExample:
                   $ref: '#/components/examples/CalendarsEventsPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsPostResponseExample"
   /calendars/{calendarId}/events/import:
     post:
       tags:
@@ -1879,9 +1879,9 @@ paths:
                   $ref: >-
                     #/components/examples/CalendarsEventsImportPostResponseExample
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsImportPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsImportPostResponseExample"
   /calendars/{calendarId}/events/quickAdd:
     post:
       tags:
@@ -1986,9 +1986,9 @@ paths:
                   $ref: >-
                     #/components/examples/CalendarsEventsQuickAddPostResponseExample
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsQuickAddPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsQuickAddPostResponseExample"
   /calendars/{calendarId}/events/watch:
     post:
       tags:
@@ -2175,9 +2175,9 @@ paths:
                   $ref: >-
                     #/components/examples/CalendarsEventsWatchPostResponseExample
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsEventsWatchPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsEventsWatchPostResponseExample"
   /calendars/{calendarId}:
     get:
       tags:
@@ -2219,9 +2219,9 @@ paths:
                   $ref: '#/components/examples/CalendarsGetResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsGetResponseExample"
     put:
       tags:
         - Calendars
@@ -2317,9 +2317,9 @@ paths:
                   $ref: '#/components/examples/CalendarsPutResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsPutResponseExample"
     patch:
       tags:
         - Calendars
@@ -2414,9 +2414,9 @@ paths:
                 CalendarsPatchResponseExample:
                   $ref: '#/components/examples/CalendarsPatchResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsPatchResponseExample"
     delete:
       tags:
         - Calendars
@@ -2495,9 +2495,9 @@ paths:
               schema:
                 type: string
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /calendars/{calendarId}/clear:
     post:
       tags:
@@ -2579,9 +2579,9 @@ paths:
               schema:
                 type: string
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /calendars:
     post:
       tags:
@@ -2625,9 +2625,9 @@ paths:
                 CalendarsPostResponseExample:
                   $ref: '#/components/examples/CalendarsPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: CalendarsPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "CalendarsPostResponseExample"
   /users/me/calendarList/{calendarId}:
     get:
       tags:
@@ -2667,9 +2667,9 @@ paths:
                   $ref: '#/components/examples/UsersMeCalendarListGetResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMeCalendarListGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMeCalendarListGetResponseExample"
     put:
       tags:
         - User Calendars
@@ -2717,9 +2717,9 @@ paths:
                 UsersMeCalendarListPutResponseExample:
                   $ref: '#/components/examples/UsersMeCalendarListPutResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMeCalendarListPutResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMeCalendarListPutResponseExample"
     patch:
       tags:
         - User Calendars
@@ -2770,9 +2770,9 @@ paths:
                   $ref: >-
                     #/components/examples/UsersMeCalendarListPatchResponseExample
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMeCalendarListPatchResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMeCalendarListPatchResponseExample"
     delete:
       tags:
         - User Calendars
@@ -2802,9 +2802,9 @@ paths:
               schema:
                 type: string
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /users/me/calendarList:
     post:
       tags:
@@ -2848,9 +2848,9 @@ paths:
                 UsersMeCalendarListPostResponseExample:
                   $ref: '#/components/examples/UsersMeCalendarListPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMeCalendarListPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMeCalendarListPostResponseExample"
   /users/{userId}/calendarList:
     get:
       tags:
@@ -2892,9 +2892,9 @@ paths:
                   $ref: '#/components/examples/UsersCalendarListGetResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersCalendarListGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersCalendarListGetResponseExample"
   /users/me/calendarList/watch:
     post:
       tags:
@@ -2938,9 +2938,9 @@ paths:
                 MeCalendarListWatchPostResponseExample:
                   $ref: '#/components/examples/MeCalendarListWatchPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: MeCalendarListWatchPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "MeCalendarListWatchPostResponseExample"
   /users/me/settings:
     get:
       tags:
@@ -2975,9 +2975,9 @@ paths:
                   $ref: '#/components/examples/UsersMeSettingsGetResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMeSettingsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMeSettingsGetResponseExample"
   /users/me/settings/{setting}:
     get:
       tags:
@@ -3016,9 +3016,9 @@ paths:
                 UsersMeSettingsGetResponse1Example:
                   $ref: '#/components/examples/UsersMeSettingsGetResponse1Example'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMeSettingsGetResponse1Example
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "UsersMeSettingsGetResponse1Example"
   /users/me/settings/watch:
     post:
       tags:
@@ -3062,9 +3062,9 @@ paths:
                 MeSettingsWatchPostResponseExample:
                   $ref: '#/components/examples/MeSettingsWatchPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: MeSettingsWatchPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "MeSettingsWatchPostResponseExample"
   /channels/stop:
     post:
       tags:
@@ -3100,9 +3100,9 @@ paths:
               schema:
                 type: string
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /colors:
     get:
       tags:
@@ -3137,9 +3137,9 @@ paths:
                   $ref: '#/components/examples/ColorsGetResponseExample'
       x-api-evangelist-certified: '2025-07-20'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: ColorsGetResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "ColorsGetResponseExample"
   /freeBusy:
     post:
       tags:
@@ -3183,9 +3183,9 @@ paths:
                 FreeBusyPostResponseExample:
                   $ref: '#/components/examples/FreeBusyPostResponseExample'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: FreeBusyPostResponseExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "FreeBusyPostResponseExample"
 components:
   schemas:
     CalendarsAclGetResponse:

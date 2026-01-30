@@ -1,0 +1,119 @@
+meta {
+  name: Batch Get Cell Values
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v4/spreadsheets/:spreadsheetId/values:batchGet
+  body: none
+  auth: oauth2
+}
+
+params:query {
+  ~ranges: 
+  ~majorDimension: 
+  ~valueRenderOption: 
+}
+
+params:path {
+  spreadsheetId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/v2/auth
+  access_token_url: https://oauth2.googleapis.com/token
+  refresh_token_url: {{oauth_refresh_url}}
+  client_id: {{oauth_client_id}}
+  client_secret: {{oauth_client_secret}}
+  scope: https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly
+  state: {{oauth_state}}
+  pkce: false
+  credentials_placement: header
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+  auto_refresh_token: true
+}
+
+example {
+  name: Successful response for batch getting values
+  
+  request: {
+    url: {{baseUrl}}/v4/spreadsheets/:spreadsheetId/values:batchGet
+    method: GET
+    mode: none
+    params:query: {
+      ~ranges: 
+      ~majorDimension: 
+      ~valueRenderOption: 
+    }
+  
+    params:path: {
+      spreadsheetId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+          "valueRanges": [
+            {
+              "range": "Sheet1!A1:C3",
+              "majorDimension": "ROWS",
+              "values": [
+                [
+                  "Name",
+                  "Age",
+                  "City"
+                ],
+                [
+                  "John",
+                  30,
+                  "New York"
+                ]
+              ]
+            },
+            {
+              "range": "Sheet2!A1:B2",
+              "majorDimension": "ROWS",
+              "values": [
+                [
+                  "Product",
+                  "Price"
+                ],
+                [
+                  "Widget",
+                  19.99
+                ]
+              ]
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,91 @@
+meta {
+  name: Get Send As (GET)
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "sendAs": [
+            {
+              "sendAsEmail": "exercitation",
+              "displayName": "proident Duis",
+              "replyToAddress": "deserunt do ut id",
+              "signature": "tempor irure dolore qui dol",
+              "isPrimary": false,
+              "isDefault": true,
+              "treatAsAlias": true,
+              "smtpMsa": {
+                "host": "irure sit non",
+                "port": -14344492,
+                "username": "ipsum ad non",
+                "password": "proident sunt eiusmod Lorem",
+                "securityMode": "starttls"
+              },
+              "verificationStatus": "accepted"
+            },
+            {
+              "sendAsEmail": "commodo et exercitatio",
+              "displayName": "pariatur Ut sit deserunt quis",
+              "replyToAddress": "in consectetur qui aliqua",
+              "signature": "velit fug",
+              "isPrimary": false,
+              "isDefault": false,
+              "treatAsAlias": false,
+              "smtpMsa": {
+                "host": "occaecat laborum magna aute",
+                "port": 42884741,
+                "username": "voluptate sit adipisicing",
+                "password": "incididunt ullamco",
+                "securityMode": "ssl"
+              },
+              "verificationStatus": "verificationStatusUnspecified"
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

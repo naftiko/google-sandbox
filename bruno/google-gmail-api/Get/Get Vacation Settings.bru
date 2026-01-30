@@ -1,0 +1,63 @@
+meta {
+  name: Get Vacation Settings
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/vacation
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/vacation
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "enableAutoReply": false,
+          "responseSubject": "ei",
+          "responseBodyPlainText": "veniam reprehe",
+          "responseBodyHtml": "id",
+          "restrictToContacts": false,
+          "restrictToDomain": true,
+          "startTime": "est mollit",
+          "endTime": "enim in aliqua Ut commodo"
+        }
+      '''
+    }
+  }
+}

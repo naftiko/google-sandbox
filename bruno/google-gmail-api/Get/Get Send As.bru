@@ -1,0 +1,72 @@
+meta {
+  name: Get Send As
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  sendAsemail: kinlane@naftiko.io
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+      sendAsemail: kinlane@naftiko.io
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "sendAsEmail": "ut nulla",
+          "displayName": "Excepteur",
+          "replyToAddress": "velit id culpa",
+          "signature": "officia quis adipisicing",
+          "isPrimary": true,
+          "isDefault": true,
+          "treatAsAlias": false,
+          "smtpMsa": {
+            "host": "in elit",
+            "port": -34532702,
+            "username": "aliqua laborum aliquip do",
+            "password": "tempor dolor velit",
+            "securityMode": "securityModeUnspecified"
+          },
+          "verificationStatus": "pending"
+        }
+      '''
+    }
+  }
+}

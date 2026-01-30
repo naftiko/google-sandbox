@@ -1,0 +1,61 @@
+meta {
+  name: Get Calendar Settings
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/users/me/settings/:setting
+  body: none
+  auth: inherit
+}
+
+params:path {
+  setting: 
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/users/me/settings/:setting
+    method: GET
+    mode: none
+    params:path: {
+      setting: 
+    }
+  
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "etag": "nisi cupidatat non dolor",
+          "id": "sint velit sit",
+          "kind": "calendar#setting",
+          "value": "in"
+        }
+      '''
+    }
+  }
+}

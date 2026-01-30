@@ -200,9 +200,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2ListLabelsResponse'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
     post:
       tags:
         - Labels
@@ -319,9 +319,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/limits/label:
     get:
       tags:
@@ -434,9 +434,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelLimits'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{name}:
     get:
       tags:
@@ -576,9 +576,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2UserCapabilities'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
     delete:
       tags:
         - Labels
@@ -699,9 +699,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleProtobufEmpty'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{name}:delta:
     post:
       tags:
@@ -817,9 +817,9 @@ paths:
                 $ref: >-
                   #/components/schemas/GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{name}:disable:
     post:
       tags:
@@ -933,9 +933,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{name}:enable:
     post:
       tags:
@@ -1048,9 +1048,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{name}:publish:
     post:
       tags:
@@ -1173,9 +1173,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{name}:updateLabelCopyMode:
     post:
       tags:
@@ -1287,9 +1287,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{parent}/locks:
     get:
       tags:
@@ -1412,9 +1412,9 @@ paths:
                 $ref: >-
                   #/components/schemas/GoogleAppsDriveLabelsV2ListLabelLocksResponse
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{parent}/permissions:
     get:
       tags:
@@ -1549,9 +1549,9 @@ paths:
                 $ref: >-
                   #/components/schemas/GoogleAppsDriveLabelsV2ListLabelPermissionsResponse
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
     post:
       tags:
         - Labels
@@ -1673,9 +1673,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelPermission'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
     patch:
       tags:
         - Labels
@@ -1795,9 +1795,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelPermission'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{parent}/permissions:batchDelete:
     post:
       tags:
@@ -1913,9 +1913,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GoogleProtobufEmpty'
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
   /v2/{parent}/permissions:batchUpdate:
     post:
       tags:
@@ -2034,9 +2034,9 @@ paths:
                 $ref: >-
                   #/components/schemas/GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsResponse
       x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "SuccessExample"
 components:
   schemas:
     GoogleAppsDriveLabelsV2BadgeColors:

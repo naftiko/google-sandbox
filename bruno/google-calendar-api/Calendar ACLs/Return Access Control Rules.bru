@@ -1,0 +1,111 @@
+meta {
+  name: Return Access Control Rules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/calendars/:calendarId/acl
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~maxResults: 
+  ~pageToken: 
+  ~showDeleted: 
+  ~syncToken: 
+  ~alt: naftiko
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~userIp: 
+}
+
+params:path {
+  calendarId: 123
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/calendars/:calendarId/acl
+    method: GET
+    mode: none
+    params:query: {
+      ~maxResults: 
+      ~pageToken: 
+      ~showDeleted: 
+      ~syncToken: 
+      ~alt: naftiko
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~userIp: 
+    }
+  
+    params:path: {
+      calendarId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "etag": "laborum ea d",
+          "items": [
+            {
+              "etag": "in in qui non dolore",
+              "id": "occaecat dolor qui eu ut",
+              "kind": "calendar#aclRule",
+              "role": "culpa magna tempor Excepteur",
+              "scope": {
+                "type": "culpa qui sint velit",
+                "value": "Lorem consectetur aliquip"
+              }
+            },
+            {
+              "etag": "quis id Lorem la",
+              "id": "quis",
+              "kind": "calendar#aclRule",
+              "role": "culpa deserunt officia commodo",
+              "scope": {
+                "type": "irure in quis ea",
+                "value": "ex dolore"
+              }
+            }
+          ],
+          "kind": "calendar#acl",
+          "nextPageToken": "dolore ex",
+          "nextSyncToken": "amet labore quis"
+        }
+      '''
+    }
+  }
+}

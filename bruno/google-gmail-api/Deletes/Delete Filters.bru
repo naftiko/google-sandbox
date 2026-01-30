@@ -1,0 +1,49 @@
+meta {
+  name: Delete Filters
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/filters/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  id: 
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/filters/:id
+    method: DELETE
+    mode: none
+    params:path: {
+      userId: 123
+      id: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

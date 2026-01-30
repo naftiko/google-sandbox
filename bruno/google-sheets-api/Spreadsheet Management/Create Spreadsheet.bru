@@ -1,0 +1,323 @@
+meta {
+  name: Create Spreadsheet
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v4/spreadsheets
+  body: json
+  auth: oauth2
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/v2/auth
+  access_token_url: https://oauth2.googleapis.com/token
+  refresh_token_url: {{oauth_refresh_url}}
+  client_id: {{oauth_client_id}}
+  client_secret: {{oauth_client_secret}}
+  scope: https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly
+  state: {{oauth_state}}
+  pkce: false
+  credentials_placement: header
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+  auto_refresh_token: true
+}
+
+body:json {
+  {
+    "spreadsheetId": "",
+    "properties": {
+      "title": "",
+      "locale": "",
+      "autoRecalc": "",
+      "timeZone": "",
+      "defaultFormat": {
+        "numberFormat": {
+          "type": "",
+          "pattern": ""
+        },
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borders": {
+          "top": {
+            "style": "",
+            "width": 0,
+            "color": {}
+          },
+          "bottom": {},
+          "left": {},
+          "right": {}
+        },
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "horizontalAlignment": "",
+        "verticalAlignment": "",
+        "wrapStrategy": "",
+        "textDirection": "",
+        "textFormat": {
+          "foregroundColor": {},
+          "fontFamily": "",
+          "fontSize": 0,
+          "bold": false,
+          "italic": false,
+          "strikethrough": false,
+          "underline": false
+        },
+        "hyperlinkDisplayType": "",
+        "textRotation": {
+          "angle": 0,
+          "vertical": false
+        }
+      },
+      "iterativeCalculationSettings": {
+        "maxIterations": 0,
+        "convergenceThreshold": 0
+      },
+      "spreadsheetTheme": {
+        "primaryFontFamily": "",
+        "themeColors": [
+          {
+            "colorType": "",
+            "color": {
+              "rgbColor": {},
+              "themeColor": ""
+            }
+          }
+        ]
+      }
+    },
+    "sheets": [
+      {
+        "properties": {
+          "sheetId": 0,
+          "title": "",
+          "index": 0,
+          "sheetType": "",
+          "gridProperties": {
+            "rowCount": 0,
+            "columnCount": 0,
+            "frozenRowCount": 0,
+            "frozenColumnCount": 0,
+            "hideGridlines": false,
+            "rowGroupControlAfter": false,
+            "columnGroupControlAfter": false
+          },
+          "hidden": false,
+          "tabColor": {},
+          "tabColorStyle": {},
+          "rightToLeft": false
+        },
+        "data": [
+          {
+            "startRow": 0,
+            "startColumn": 0,
+            "rowData": [
+              {
+                "values": [
+                  {
+                    "userEnteredValue": {
+                      "numberValue": 0,
+                      "stringValue": "",
+                      "boolValue": false,
+                      "formulaValue": "",
+                      "errorValue": {
+                        "type": "",
+                        "message": ""
+                      }
+                    },
+                    "effectiveValue": {},
+                    "formattedValue": "",
+                    "userEnteredFormat": {},
+                    "effectiveFormat": {},
+                    "hyperlink": "",
+                    "note": ""
+                  }
+                ]
+              }
+            ],
+            "rowMetadata": [
+              {
+                "hiddenByFilter": false,
+                "hiddenByUser": false,
+                "pixelSize": 0,
+                "developerMetadata": [
+                  {
+                    "metadataId": 0,
+                    "metadataKey": "",
+                    "metadataValue": "",
+                    "location": {
+                      "locationType": "",
+                      "spreadsheet": false,
+                      "sheetId": 0,
+                      "dimensionRange": {
+                        "sheetId": 0,
+                        "dimension": "",
+                        "startIndex": 0,
+                        "endIndex": 0
+                      }
+                    },
+                    "visibility": ""
+                  }
+                ]
+              }
+            ],
+            "columnMetadata": [
+              {}
+            ]
+          }
+        ],
+        "merges": [
+          {
+            "sheetId": 0,
+            "startRowIndex": 0,
+            "endRowIndex": 0,
+            "startColumnIndex": 0,
+            "endColumnIndex": 0
+          }
+        ],
+        "conditionalFormats": [
+          {}
+        ],
+        "filterViews": [
+          {}
+        ],
+        "protectedRanges": [
+          {}
+        ],
+        "basicFilter": {},
+        "charts": [
+          {}
+        ],
+        "bandedRanges": [
+          {}
+        ],
+        "developerMetadata": [
+          {}
+        ],
+        "rowGroups": [
+          {}
+        ],
+        "columnGroups": [
+          {}
+        ],
+        "slicers": [
+          {}
+        ]
+      }
+    ],
+    "namedRanges": [
+      {
+        "namedRangeId": "",
+        "name": "",
+        "range": {}
+      }
+    ],
+    "spreadsheetUrl": "",
+    "developerMetadata": [
+      {}
+    ],
+    "dataSources": [
+      {}
+    ],
+    "dataSourceSchedules": [
+      {}
+    ]
+  }
+}
+
+example {
+  name: Successful response for creating a spreadsheet (Request to create a new spreadsheet)
+  
+  request: {
+    url: {{baseUrl}}/v4/spreadsheets
+    method: POST
+    mode: json
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "properties": {
+          "title": "My New Spreadsheet",
+          "locale": "en_US",
+          "timeZone": "America/New_York"
+        },
+        "sheets": [
+          {
+            "properties": {
+              "title": "Sheet1",
+              "index": 0,
+              "sheetType": "GRID",
+              "gridProperties": {
+                "rowCount": 1000,
+                "columnCount": 26
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "spreadsheetId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+          "properties": {
+            "title": "My New Spreadsheet",
+            "locale": "en_US",
+            "timeZone": "America/New_York",
+            "autoRecalc": "ON_CHANGE"
+          },
+          "sheets": [
+            {
+              "properties": {
+                "sheetId": 0,
+                "title": "Sheet1",
+                "index": 0,
+                "sheetType": "GRID",
+                "gridProperties": {
+                  "rowCount": 1000,
+                  "columnCount": 26
+                }
+              }
+            }
+          ],
+          "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit"
+        }
+      '''
+    }
+  }
+}

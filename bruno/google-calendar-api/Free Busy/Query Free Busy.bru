@@ -1,0 +1,156 @@
+meta {
+  name: Query Free Busy
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/freeBusy
+  body: json
+  auth: inherit
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/freeBusy
+    method: POST
+    mode: json
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "calendarExpansionMax": -12276786,
+        "groupExpansionMax": 73067826,
+        "items": [
+          {
+            "id": "aliqua in"
+          },
+          {
+            "id": "pariatur do et"
+          }
+        ],
+        "timeMax": "1974-03-05T08:59:00.048Z",
+        "timeMin": "1992-03-30T15:21:47.410Z",
+        "timeZone": "UTC"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "calendars": {
+            "ea8_a": {
+              "busy": [
+                {
+                  "end": "2015-07-24T01:15:56.179Z",
+                  "start": "1981-06-16T20:23:49.974Z"
+                },
+                {
+                  "end": "1957-12-14T21:19:55.990Z",
+                  "start": "2012-06-19T05:53:57.552Z"
+                }
+              ],
+              "errors": [
+                {
+                  "domain": "l",
+                  "reason": "qui minim in"
+                },
+                {
+                  "domain": "ea proident non ad aliquip",
+                  "reason": "non mollit ad dolore"
+                }
+              ]
+            },
+            "tempor__": {
+              "busy": [
+                {
+                  "end": "2012-06-15T15:09:24.939Z",
+                  "start": "2008-07-23T06:48:49.875Z"
+                },
+                {
+                  "end": "2001-10-07T01:39:27.884Z",
+                  "start": "1962-01-18T06:39:30.566Z"
+                }
+              ],
+              "errors": [
+                {
+                  "domain": "nostrud ad enim",
+                  "reason": "cupidatat Lorem velit et quis"
+                },
+                {
+                  "domain": "consectetur repr",
+                  "reason": "Ut"
+                }
+              ]
+            }
+          },
+          "groups": {
+            "amet_0": {
+              "calendars": [
+                "veniam ad est tempor",
+                "eu qui proident"
+              ],
+              "errors": [
+                {
+                  "domain": "do",
+                  "reason": "exercitation"
+                },
+                {
+                  "domain": "exer",
+                  "reason": "dolor"
+                }
+              ]
+            },
+            "occaecat_3": {
+              "calendars": [
+                "ipsum nulla",
+                "ad nisi dolor"
+              ],
+              "errors": [
+                {
+                  "domain": "ad dolor tempor sunt reprehenderit",
+                  "reason": "in tempor deserunt"
+                },
+                {
+                  "domain": "consectetur eu ea",
+                  "reason": "est exercitation"
+                }
+              ]
+            }
+          },
+          "kind": "calendar#freeBusy",
+          "timeMax": "2011-01-28T06:05:22.021Z",
+          "timeMin": "1978-06-06T06:26:44.109Z"
+        }
+      '''
+    }
+  }
+}

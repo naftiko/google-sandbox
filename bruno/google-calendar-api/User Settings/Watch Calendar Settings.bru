@@ -1,0 +1,86 @@
+meta {
+  name: Watch Calendar Settings
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/users/me/settings/watch
+  body: json
+  auth: inherit
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/users/me/settings/watch
+    method: POST
+    mode: json
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "address": "incididunt sed consequat",
+        "expiration": "velit ad aliq",
+        "id": "velit eiusmod",
+        "kind": "api#channel",
+        "params": {
+          "reprehenderit5c": "non",
+          "sint_b": "cupidatat do"
+        },
+        "payload": false,
+        "resourceId": "aute",
+        "resourceUri": "fugiat consequat",
+        "token": "ullamco officia in",
+        "type": "ex eiusmod adipisicing mollit"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "address": "incididunt sed consequat",
+          "expiration": "velit ad aliq",
+          "id": "velit eiusmod",
+          "kind": "api#channel",
+          "params": {
+            "reprehenderit5c": "non",
+            "sint_b": "cupidatat do"
+          },
+          "payload": false,
+          "resourceId": "aute",
+          "resourceUri": "fugiat consequat",
+          "token": "ullamco officia in",
+          "type": "ex eiusmod adipisicing mollit"
+        }
+      '''
+    }
+  }
+}

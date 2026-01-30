@@ -1,0 +1,59 @@
+meta {
+  name: GET IMAP
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/imap
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/imap
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "enabled": false,
+          "autoExpunge": false,
+          "expungeBehavior": "deleteForever",
+          "maxFolderSize": -49364914
+        }
+      '''
+    }
+  }
+}

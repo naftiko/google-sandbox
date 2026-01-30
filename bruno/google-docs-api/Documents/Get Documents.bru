@@ -1,0 +1,401 @@
+meta {
+  name: Get Documents
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/documents/:documentId
+  body: none
+  auth: oauth2
+}
+
+params:query {
+  ~suggestionsViewMode: 
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+params:path {
+  documentId: 123
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/documents.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/v1/documents/:documentId
+    method: GET
+    mode: none
+    params:query: {
+      ~suggestionsViewMode: 
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    params:path: {
+      documentId: 123
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "body": {
+            "content": [
+              {
+                "endIndex": 0,
+                "paragraph": {
+                  "bullet": {
+                    "listId": "",
+                    "nestingLevel": 0,
+                    "textStyle": {
+                      "backgroundColor": {
+                        "color": {
+                          "rgbColor": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0
+                          }
+                        }
+                      },
+                      "baselineOffset": "",
+                      "bold": false,
+                      "fontSize": {
+                        "magnitude": 0,
+                        "unit": ""
+                      },
+                      "foregroundColor": {},
+                      "italic": false,
+                      "link": {
+                        "bookmarkId": "",
+                        "headingId": "",
+                        "url": ""
+                      },
+                      "smallCaps": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "weightedFontFamily": {
+                        "fontFamily": "",
+                        "weight": 0
+                      }
+                    }
+                  },
+                  "elements": [
+                    {
+                      "autoText": {
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {},
+                        "type": ""
+                      },
+                      "columnBreak": {
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "endIndex": 0,
+                      "equation": {
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": []
+                      },
+                      "footnoteReference": {
+                        "footnoteId": "",
+                        "footnoteNumber": "",
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "horizontalRule": {
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "inlineObjectElement": {
+                        "inlineObjectId": "",
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "pageBreak": {
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "person": {
+                        "personId": "",
+                        "personProperties": {
+                          "email": "",
+                          "name": ""
+                        },
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "richLink": {
+                        "richLinkId": "",
+                        "richLinkProperties": {
+                          "mimeType": "",
+                          "title": "",
+                          "uri": ""
+                        },
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      },
+                      "startIndex": 0,
+                      "textRun": {
+                        "content": "",
+                        "suggestedDeletionIds": [],
+                        "suggestedInsertionIds": [],
+                        "suggestedTextStyleChanges": {},
+                        "textStyle": {}
+                      }
+                    }
+                  ],
+                  "paragraphStyle": {
+                    "alignment": "",
+                    "avoidWidowAndOrphan": false,
+                    "borderBetween": {
+                      "color": {},
+                      "dashStyle": "",
+                      "padding": {},
+                      "width": {}
+                    },
+                    "borderBottom": {},
+                    "borderLeft": {},
+                    "borderRight": {},
+                    "borderTop": {},
+                    "direction": "",
+                    "headingId": "",
+                    "indentEnd": {},
+                    "indentFirstLine": {},
+                    "indentStart": {},
+                    "keepLinesTogether": false,
+                    "keepWithNext": false,
+                    "lineSpacing": 0,
+                    "namedStyleType": "",
+                    "pageBreakBefore": false,
+                    "shading": {
+                      "backgroundColor": {}
+                    },
+                    "spaceAbove": {},
+                    "spaceBelow": {},
+                    "spacingMode": "",
+                    "tabStops": [
+                      {
+                        "alignment": "",
+                        "offset": {}
+                      }
+                    ]
+                  },
+                  "positionedObjectIds": [],
+                  "suggestedBulletChanges": {},
+                  "suggestedParagraphStyleChanges": {},
+                  "suggestedPositionedObjectIds": {}
+                },
+                "sectionBreak": {
+                  "sectionStyle": {
+                    "columnProperties": [
+                      {
+                        "paddingEnd": {},
+                        "width": {}
+                      }
+                    ],
+                    "columnSeparatorStyle": "",
+                    "contentDirection": "",
+                    "defaultFooterId": "",
+                    "defaultHeaderId": "",
+                    "evenPageFooterId": "",
+                    "evenPageHeaderId": "",
+                    "firstPageFooterId": "",
+                    "firstPageHeaderId": "",
+                    "marginBottom": {},
+                    "marginFooter": {},
+                    "marginHeader": {},
+                    "marginLeft": {},
+                    "marginRight": {},
+                    "marginTop": {},
+                    "pageNumberStart": 0,
+                    "sectionType": "",
+                    "useFirstPageHeaderFooter": false
+                  },
+                  "suggestedDeletionIds": [],
+                  "suggestedInsertionIds": []
+                },
+                "startIndex": 0,
+                "table": {
+                  "columns": 0,
+                  "rows": 0,
+                  "suggestedDeletionIds": [],
+                  "suggestedInsertionIds": [],
+                  "tableRows": [
+                    {
+                      "endIndex": 0,
+                      "startIndex": 0,
+                      "suggestedDeletionIds": [],
+                      "suggestedInsertionIds": [],
+                      "suggestedTableRowStyleChanges": {},
+                      "tableCells": [
+                        {
+                          "content": [],
+                          "endIndex": 0,
+                          "startIndex": 0,
+                          "suggestedDeletionIds": [],
+                          "suggestedInsertionIds": [],
+                          "suggestedTableCellStyleChanges": {},
+                          "tableCellStyle": {
+                            "backgroundColor": {},
+                            "borderBottom": {
+                              "color": {},
+                              "dashStyle": "",
+                              "width": {}
+                            },
+                            "borderLeft": {},
+                            "borderRight": {},
+                            "borderTop": {},
+                            "columnSpan": 0,
+                            "contentAlignment": "",
+                            "paddingBottom": {},
+                            "paddingLeft": {},
+                            "paddingRight": {},
+                            "paddingTop": {},
+                            "rowSpan": 0
+                          }
+                        }
+                      ],
+                      "tableRowStyle": {
+                        "minRowHeight": {},
+                        "preventOverflow": false,
+                        "tableHeader": false
+                      }
+                    }
+                  ],
+                  "tableStyle": {
+                    "tableColumnProperties": [
+                      {
+                        "width": {},
+                        "widthType": ""
+                      }
+                    ]
+                  }
+                },
+                "tableOfContents": {
+                  "content": [],
+                  "suggestedDeletionIds": [],
+                  "suggestedInsertionIds": []
+                }
+              }
+            ]
+          },
+          "documentId": "",
+          "documentStyle": {
+            "background": {
+              "color": {}
+            },
+            "defaultFooterId": "",
+            "defaultHeaderId": "",
+            "evenPageFooterId": "",
+            "evenPageHeaderId": "",
+            "firstPageFooterId": "",
+            "firstPageHeaderId": "",
+            "marginBottom": {},
+            "marginFooter": {},
+            "marginHeader": {},
+            "marginLeft": {},
+            "marginRight": {},
+            "marginTop": {},
+            "pageNumberStart": 0,
+            "pageSize": {
+              "height": {},
+              "width": {}
+            },
+            "useCustomHeaderFooterMargins": false,
+            "useEvenPageHeaderFooter": false,
+            "useFirstPageHeaderFooter": false
+          },
+          "footers": {},
+          "footnotes": {},
+          "headers": {},
+          "inlineObjects": {},
+          "lists": {},
+          "namedRanges": {},
+          "namedStyles": {
+            "styles": [
+              {
+                "namedStyleType": "",
+                "paragraphStyle": {},
+                "textStyle": {}
+              }
+            ]
+          },
+          "positionedObjects": {},
+          "revisionId": "",
+          "suggestedDocumentStyleChanges": {},
+          "suggestedNamedStylesChanges": {},
+          "suggestionsViewMode": "",
+          "title": ""
+        }
+      '''
+    }
+  }
+}

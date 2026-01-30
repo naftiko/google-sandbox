@@ -1,0 +1,82 @@
+meta {
+  name: Insert SMIME Info
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  sendAsemail: kinlane@naftiko.io
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+      sendAsemail: kinlane@naftiko.io
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "id": "id",
+        "issuerCn": "ipsum qui s",
+        "isDefault": false,
+        "expiration": "dolore magna",
+        "pem": "cillum labore ",
+        "pkcs12": "in aute et",
+        "encryptedKeyPassword": "cillum ut"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "id",
+          "issuerCn": "ipsum qui s",
+          "isDefault": false,
+          "expiration": "dolore magna",
+          "pem": "cillum labore ",
+          "pkcs12": "in aute et",
+          "encryptedKeyPassword": "cillum ut"
+        }
+      '''
+    }
+  }
+}

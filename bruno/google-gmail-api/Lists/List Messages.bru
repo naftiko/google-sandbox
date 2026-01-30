@@ -1,0 +1,153 @@
+meta {
+  name: List Messages
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/messages
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~maxResults: 
+  ~pageToken: 
+  ~q: 
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/messages
+    method: GET
+    mode: none
+    params:query: {
+      ~maxResults: 
+      ~pageToken: 
+      ~q: 
+    }
+  
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "messages": [
+            {
+              "id": "sed proident adipisicing culpa esse",
+              "threadId": "ullamco",
+              "labelIds": [
+                "velit dolor",
+                "eiusmod veniam eu"
+              ],
+              "snippet": "anim nisi",
+              "historyId": "aute",
+              "internalDate": "dolore tempor",
+              "payload": {
+                "partId": "non sint ea incididunt dolor",
+                "mimeType": "enim aliquip Duis",
+                "filename": "tempor nostrud laborum",
+                "headers": [
+                  {
+                    "name": "occaecat mollit est",
+                    "value": "amet"
+                  },
+                  {
+                    "name": "Ut aliquip ea",
+                    "value": "deserunt qui"
+                  }
+                ],
+                "body": {
+                  "attachmentId": "in laborum dolore ",
+                  "size": -13005468,
+                  "data": "veniam in qui"
+                },
+                "parts": [
+                  {
+                    "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                  },
+                  {
+                    "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                  }
+                ]
+              },
+              "sizeEstimate": -28255502,
+              "raw": "culpa"
+            },
+            {
+              "id": "cupidatat esse magna dolore",
+              "threadId": "ea eiusmod",
+              "labelIds": [
+                "dolore commodo",
+                "Ut in et irure"
+              ],
+              "snippet": "esse non",
+              "historyId": "ex nulla nisi veniam dolor",
+              "internalDate": "tempor pr",
+              "payload": {
+                "partId": "dolor Excepteur consequat",
+                "mimeType": "magna nulla",
+                "filename": "non proident",
+                "headers": [
+                  {
+                    "name": "eiusmod nostrud reprehenderit proident",
+                    "value": "in ad"
+                  },
+                  {
+                    "name": "consequat cillum",
+                    "value": "officia mollit e"
+                  }
+                ],
+                "body": {
+                  "attachmentId": "dolore id dolor esse",
+                  "size": -9079183,
+                  "data": "aute L"
+                },
+                "parts": [
+                  {
+                    "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                  },
+                  {
+                    "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+                  }
+                ]
+              },
+              "sizeEstimate": 11691603,
+              "raw": "eiusmod esse"
+            }
+          ],
+          "nextPageToken": "ipsum reprehenderit Duis in veniam",
+          "resultSizeEstimate": -35985941
+        }
+      '''
+    }
+  }
+}

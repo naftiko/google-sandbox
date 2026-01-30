@@ -1,0 +1,155 @@
+meta {
+  name: List Calendars
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/users/:userId/calendarList
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+  ~Authorization: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/users/:userId/calendarList
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "etag": "qui labore aliqua in",
+          "items": [
+            {
+              "accessRole": "qui incididunt do Excepteur",
+              "backgroundColor": "ad esse nulla labore adipisicing",
+              "colorId": "ipsum",
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "adipisici",
+                  "Duis of"
+                ]
+              },
+              "defaultReminders": [
+                {
+                  "method": "id cupidatat",
+                  "minutes": -16296761
+                },
+                {
+                  "method": "magna mollit proident",
+                  "minutes": -16227132
+                }
+              ],
+              "deleted": "false",
+              "description": "cupidatat Excepteur",
+              "etag": "ea ",
+              "foregroundColor": "amet enim velit in",
+              "hidden": "false",
+              "id": "sunt ad ipsum dolore",
+              "kind": "calendar#calendarListEntry",
+              "location": "deserunt ullamco proident occaecat id",
+              "notificationSettings": {
+                "notifications": [
+                  {
+                    "method": "aliquip",
+                    "type": "Lorem reprehenderit"
+                  },
+                  {
+                    "method": "pariatur incididunt",
+                    "type": "anim consectetur deserunt"
+                  }
+                ]
+              },
+              "primary": "false",
+              "selected": "false",
+              "summary": "qui",
+              "summaryOverride": "velit id eiusmod minim amet",
+              "timeZone": "nisi Ut cillum sunt sit"
+            },
+            {
+              "accessRole": "ea dolor ex sunt ut",
+              "backgroundColor": "dolore enim officia amet",
+              "colorId": "laborum amet nostrud ipsum deserunt",
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "anim consequat",
+                  "dolor Ut ut"
+                ]
+              },
+              "defaultReminders": [
+                {
+                  "method": "sit qui",
+                  "minutes": 60974334
+                },
+                {
+                  "method": "in culpa",
+                  "minutes": 48454696
+                }
+              ],
+              "deleted": "false",
+              "description": "eiusmod do minim",
+              "etag": "adipisicing ut laborum ea",
+              "foregroundColor": "ipsum cillum",
+              "hidden": "false",
+              "id": "quis Excepteur deserunt",
+              "kind": "calendar#calendarListEntry",
+              "location": "consequat Excepteur dolor",
+              "notificationSettings": {
+                "notifications": [
+                  {
+                    "method": "nostrud aliquip non",
+                    "type": "dolor laboris"
+                  },
+                  {
+                    "method": "fugiat voluptate mollit",
+                    "type": "officia veniam"
+                  }
+                ]
+              },
+              "primary": "false",
+              "selected": "false",
+              "summary": "sit ex exercitation aliqua",
+              "summaryOverride": "aute exercitation",
+              "timeZone": "fugiat do ut"
+            }
+          ],
+          "kind": "calendar#calendarList",
+          "nextPageToken": "sit ea",
+          "nextSyncToken": "labore consectetur proident occaecat"
+        }
+      '''
+    }
+  }
+}

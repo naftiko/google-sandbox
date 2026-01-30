@@ -1,0 +1,66 @@
+meta {
+  name: Get Send As SMIME Info
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  sendAsemail: kinlane@naftiko.io
+  id: 
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+      sendAsemail: kinlane@naftiko.io
+      id: 
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "id",
+          "issuerCn": "ipsum qui s",
+          "isDefault": false,
+          "expiration": "dolore magna",
+          "pem": "cillum labore ",
+          "pkcs12": "in aute et",
+          "encryptedKeyPassword": "cillum ut"
+        }
+      '''
+    }
+  }
+}

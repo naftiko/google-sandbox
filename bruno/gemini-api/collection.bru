@@ -1,0 +1,13 @@
+meta {
+  name: gemini-api
+}
+
+auth {
+  mode: apikey
+}
+
+auth:apikey {
+  key: x-goog-api-key
+  value: {{apiKey}}
+  placement: header
+}

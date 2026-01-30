@@ -1,0 +1,94 @@
+meta {
+  name: Update Labels
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{baseUrl}}/gmail/v1/users/:userId/labels/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  id: 
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/labels/:id
+    method: PUT
+    mode: json
+    params:path: {
+      userId: 123
+      id: 
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "id": "nostrud officia pariatur",
+        "name": "esse nulla occaecat",
+        "messageListVisibility": "show",
+        "labelListVisibility": "labelShow",
+        "type": "system",
+        "messagesTotal": -34033607,
+        "messagesUnread": 96181517,
+        "threadsTotal": 7293200,
+        "threadsUnread": 86726755,
+        "color": {
+          "textColor": "sunt fugiat ut voluptate",
+          "backgroundColor": "commodo est cupidatat in sed"
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "nostrud officia pariatur",
+          "name": "esse nulla occaecat",
+          "messageListVisibility": "show",
+          "labelListVisibility": "labelShow",
+          "type": "system",
+          "messagesTotal": -34033607,
+          "messagesUnread": 96181517,
+          "threadsTotal": 7293200,
+          "threadsUnread": 86726755,
+          "color": {
+            "textColor": "sunt fugiat ut voluptate",
+            "backgroundColor": "commodo est cupidatat in sed"
+          }
+        }
+      '''
+    }
+  }
+}

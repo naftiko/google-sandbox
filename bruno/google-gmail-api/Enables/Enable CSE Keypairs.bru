@@ -1,0 +1,98 @@
+meta {
+  name: Enable CSE Keypairs
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:enable
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  keyPairId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:enable
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+      keyPairId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {}
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "keyPairId": "Lorem eiusmod",
+          "pkcs7": "ex incididunt",
+          "pem": "irure quis",
+          "subjectEmailAddresses": [
+            "Excepteur Ut commodo aliquip",
+            "eu Lorem nulla"
+          ],
+          "enablementState": "disabled",
+          "disableTime": "cill",
+          "privateKeyMetadata": [
+            {
+              "privateKeyMetadataId": "proident fugiat eu dolore",
+              "kaclsKeyMetadata": {
+                "kaclsUri": "voluptate ipsum ad",
+                "kaclsData": "Duis laborum aute"
+              },
+              "hardwareKeyMetadata": {
+                "description": "mollit la"
+              }
+            },
+            {
+              "privateKeyMetadataId": "nulla ullamco",
+              "kaclsKeyMetadata": {
+                "kaclsUri": "minim in",
+                "kaclsData": "sint eiusmod"
+              },
+              "hardwareKeyMetadata": {
+                "description": "ut"
+              }
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

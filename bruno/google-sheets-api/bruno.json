@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "google-sheets-api",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,276 @@
+meta {
+  name: Retrieve Labels
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v2/labels
+  body: none
+  auth: oauth2
+}
+
+params:query {
+  ~customer: 
+  ~languageCode: 
+  ~minimumRole: 
+  ~pageSize: 
+  ~pageToken: 
+  ~publishedOnly: 
+  ~useAdminAccess: 
+  ~view: 
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive.admin.labels https://www.googleapis.com/auth/drive.admin.labels.readonly https://www.googleapis.com/auth/drive.labels https://www.googleapis.com/auth/drive.labels.readonly
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/v2/labels
+    method: GET
+    mode: none
+    params:query: {
+      ~customer: 
+      ~languageCode: 
+      ~minimumRole: 
+      ~pageSize: 
+      ~pageToken: 
+      ~publishedOnly: 
+      ~useAdminAccess: 
+      ~view: 
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "labels": [
+            {
+              "appliedCapabilities": {
+                "canApply": false,
+                "canRead": false,
+                "canRemove": false
+              },
+              "appliedLabelPolicy": {
+                "copyMode": ""
+              },
+              "createTime": "",
+              "creator": {
+                "person": ""
+              },
+              "customer": "",
+              "disableTime": "",
+              "disabler": {},
+              "displayHints": {
+                "disabled": false,
+                "hiddenInSearch": false,
+                "priority": "",
+                "shownInApply": false
+              },
+              "fields": [
+                {
+                  "appliedCapabilities": {
+                    "canRead": false,
+                    "canSearch": false,
+                    "canWrite": false
+                  },
+                  "createTime": "",
+                  "creator": {},
+                  "dateOptions": {
+                    "dateFormat": "",
+                    "dateFormatType": "",
+                    "maxValue": {
+                      "day": 0,
+                      "month": 0,
+                      "year": 0
+                    },
+                    "minValue": {}
+                  },
+                  "disableTime": "",
+                  "disabler": {},
+                  "displayHints": {
+                    "disabled": false,
+                    "hiddenInSearch": false,
+                    "required": false,
+                    "shownInApply": false
+                  },
+                  "id": "",
+                  "integerOptions": {
+                    "maxValue": "",
+                    "minValue": ""
+                  },
+                  "lifecycle": {
+                    "disabledPolicy": {
+                      "hideInSearch": false,
+                      "showInApply": false
+                    },
+                    "hasUnpublishedChanges": false,
+                    "state": ""
+                  },
+                  "lockStatus": {
+                    "locked": false
+                  },
+                  "properties": {
+                    "displayName": "",
+                    "insertBeforeField": "",
+                    "required": false
+                  },
+                  "publisher": {},
+                  "queryKey": "",
+                  "schemaCapabilities": {
+                    "canDelete": false,
+                    "canDisable": false,
+                    "canEnable": false,
+                    "canUpdate": false
+                  },
+                  "selectionOptions": {
+                    "choices": [
+                      {
+                        "appliedCapabilities": {
+                          "canRead": false,
+                          "canSearch": false,
+                          "canSelect": false
+                        },
+                        "createTime": "",
+                        "creator": {},
+                        "disableTime": "",
+                        "disabler": {},
+                        "displayHints": {
+                          "badgeColors": {
+                            "backgroundColor": {
+                              "alpha": 0,
+                              "blue": 0,
+                              "green": 0,
+                              "red": 0
+                            },
+                            "foregroundColor": {},
+                            "soloColor": {}
+                          },
+                          "badgePriority": "",
+                          "darkBadgeColors": {},
+                          "disabled": false,
+                          "hiddenInSearch": false,
+                          "shownInApply": false
+                        },
+                        "id": "",
+                        "lifecycle": {},
+                        "lockStatus": {},
+                        "properties": {
+                          "badgeConfig": {
+                            "color": {},
+                            "priorityOverride": ""
+                          },
+                          "description": "",
+                          "displayName": "",
+                          "insertBeforeChoice": ""
+                        },
+                        "publishTime": "",
+                        "publisher": {},
+                        "schemaCapabilities": {
+                          "canDelete": false,
+                          "canDisable": false,
+                          "canEnable": false,
+                          "canUpdate": false
+                        },
+                        "updateTime": "",
+                        "updater": {}
+                      }
+                    ],
+                    "listOptions": {
+                      "maxEntries": 0
+                    }
+                  },
+                  "textOptions": {
+                    "maxLength": 0,
+                    "minLength": 0
+                  },
+                  "updateTime": "",
+                  "updater": {},
+                  "userOptions": {
+                    "listOptions": {}
+                  }
+                }
+              ],
+              "id": "",
+              "labelType": "",
+              "learnMoreUri": "",
+              "lifecycle": {},
+              "lockStatus": {},
+              "name": "",
+              "properties": {
+                "description": "",
+                "title": ""
+              },
+              "publishTime": "",
+              "publisher": {},
+              "revisionCreateTime": "",
+              "revisionCreator": {},
+              "revisionId": "",
+              "schemaCapabilities": {
+                "canDelete": false,
+                "canDisable": false,
+                "canEnable": false,
+                "canUpdate": false
+              }
+            }
+          ],
+          "nextPageToken": ""
+        }
+      '''
+    }
+  }
+}

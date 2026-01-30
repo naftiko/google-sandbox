@@ -1,0 +1,144 @@
+meta {
+  name: Import Messages
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/messages/import
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/messages/import
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "id": "eu incididunt laborum irure",
+        "threadId": "magna Ut officia",
+        "labelIds": [
+          "mollit amet dolore cupidatat",
+          "cupidatat deserunt mollit"
+        ],
+        "snippet": "ut dolor",
+        "historyId": "nisi tempor do",
+        "internalDate": "cupidatat officia anim",
+        "payload": {
+          "partId": "dolore velit incididunt est a",
+          "mimeType": "sit dolor mollit",
+          "filename": "ea commodo dolor nisi",
+          "headers": [
+            {
+              "name": "quis id velit laborum",
+              "value": "et voluptate dolor ea"
+            },
+            {
+              "name": "sit nostrud",
+              "value": "deserunt fugiat ex"
+            }
+          ],
+          "body": {
+            "attachmentId": "id nulla consequat",
+            "size": -93837667,
+            "data": "ad in occaecat"
+          },
+          "parts": [
+            {
+              "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+            },
+            {
+              "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+            }
+          ]
+        },
+        "sizeEstimate": 21128811,
+        "raw": "do laboris"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "id": "eu incididunt laborum irure",
+          "threadId": "magna Ut officia",
+          "labelIds": [
+            "mollit amet dolore cupidatat",
+            "cupidatat deserunt mollit"
+          ],
+          "snippet": "ut dolor",
+          "historyId": "nisi tempor do",
+          "internalDate": "cupidatat officia anim",
+          "payload": {
+            "partId": "dolore velit incididunt est a",
+            "mimeType": "sit dolor mollit",
+            "filename": "ea commodo dolor nisi",
+            "headers": [
+              {
+                "name": "quis id velit laborum",
+                "value": "et voluptate dolor ea"
+              },
+              {
+                "name": "sit nostrud",
+                "value": "deserunt fugiat ex"
+              }
+            ],
+            "body": {
+              "attachmentId": "id nulla consequat",
+              "size": -93837667,
+              "data": "ad in occaecat"
+            },
+            "parts": [
+              {
+                "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+              },
+              {
+                "value": "<Circular reference to #/components/schemas/MessagePart detected>"
+              }
+            ]
+          },
+          "sizeEstimate": 21128811,
+          "raw": "do laboris"
+        }
+      '''
+    }
+  }
+}

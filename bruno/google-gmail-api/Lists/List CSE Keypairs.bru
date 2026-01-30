@@ -1,0 +1,124 @@
+meta {
+  name: List CSE Keypairs
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/keypairs
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "cseKeyPairs": [
+            {
+              "keyPairId": "qui in ad ullamco",
+              "pkcs7": "Lorem tempor",
+              "pem": "ipsum fugiat Excepteu",
+              "subjectEmailAddresses": [
+                "sunt",
+                "in ullamco do"
+              ],
+              "enablementState": "enabled",
+              "disableTime": "ad qui",
+              "privateKeyMetadata": [
+                {
+                  "privateKeyMetadataId": "in",
+                  "kaclsKeyMetadata": {
+                    "kaclsUri": "in et sed aute",
+                    "kaclsData": "laboris Lorem et esse"
+                  },
+                  "hardwareKeyMetadata": {
+                    "description": "adipisicing Excepteur"
+                  }
+                },
+                {
+                  "privateKeyMetadataId": "sit ea",
+                  "kaclsKeyMetadata": {
+                    "kaclsUri": "adipisicing id Ut",
+                    "kaclsData": "minim"
+                  },
+                  "hardwareKeyMetadata": {
+                    "description": "eu officia tempor"
+                  }
+                }
+              ]
+            },
+            {
+              "keyPairId": "proident tempor dolore et id",
+              "pkcs7": "deserunt ea eiusmod adipisicing",
+              "pem": "ad enim",
+              "subjectEmailAddresses": [
+                "nulla dolore",
+                "ea aliqua Excepteur ut sit"
+              ],
+              "enablementState": "enabled",
+              "disableTime": "dolor sed qui",
+              "privateKeyMetadata": [
+                {
+                  "privateKeyMetadataId": "qui exercitation mollit",
+                  "kaclsKeyMetadata": {
+                    "kaclsUri": "dolore dolor consequat veniam",
+                    "kaclsData": "occaecat consequat"
+                  },
+                  "hardwareKeyMetadata": {
+                    "description": "aute esse dolor ipsum"
+                  }
+                },
+                {
+                  "privateKeyMetadataId": "proident incididunt",
+                  "kaclsKeyMetadata": {
+                    "kaclsUri": "elit",
+                    "kaclsData": "dolor nulla"
+                  },
+                  "hardwareKeyMetadata": {
+                    "description": "quis culpa"
+                  }
+                }
+              ]
+            }
+          ],
+          "nextPageToken": "eiusmod dolore anim pariatur"
+        }
+      '''
+    }
+  }
+}

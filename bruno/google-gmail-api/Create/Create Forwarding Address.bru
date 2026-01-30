@@ -1,0 +1,70 @@
+meta {
+  name: Create Forwarding Address
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses
+  body: json
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Content-Type: 
+  ~Accept: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses
+    method: POST
+    mode: json
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Content-Type: 
+      ~Accept: 
+    }
+  
+    body:json: {
+      {
+        "forwardingEmail": "ad tempor dolor",
+        "verificationStatus": "pending"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "forwardingEmail": "ad tempor dolor",
+          "verificationStatus": "pending"
+        }
+      '''
+    }
+  }
+}

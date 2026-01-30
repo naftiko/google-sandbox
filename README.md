@@ -20,24 +20,24 @@ This is a summary of this sandbox, breaking down the available paths, operations
 - Number of Operations: 209
 - Number of Read Operations: 74
 - Number of Write Operations: 135
-- Number of Schemas: 754
+- Number of Schemas: 644
 - Number of Responses: 0
-- Number of Parameters: 44
-- Number of Examples: 112
+- Number of Parameters: 48
+- Number of Examples: 125
 - Number of Request Bodies: 0
 - Number of Headers: 0
 
 ## OpenAPIs
 These are the OpenAPIs available for the Google API & MCP Sandbox, which are made available via this sandbox API, which can be imported into Microcks and deployed as a sandbox using their mock feature.
 
-  - [Google Calendar API](openapi/google-calendar-api-openapi.yml)
-  - [Google Docs API](openapi/google-docs-api-openapi.yml)
-  - [Google Drive Activity API](openapi/google-drive-activity-api-openapi.yml)
-  - [Google Drive API](openapi/google-drive-api-openapi.yml)
-  - [Google Drive Labels API](openapi/google-drive-labels-api-openapi.yml)
-  - [Gemini API](openapi/google-gemini-api-openapi.yml)
-  - [Google Gmail API](openapi/google-gmail-api-openapi.yml)
-  - [Google Sheets API](openapi/google-sheets-api-openapi.yml)
+  - [Google Calendar Api](openapi/google-calendar-api-openapi.yml)
+  - [Google Docs Api](openapi/google-docs-api-openapi.yml)
+  - [Google Drive Activity Api](openapi/google-drive-activity-api-openapi.yml)
+  - [Google Drive Api](openapi/google-drive-api-openapi.yml)
+  - [Google Drive Labels Api](openapi/google-drive-labels-api-openapi.yml)
+  - [Gemini Api](openapi/google-gemini-api-openapi.yml)
+  - [Google Gmail Api](openapi/google-gmail-api-openapi.yml)
+  - [Google Sheets Api](openapi/google-sheets-api-openapi.yml)
 
 ## Resources
 These are the resources available via the Google API & MCP Sandbox, which are made available via this sandbox API, which are applied as tags to each operation in the OpenAPI.
@@ -46,29 +46,28 @@ These are the resources available via the Google API & MCP Sandbox, which are ma
   - Activity
   - Address
   - Addresses
-  - Append
   - Applications
   - Attachments
   - Audio Understanding
   - Auto
   - Batch
+  - Batch Operations
   - Calendar Acl Rules
   - Calendar Acls
   - Calendar Events
   - Calendars
+  - Cell Values
   - Changes
   - Channels
-  - Clear
   - Colors
   - Comments
   - Content Generation
-  - Copy
   - Create
-  - Data
+  - Data Filters
   - Default
   - Delegates
   - Deletes
-  - Developer
+  - Developer Metadata
   - Disables
   - Document Understanding
   - Documents
@@ -77,7 +76,6 @@ These are the resources available via the Google API & MCP Sandbox, which are ma
   - Enables
   - File Api
   - Files
-  - Filter
   - Free Busy
   - Get
   - History
@@ -99,13 +97,13 @@ These are the resources available via the Google API & MCP Sandbox, which are ma
   - Profile
   - Replies
   - Revisions
-  - Search
   - Send
   - Sets
   - Setting
   - Settings
-  - Sheet
+  - Sheet Management
   - Speech Generation
+  - Spreadsheet Management
   - Stop
   - Streaming
   - Team Drives
@@ -116,7 +114,6 @@ These are the resources available via the Google API & MCP Sandbox, which are ma
   - User Settings
   - Users
   - Vacation
-  - Values
   - Verify
   - Video Understanding
   - Watch
@@ -124,17 +121,20 @@ These are the resources available via the Google API & MCP Sandbox, which are ma
 ## Operations
 These are all of the available operations in this sandbox, providing a complete view of what you can do within this sandbox using the mocked Google API & MCP Sandbox.
 
-  - Append Values
-  - Batch Clear Values
+  - Append Cell Values
+  - Batch Clear Cell Values
   - Batch Clear Values By Data Filter
   - Batch Delete
+  - Batch Get Cell Values
+  - Batch Get Values By Data Filter
   - Batch Modify
-  - Batch Update Sheets
-  - Batch Update Values
+  - Batch Update Cell Values
+  - Batch Update Spreadsheet
+  - Batch Update Values By Data Filter
   - Calendar
   - Clear Calendar
-  - Clear Values
-  - Copy To Sheet
+  - Clear Cell Values
+  - Copy Sheet To Another Spreadsheet
   - Count Tokens
   - Create An Event
   - Create Cse Identites
@@ -154,7 +154,7 @@ These are all of the available operations in this sandbox, providing a complete 
   - Create Parent Permissions:batchdelete
   - Create Parent Permissions:batchupdate
   - Create Send As
-  - Create Sheet
+  - Create Spreadsheet
   - Delete  Name
   - Delete Access Control Rule
   - Delete Cse Idenities
@@ -195,6 +195,7 @@ These are all of the available operations in this sandbox, providing a complete 
   - Get Calendar Colors
   - Get Calendar List
   - Get Calendar Settings
+  - Get Cell Values
   - Get Changes
   - Get Changes Startpagetoken
   - Get Delegates
@@ -228,15 +229,12 @@ These are all of the available operations in this sandbox, providing a complete 
   - Get Send As
   - Get Send As
   - Get Send As Smime Info
-  - Get Sheet
-  - Get Sheet By Data Filter
+  - Get Spreadsheet
+  - Get Spreadsheet By Data Filter
   - Get Teamdrives
   - Get Teamdrives Teamdriveid
   - Get Threads
   - Get Vacation Settings
-  - Get Values
-  - Get Values Batch
-  - Get Values By Data Filter
   - Import Event
   - Import Messages
   - Insert Access Control Rule
@@ -316,6 +314,7 @@ These are all of the available operations in this sandbox, providing a complete 
   - Update Auto Forwarding
   - Update Calendar
   - Update Calendar List
+  - Update Cell Values
   - Update Drafts
   - Update Event
   - Update Imap
@@ -324,8 +323,6 @@ These are all of the available operations in this sandbox, providing a complete 
   - Update Pop Settings
   - Update Send As Setting
   - Update Vacation Settings
-  - Update Values
-  - Update By Data Filter
   - Upload File (resumable)
   - Verify Send As
   - Watch Access Control Rules

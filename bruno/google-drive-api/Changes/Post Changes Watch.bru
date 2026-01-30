@@ -1,0 +1,157 @@
+meta {
+  name: Post Changes Watch
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/changes/watch
+  body: json
+  auth: oauth2
+}
+
+params:query {
+  pageToken: 
+  ~driveId: 123
+  ~includeCorpusRemovals: 
+  ~includeItemsFromAllDrives: 
+  ~includeLabels: 
+  ~includePermissionsForView: 
+  ~includeRemoved: 
+  ~includeTeamDriveItems: 
+  ~pageSize: 
+  ~restrictToMyDrive: 
+  ~spaces: 
+  ~supportsAllDrives: 
+  ~supportsTeamDrives: 
+  ~teamDriveId: 123
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.apps.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.scripts
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+body:json {
+  {
+    "address": "",
+    "expiration": "",
+    "id": "",
+    "kind": "",
+    "params": {},
+    "payload": false,
+    "resourceId": "",
+    "resourceUri": "",
+    "token": "",
+    "type": ""
+  }
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/changes/watch
+    method: POST
+    mode: json
+    params:query: {
+      pageToken: 
+      ~driveId: 123
+      ~includeCorpusRemovals: 
+      ~includeItemsFromAllDrives: 
+      ~includeLabels: 
+      ~includePermissionsForView: 
+      ~includeRemoved: 
+      ~includeTeamDriveItems: 
+      ~pageSize: 
+      ~restrictToMyDrive: 
+      ~spaces: 
+      ~supportsAllDrives: 
+      ~supportsTeamDrives: 
+      ~teamDriveId: 123
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "address": "",
+        "expiration": "",
+        "id": "",
+        "kind": "",
+        "params": {},
+        "payload": false,
+        "resourceId": "",
+        "resourceUri": "",
+        "token": "",
+        "type": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "address": "",
+          "expiration": "",
+          "id": "",
+          "kind": "",
+          "params": {},
+          "payload": false,
+          "resourceId": "",
+          "resourceUri": "",
+          "token": "",
+          "type": ""
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,190 @@
+meta {
+  name: Count Tokens
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/models/:model:countTokens
+  body: json
+  auth: inherit
+}
+
+params:path {
+  model: naftiko
+}
+
+body:json {
+  {
+    "contents": [
+      {
+        "role": "",
+        "parts": [
+          {}
+        ]
+      }
+    ]
+  }
+}
+
+example {
+  name: 200 Response (Example request for POST /models/{model}:countTokens)
+  description: Token count retrieved successfully
+  
+  request: {
+    url: {{baseUrl}}/models/:model:countTokens
+    method: POST
+    mode: json
+    params:path: {
+      model: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "parts": [
+              {
+                "file_data": {
+                  "mime_type": "audio/mp3",
+                  "file_uri": "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "totalTokens": 0,
+          "totalBillableCharacters": 0
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Response (Example request for POST /models/{model}:countTokens)
+  description: Bad request
+  
+  request: {
+    url: {{baseUrl}}/models/:model:countTokens
+    method: POST
+    mode: json
+    params:path: {
+      model: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "parts": [
+              {
+                "file_data": {
+                  "mime_type": "audio/mp3",
+                  "file_uri": "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 400
+      text: Bad Request
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 401 Response (Example request for POST /models/{model}:countTokens)
+  description: Unauthorized
+  
+  request: {
+    url: {{baseUrl}}/models/:model:countTokens
+    method: POST
+    mode: json
+    params:path: {
+      model: model_name
+    }
+  
+    body:json: {
+      {
+        "contents": [
+          {
+            "parts": [
+              {
+                "file_data": {
+                  "mime_type": "audio/mp3",
+                  "file_uri": "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 401
+      text: Unauthorized
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}

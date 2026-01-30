@@ -1,0 +1,71 @@
+meta {
+  name: Stop Calendar Channel
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/channels/stop
+  body: json
+  auth: inherit
+}
+
+headers {
+  ~Content-Type: 
+  ~Authorization: 
+}
+
+body:json {
+  {}
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/channels/stop
+    method: POST
+    mode: json
+    headers: {
+      ~Content-Type: 
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "address": "incididunt sed consequat",
+        "expiration": "velit ad aliq",
+        "id": "velit eiusmod",
+        "kind": "api#channel",
+        "params": {
+          "reprehenderit5c": "non",
+          "sint_b": "cupidatat do"
+        },
+        "payload": false,
+        "resourceId": "aute",
+        "resourceUri": "fugiat consequat",
+        "token": "ullamco officia in",
+        "type": "ex eiusmod adipisicing mollit"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

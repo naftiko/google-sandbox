@@ -1,0 +1,59 @@
+meta {
+  name: Get Delegates
+  type: http
+  seq: 19
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/delegates/:delegateEmail
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  delegateemail: kinlane@naftiko.io
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/delegates/:delegateEmail
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+      delegateemail: kinlane@naftiko.io
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "delegateEmail": "Duis commodo enim irure",
+          "verificationStatus": "rejected"
+        }
+      '''
+    }
+  }
+}

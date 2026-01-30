@@ -1,0 +1,74 @@
+meta {
+  name: List CSE Identites
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+}
+
+headers {
+  ~Accept: 
+}
+
+example {
+  name: Successful 200 response
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/cse/identities
+    method: GET
+    mode: none
+    params:path: {
+      userId: 123
+    }
+  
+    headers: {
+      ~Accept: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "cseIdentities": [
+            {
+              "emailAddress": "adipisicing culpa ipsum",
+              "primaryKeyPairId": "incididunt pariatur cupidatat in",
+              "signAndEncryptKeyPairs": {
+                "signingKeyPairId": "Ut sunt proident consectetur",
+                "encryptionKeyPairId": "esse id"
+              }
+            },
+            {
+              "emailAddress": "elit dolore laboris",
+              "primaryKeyPairId": "eu Excepteur sint",
+              "signAndEncryptKeyPairs": {
+                "signingKeyPairId": "culpa",
+                "encryptionKeyPairId": "dolore Excepteur ipsum Lorem"
+              }
+            }
+          ],
+          "nextPageToken": "eiusmod amet voluptate veniam in"
+        }
+      '''
+    }
+  }
+}

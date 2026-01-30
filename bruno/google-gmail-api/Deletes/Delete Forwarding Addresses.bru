@@ -1,0 +1,49 @@
+meta {
+  name: Delete Forwarding Addresses
+  type: http
+  seq: 9
+}
+
+delete {
+  url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail
+  body: none
+  auth: inherit
+}
+
+params:path {
+  userId: 123
+  forwardingemail: kinlane@naftiko.io
+}
+
+example {
+  name: 204 Response
+  description: No Content
+  
+  request: {
+    url: {{baseUrl}}/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail
+    method: DELETE
+    mode: none
+    params:path: {
+      userId: 123
+      forwardingemail: kinlane@naftiko.io
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: text/plain
+    }
+  
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

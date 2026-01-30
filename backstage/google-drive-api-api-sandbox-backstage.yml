@@ -186,9 +186,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/About'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /apps:
         get:
           tags:
@@ -310,9 +310,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/AppList'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /apps/{appId}:
         get:
           tags:
@@ -436,9 +436,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/App'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /changes:
         get:
           tags:
@@ -655,9 +655,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/ChangeList'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /changes/startPageToken:
         get:
           tags:
@@ -799,9 +799,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/StartPageToken'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /changes/watch:
         post:
           tags:
@@ -1023,9 +1023,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Channel'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /channels/stop:
         post:
           tags:
@@ -1144,9 +1144,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /drives:
         get:
           tags:
@@ -1271,9 +1271,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         post:
           tags:
             - Drives
@@ -1383,9 +1383,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Drive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /drives/{driveId}:
         get:
           tags:
@@ -1499,9 +1499,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Drives
@@ -1613,9 +1613,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Drive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Drives
@@ -1728,9 +1728,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /drives/{driveId}/hide:
         post:
           tags:
@@ -1830,9 +1830,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Drive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /drives/{driveId}/unhide:
         post:
           tags:
@@ -1932,9 +1932,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Drive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files:
         get:
           tags:
@@ -2163,9 +2163,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         post:
           tags:
             - Files
@@ -2335,9 +2335,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/File'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/generateIds:
         get:
           tags:
@@ -2463,9 +2463,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/GeneratedIds'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/trash:
         delete:
           tags:
@@ -2568,9 +2568,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}:
         get:
           tags:
@@ -2730,9 +2730,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Files
@@ -2916,9 +2916,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/File'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Files
@@ -3045,9 +3045,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/comments:
         get:
           tags:
@@ -3184,9 +3184,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/CommentList'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         post:
           tags:
             - Comments
@@ -3294,9 +3294,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Comment'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/comments/{commentId}:
         get:
           tags:
@@ -3417,9 +3417,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Comment'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Comments
@@ -3533,9 +3533,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Comment'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Comments
@@ -3640,9 +3640,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/comments/{commentId}/replies:
         get:
           tags:
@@ -3778,9 +3778,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/ReplyList'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         post:
           tags:
             - Replies
@@ -3894,9 +3894,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Reply'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/comments/{commentId}/replies/{replyId}:
         get:
           tags:
@@ -4023,9 +4023,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Reply'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Replies
@@ -4145,9 +4145,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Reply'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Replies
@@ -4258,9 +4258,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/copy:
         post:
           tags:
@@ -4438,9 +4438,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/File'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/export:
         get:
           tags:
@@ -4553,9 +4553,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/listLabels:
         get:
           tags:
@@ -4690,9 +4690,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/modifyLabels:
         post:
           tags:
@@ -4807,9 +4807,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/ModifyLabelsResponse'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/permissions:
         get:
           tags:
@@ -4978,9 +4978,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         post:
           tags:
             - Permissions
@@ -5149,9 +5149,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Permission'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/permissions/{permissionId}:
         get:
           tags:
@@ -5298,9 +5298,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Permission'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Permissions
@@ -5451,9 +5451,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Permission'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Permissions
@@ -5581,9 +5581,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/revisions:
         get:
           tags:
@@ -5724,9 +5724,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/revisions/{revisionId}:
         get:
           tags:
@@ -5864,9 +5864,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Revision'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Revisions
@@ -5984,9 +5984,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Revision'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Revisions
@@ -6099,9 +6099,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /files/{fileId}/watch:
         post:
           tags:
@@ -6264,9 +6264,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/Channel'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /teamdrives:
         get:
           tags:
@@ -6391,9 +6391,9 @@ spec:
           x-api-evangelist-certified: '2025-07-18'
           x-api-naftiko-published: '2025-07-18'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         post:
           tags:
             - Team Drives
@@ -6503,9 +6503,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/TeamDrive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
       /teamdrives/{teamDriveId}:
         get:
           tags:
@@ -6617,9 +6617,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/TeamDrive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         patch:
           tags:
             - Team Drives
@@ -6731,9 +6731,9 @@ spec:
                   schema:
                     $ref: '#/components/schemas/TeamDrive'
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
         delete:
           tags:
             - Team Drives
@@ -6828,9 +6828,9 @@ spec:
             '200':
               description: Successful response
           x-microcks-operation:
-            delay: 100
-            dispatcher: FALLBACK
-            dispatcherRules: SuccessExample
+            dispatcher: SCRIPT
+            dispatcherRules: |
+              return "SuccessExample"
     components:
       schemas:
         About:

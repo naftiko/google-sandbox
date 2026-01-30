@@ -1,0 +1,139 @@
+meta {
+  name: Get File Metadata
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/files/:name
+  body: none
+  auth: inherit
+}
+
+params:path {
+  name: naftiko
+}
+
+example {
+  name: 200 Response
+  description: File metadata retrieved successfully
+  
+  request: {
+    url: {{baseUrl}}/files/:name
+    method: GET
+    mode: none
+    params:path: {
+      name: naftiko
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "file": {
+            "name": "",
+            "display_name": "",
+            "mime_type": "",
+            "size_bytes": "",
+            "create_time": "",
+            "update_time": "",
+            "expiration_time": "",
+            "sha256_hash": "",
+            "uri": "",
+            "state": "",
+            "error": {
+              "message": ""
+            }
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 401 Response
+  description: Unauthorized
+  
+  request: {
+    url: {{baseUrl}}/files/:name
+    method: GET
+    mode: none
+    params:path: {
+      name: naftiko
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 401
+      text: Unauthorized
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 404 Response
+  description: File not found
+  
+  request: {
+    url: {{baseUrl}}/files/:name
+    method: GET
+    mode: none
+    params:path: {
+      name: naftiko
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 404
+      text: Not Found
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "error": {
+            "code": 0,
+            "message": "",
+            "status": ""
+          }
+        }
+      '''
+    }
+  }
+}

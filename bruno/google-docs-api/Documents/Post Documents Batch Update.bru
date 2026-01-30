@@ -1,0 +1,747 @@
+meta {
+  name: Post Documents Batch Update
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/documents/:documentId:batchUpdate
+  body: json
+  auth: oauth2
+}
+
+params:query {
+  ~$.xgafv: 
+  ~access_token: 
+  ~alt: naftiko
+  ~callback: 
+  ~fields: 
+  ~key: 
+  ~oauth_token: 
+  ~prettyPrint: 
+  ~quotaUser: 
+  ~upload_protocol: 
+  ~uploadType: 
+}
+
+params:path {
+  documentId: 123
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:oauth2 {
+  grant_type: implicit
+  callback_url: {{oauth_callback_url}}
+  authorization_url: https://accounts.google.com/o/oauth2/auth
+  client_id: {{oauth_client_id}}
+  scope: https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/documents.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly
+  state: {{oauth_state}}
+  credentials_id: 123
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: false
+}
+
+body:json {
+  {
+    "requests": [
+      {
+        "createFooter": {
+          "sectionBreakLocation": {
+            "index": 0,
+            "segmentId": ""
+          },
+          "type": ""
+        },
+        "createFootnote": {
+          "endOfSegmentLocation": {
+            "segmentId": ""
+          },
+          "location": {}
+        },
+        "createHeader": {
+          "sectionBreakLocation": {},
+          "type": ""
+        },
+        "createNamedRange": {
+          "name": "",
+          "range": {
+            "endIndex": 0,
+            "segmentId": "",
+            "startIndex": 0
+          }
+        },
+        "createParagraphBullets": {
+          "bulletPreset": "",
+          "range": {}
+        },
+        "deleteContentRange": {
+          "range": {}
+        },
+        "deleteFooter": {
+          "footerId": ""
+        },
+        "deleteHeader": {
+          "headerId": ""
+        },
+        "deleteNamedRange": {
+          "name": "",
+          "namedRangeId": ""
+        },
+        "deleteParagraphBullets": {
+          "range": {}
+        },
+        "deletePositionedObject": {
+          "objectId": ""
+        },
+        "deleteTableColumn": {
+          "tableCellLocation": {
+            "columnIndex": 0,
+            "rowIndex": 0,
+            "tableStartLocation": {}
+          }
+        },
+        "deleteTableRow": {
+          "tableCellLocation": {}
+        },
+        "insertInlineImage": {
+          "endOfSegmentLocation": {},
+          "location": {},
+          "objectSize": {
+            "height": {
+              "magnitude": 0,
+              "unit": ""
+            },
+            "width": {}
+          },
+          "uri": ""
+        },
+        "insertPageBreak": {
+          "endOfSegmentLocation": {},
+          "location": {}
+        },
+        "insertSectionBreak": {
+          "endOfSegmentLocation": {},
+          "location": {},
+          "sectionType": ""
+        },
+        "insertTable": {
+          "columns": 0,
+          "endOfSegmentLocation": {},
+          "location": {},
+          "rows": 0
+        },
+        "insertTableColumn": {
+          "insertRight": false,
+          "tableCellLocation": {}
+        },
+        "insertTableRow": {
+          "insertBelow": false,
+          "tableCellLocation": {}
+        },
+        "insertText": {
+          "endOfSegmentLocation": {},
+          "location": {},
+          "text": ""
+        },
+        "mergeTableCells": {
+          "tableRange": {
+            "columnSpan": 0,
+            "rowSpan": 0,
+            "tableCellLocation": {}
+          }
+        },
+        "pinTableHeaderRows": {
+          "pinnedHeaderRowsCount": 0,
+          "tableStartLocation": {}
+        },
+        "replaceAllText": {
+          "containsText": {
+            "matchCase": false,
+            "text": ""
+          },
+          "replaceText": ""
+        },
+        "replaceImage": {
+          "imageObjectId": "",
+          "imageReplaceMethod": "",
+          "uri": ""
+        },
+        "replaceNamedRangeContent": {
+          "namedRangeId": "",
+          "namedRangeName": "",
+          "text": ""
+        },
+        "unmergeTableCells": {
+          "tableRange": {}
+        },
+        "updateDocumentStyle": {
+          "documentStyle": {
+            "background": {
+              "color": {
+                "color": {
+                  "rgbColor": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 0
+                  }
+                }
+              }
+            },
+            "defaultFooterId": "",
+            "defaultHeaderId": "",
+            "evenPageFooterId": "",
+            "evenPageHeaderId": "",
+            "firstPageFooterId": "",
+            "firstPageHeaderId": "",
+            "marginBottom": {},
+            "marginFooter": {},
+            "marginHeader": {},
+            "marginLeft": {},
+            "marginRight": {},
+            "marginTop": {},
+            "pageNumberStart": 0,
+            "pageSize": {},
+            "useCustomHeaderFooterMargins": false,
+            "useEvenPageHeaderFooter": false,
+            "useFirstPageHeaderFooter": false
+          },
+          "fields": ""
+        },
+        "updateParagraphStyle": {
+          "fields": "",
+          "paragraphStyle": {
+            "alignment": "",
+            "avoidWidowAndOrphan": false,
+            "borderBetween": {
+              "color": {},
+              "dashStyle": "",
+              "padding": {},
+              "width": {}
+            },
+            "borderBottom": {},
+            "borderLeft": {},
+            "borderRight": {},
+            "borderTop": {},
+            "direction": "",
+            "headingId": "",
+            "indentEnd": {},
+            "indentFirstLine": {},
+            "indentStart": {},
+            "keepLinesTogether": false,
+            "keepWithNext": false,
+            "lineSpacing": 0,
+            "namedStyleType": "",
+            "pageBreakBefore": false,
+            "shading": {
+              "backgroundColor": {}
+            },
+            "spaceAbove": {},
+            "spaceBelow": {},
+            "spacingMode": "",
+            "tabStops": [
+              {
+                "alignment": "",
+                "offset": {}
+              }
+            ]
+          },
+          "range": {}
+        },
+        "updateSectionStyle": {
+          "fields": "",
+          "range": {},
+          "sectionStyle": {
+            "columnProperties": [
+              {
+                "paddingEnd": {},
+                "width": {}
+              }
+            ],
+            "columnSeparatorStyle": "",
+            "contentDirection": "",
+            "defaultFooterId": "",
+            "defaultHeaderId": "",
+            "evenPageFooterId": "",
+            "evenPageHeaderId": "",
+            "firstPageFooterId": "",
+            "firstPageHeaderId": "",
+            "marginBottom": {},
+            "marginFooter": {},
+            "marginHeader": {},
+            "marginLeft": {},
+            "marginRight": {},
+            "marginTop": {},
+            "pageNumberStart": 0,
+            "sectionType": "",
+            "useFirstPageHeaderFooter": false
+          }
+        },
+        "updateTableCellStyle": {
+          "fields": "",
+          "tableCellStyle": {
+            "backgroundColor": {},
+            "borderBottom": {
+              "color": {},
+              "dashStyle": "",
+              "width": {}
+            },
+            "borderLeft": {},
+            "borderRight": {},
+            "borderTop": {},
+            "columnSpan": 0,
+            "contentAlignment": "",
+            "paddingBottom": {},
+            "paddingLeft": {},
+            "paddingRight": {},
+            "paddingTop": {},
+            "rowSpan": 0
+          },
+          "tableRange": {},
+          "tableStartLocation": {}
+        },
+        "updateTableColumnProperties": {
+          "columnIndices": [],
+          "fields": "",
+          "tableColumnProperties": {
+            "width": {},
+            "widthType": ""
+          },
+          "tableStartLocation": {}
+        },
+        "updateTableRowStyle": {
+          "fields": "",
+          "rowIndices": [],
+          "tableRowStyle": {
+            "minRowHeight": {},
+            "preventOverflow": false,
+            "tableHeader": false
+          },
+          "tableStartLocation": {}
+        },
+        "updateTextStyle": {
+          "fields": "",
+          "range": {},
+          "textStyle": {
+            "backgroundColor": {},
+            "baselineOffset": "",
+            "bold": false,
+            "fontSize": {},
+            "foregroundColor": {},
+            "italic": false,
+            "link": {
+              "bookmarkId": "",
+              "headingId": "",
+              "url": ""
+            },
+            "smallCaps": false,
+            "strikethrough": false,
+            "underline": false,
+            "weightedFontFamily": {
+              "fontFamily": "",
+              "weight": 0
+            }
+          }
+        }
+      }
+    ],
+    "writeControl": {
+      "requiredRevisionId": "",
+      "targetRevisionId": ""
+    }
+  }
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/v1/documents/:documentId:batchUpdate
+    method: POST
+    mode: json
+    params:query: {
+      ~$.xgafv: 
+      ~access_token: 
+      ~alt: naftiko
+      ~callback: 
+      ~fields: 
+      ~key: 
+      ~oauth_token: 
+      ~prettyPrint: 
+      ~quotaUser: 
+      ~upload_protocol: 
+      ~uploadType: 
+    }
+  
+    params:path: {
+      documentId: 123
+    }
+  
+    headers: {
+      ~Authorization: 
+    }
+  
+    body:json: {
+      {
+        "requests": [
+          {
+            "createFooter": {
+              "sectionBreakLocation": {
+                "index": 0,
+                "segmentId": ""
+              },
+              "type": ""
+            },
+            "createFootnote": {
+              "endOfSegmentLocation": {
+                "segmentId": ""
+              },
+              "location": {}
+            },
+            "createHeader": {
+              "sectionBreakLocation": {},
+              "type": ""
+            },
+            "createNamedRange": {
+              "name": "",
+              "range": {
+                "endIndex": 0,
+                "segmentId": "",
+                "startIndex": 0
+              }
+            },
+            "createParagraphBullets": {
+              "bulletPreset": "",
+              "range": {}
+            },
+            "deleteContentRange": {
+              "range": {}
+            },
+            "deleteFooter": {
+              "footerId": ""
+            },
+            "deleteHeader": {
+              "headerId": ""
+            },
+            "deleteNamedRange": {
+              "name": "",
+              "namedRangeId": ""
+            },
+            "deleteParagraphBullets": {
+              "range": {}
+            },
+            "deletePositionedObject": {
+              "objectId": ""
+            },
+            "deleteTableColumn": {
+              "tableCellLocation": {
+                "columnIndex": 0,
+                "rowIndex": 0,
+                "tableStartLocation": {}
+              }
+            },
+            "deleteTableRow": {
+              "tableCellLocation": {}
+            },
+            "insertInlineImage": {
+              "endOfSegmentLocation": {},
+              "location": {},
+              "objectSize": {
+                "height": {
+                  "magnitude": 0,
+                  "unit": ""
+                },
+                "width": {}
+              },
+              "uri": ""
+            },
+            "insertPageBreak": {
+              "endOfSegmentLocation": {},
+              "location": {}
+            },
+            "insertSectionBreak": {
+              "endOfSegmentLocation": {},
+              "location": {},
+              "sectionType": ""
+            },
+            "insertTable": {
+              "columns": 0,
+              "endOfSegmentLocation": {},
+              "location": {},
+              "rows": 0
+            },
+            "insertTableColumn": {
+              "insertRight": false,
+              "tableCellLocation": {}
+            },
+            "insertTableRow": {
+              "insertBelow": false,
+              "tableCellLocation": {}
+            },
+            "insertText": {
+              "endOfSegmentLocation": {},
+              "location": {},
+              "text": ""
+            },
+            "mergeTableCells": {
+              "tableRange": {
+                "columnSpan": 0,
+                "rowSpan": 0,
+                "tableCellLocation": {}
+              }
+            },
+            "pinTableHeaderRows": {
+              "pinnedHeaderRowsCount": 0,
+              "tableStartLocation": {}
+            },
+            "replaceAllText": {
+              "containsText": {
+                "matchCase": false,
+                "text": ""
+              },
+              "replaceText": ""
+            },
+            "replaceImage": {
+              "imageObjectId": "",
+              "imageReplaceMethod": "",
+              "uri": ""
+            },
+            "replaceNamedRangeContent": {
+              "namedRangeId": "",
+              "namedRangeName": "",
+              "text": ""
+            },
+            "unmergeTableCells": {
+              "tableRange": {}
+            },
+            "updateDocumentStyle": {
+              "documentStyle": {
+                "background": {
+                  "color": {
+                    "color": {
+                      "rgbColor": {
+                        "blue": 0,
+                        "green": 0,
+                        "red": 0
+                      }
+                    }
+                  }
+                },
+                "defaultFooterId": "",
+                "defaultHeaderId": "",
+                "evenPageFooterId": "",
+                "evenPageHeaderId": "",
+                "firstPageFooterId": "",
+                "firstPageHeaderId": "",
+                "marginBottom": {},
+                "marginFooter": {},
+                "marginHeader": {},
+                "marginLeft": {},
+                "marginRight": {},
+                "marginTop": {},
+                "pageNumberStart": 0,
+                "pageSize": {},
+                "useCustomHeaderFooterMargins": false,
+                "useEvenPageHeaderFooter": false,
+                "useFirstPageHeaderFooter": false
+              },
+              "fields": ""
+            },
+            "updateParagraphStyle": {
+              "fields": "",
+              "paragraphStyle": {
+                "alignment": "",
+                "avoidWidowAndOrphan": false,
+                "borderBetween": {
+                  "color": {},
+                  "dashStyle": "",
+                  "padding": {},
+                  "width": {}
+                },
+                "borderBottom": {},
+                "borderLeft": {},
+                "borderRight": {},
+                "borderTop": {},
+                "direction": "",
+                "headingId": "",
+                "indentEnd": {},
+                "indentFirstLine": {},
+                "indentStart": {},
+                "keepLinesTogether": false,
+                "keepWithNext": false,
+                "lineSpacing": 0,
+                "namedStyleType": "",
+                "pageBreakBefore": false,
+                "shading": {
+                  "backgroundColor": {}
+                },
+                "spaceAbove": {},
+                "spaceBelow": {},
+                "spacingMode": "",
+                "tabStops": [
+                  {
+                    "alignment": "",
+                    "offset": {}
+                  }
+                ]
+              },
+              "range": {}
+            },
+            "updateSectionStyle": {
+              "fields": "",
+              "range": {},
+              "sectionStyle": {
+                "columnProperties": [
+                  {
+                    "paddingEnd": {},
+                    "width": {}
+                  }
+                ],
+                "columnSeparatorStyle": "",
+                "contentDirection": "",
+                "defaultFooterId": "",
+                "defaultHeaderId": "",
+                "evenPageFooterId": "",
+                "evenPageHeaderId": "",
+                "firstPageFooterId": "",
+                "firstPageHeaderId": "",
+                "marginBottom": {},
+                "marginFooter": {},
+                "marginHeader": {},
+                "marginLeft": {},
+                "marginRight": {},
+                "marginTop": {},
+                "pageNumberStart": 0,
+                "sectionType": "",
+                "useFirstPageHeaderFooter": false
+              }
+            },
+            "updateTableCellStyle": {
+              "fields": "",
+              "tableCellStyle": {
+                "backgroundColor": {},
+                "borderBottom": {
+                  "color": {},
+                  "dashStyle": "",
+                  "width": {}
+                },
+                "borderLeft": {},
+                "borderRight": {},
+                "borderTop": {},
+                "columnSpan": 0,
+                "contentAlignment": "",
+                "paddingBottom": {},
+                "paddingLeft": {},
+                "paddingRight": {},
+                "paddingTop": {},
+                "rowSpan": 0
+              },
+              "tableRange": {},
+              "tableStartLocation": {}
+            },
+            "updateTableColumnProperties": {
+              "columnIndices": [],
+              "fields": "",
+              "tableColumnProperties": {
+                "width": {},
+                "widthType": ""
+              },
+              "tableStartLocation": {}
+            },
+            "updateTableRowStyle": {
+              "fields": "",
+              "rowIndices": [],
+              "tableRowStyle": {
+                "minRowHeight": {},
+                "preventOverflow": false,
+                "tableHeader": false
+              },
+              "tableStartLocation": {}
+            },
+            "updateTextStyle": {
+              "fields": "",
+              "range": {},
+              "textStyle": {
+                "backgroundColor": {},
+                "baselineOffset": "",
+                "bold": false,
+                "fontSize": {},
+                "foregroundColor": {},
+                "italic": false,
+                "link": {
+                  "bookmarkId": "",
+                  "headingId": "",
+                  "url": ""
+                },
+                "smallCaps": false,
+                "strikethrough": false,
+                "underline": false,
+                "weightedFontFamily": {
+                  "fontFamily": "",
+                  "weight": 0
+                }
+              }
+            }
+          }
+        ],
+        "writeControl": {
+          "requiredRevisionId": "",
+          "targetRevisionId": ""
+        }
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "documentId": "",
+          "replies": [
+            {
+              "createFooter": {
+                "footerId": ""
+              },
+              "createFootnote": {
+                "footnoteId": ""
+              },
+              "createHeader": {
+                "headerId": ""
+              },
+              "createNamedRange": {
+                "namedRangeId": ""
+              },
+              "insertInlineImage": {
+                "objectId": ""
+              },
+              "insertInlineSheetsChart": {
+                "objectId": ""
+              },
+              "replaceAllText": {
+                "occurrencesChanged": 0
+              }
+            }
+          ],
+          "writeControl": {
+            "requiredRevisionId": "",
+            "targetRevisionId": ""
+          }
+        }
+      '''
+    }
+  }
+}
