@@ -1,0 +1,518 @@
+specificationVersion: '0.19'
+
+aid: google-sandbox
+type: Sandbox
+visibility: Public
+
+name: Google API & MCP Sandbox
+description: >-
+  This is a Google sandbox that uses OpenAPI, Microcks, Bruno, and Backstage
+  to provide a 3rd-party REST API and MCP sandbox for Google.
+tags:
+  - Artificial Intelligence
+  - Email
+  - Calendar
+  - Documents
+  - Spreadsheets
+  - Cloud Storage
+
+image: https://naftiko.s3.us-east-1.amazonaws.com/naftiko-logo-blue-icon.png
+
+created: '2026-02-13'
+modified: '2026-02-13'
+
+url: https://github.com/naftiko/google-sandbox/blob/main/README.md
+
+apis:
+
+    - aid: google:calendar-api
+      name: Google Calendar API
+      description: >-
+        Integrate with Google Calendar to create, modify, and manage events
+        and settings programmatically. Manage calendar lists, events, access
+        permissions, free/busy queries, and user settings.
+      tags:
+        - Calendar
+        - Events
+        - Scheduling
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-calendar-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-calendar-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-calendar-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-calendar-api-api-sandbox-backstage.yml
+
+    - aid: google:docs-api
+      name: Google Docs API
+      description: >-
+        Read and write Google Docs documents programmatically. Create
+        documents, insert and modify content, apply formatting, and perform
+        batch updates to document structure and text.
+      tags:
+        - Documents
+        - Content
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-docs-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-docs-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-docs-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-docs-api-api-sandbox-backstage.yml
+
+    - aid: google:drive-activity-api
+      name: Google Drive Activity API
+      description: >-
+        Retrieve a historical view of activity in Google Drive. Query activity
+        events for files and folders including edits, shares, moves, and
+        permission changes.
+      tags:
+        - Drive
+        - Activity
+        - Auditing
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-drive-activity-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-drive-activity-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-drive-activity-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-drive-activity-api-api-sandbox-backstage.yml
+
+    - aid: google:drive-api
+      name: Google Drive API
+      description: >-
+        Access and manage files, folders, and shared drives in Google Drive.
+        Upload, download, search, and organize files, manage permissions and
+        comments, and track changes across a user's Drive.
+      tags:
+        - Drive
+        - Files
+        - Storage
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-drive-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-drive-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-drive-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-drive-api-api-sandbox-backstage.yml
+
+    - aid: google:drive-labels-api
+      name: Google Drive Labels API
+      description: >-
+        Create and manage Drive labels for classifying and organizing files.
+        Define label taxonomies, publish labels, and apply or modify labels
+        on Drive files.
+      tags:
+        - Drive
+        - Labels
+        - Classification
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-drive-labels-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-drive-labels-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-drive-labels-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-drive-labels-api-api-sandbox-backstage.yml
+
+    - aid: google:gemini-api
+      name: Google Gemini API
+      description: >-
+        Generate text, images, and speech from multimodal inputs including
+        text, images, video, and audio using Google Gemini models. Supports
+        content generation, streaming, token counting, and embedding.
+      tags:
+        - Artificial Intelligence
+        - Content Generation
+        - Multimodal
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-gemini-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/gemini-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/gemini-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-gemini-api-api-sandbox-backstage.yml
+
+    - aid: google:gmail-api
+      name: Google Gmail API
+      description: >-
+        Access Gmail mailboxes and send mail via a RESTful interface. Manage
+        messages, threads, drafts, labels, filters, forwarding, delegates,
+        and S/MIME configuration for authorized Gmail accounts.
+      tags:
+        - Email
+        - Messages
+        - Labels
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-gmail-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-gmail-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-gmail-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-gmail-api-sandbox-backstage.yml
+
+    - aid: google:sheets-api
+      name: Google Sheets API
+      description: >-
+        Read and modify spreadsheet data via a RESTful interface. Create
+        spreadsheets, read and write cell values, update formatting, manage
+        sheets, and work with developer metadata.
+      tags:
+        - Spreadsheets
+        - Cell Values
+        - Data
+      properties:
+
+        - type: OpenApi
+          url: openapi/google-sheets-api-openapi.yml
+        - type: MockRestServer
+          url: http://localhost:8080/rest/google-sheets-api/1.0.0
+        - type: MockMCPServer
+          url: http://localhost:8080/rest/google-sheets-api/1.0.0/sse
+        - type: BackstageApi
+          url: backstage/google-sheets-api-api-sandbox-backstage.yml
+
+common:
+
+  - type: Summary
+    data:
+
+      numberOfPaths: 140
+      numberOfOperations: 209
+      numberOfReadOperations: 74
+      numberOfWriteOperations: 135
+      numberOfSchemas: 644
+      numberOfResponses: 0
+      numberOfParameters: 48
+      numberOfExamples: 125
+      numberOfRequestBodies: 0
+      numberOfHeaders: 0
+      tags:
+        - Attachments
+        - Calendar ACL Rules
+        - Calendar Events
+        - Calendar Settings
+        - Calendars
+        - Cell Values
+        - Changes
+        - Channels
+        - Colors
+        - Comments
+        - Content Generation
+        - CSE Identities
+        - CSE Keypairs
+        - Data Filters
+        - Delegates
+        - Developer Metadata
+        - Documents
+        - Drafts
+        - Drive Activity
+        - Drive Labels
+        - Drives
+        - Files
+        - Filters
+        - Forwarding Addresses
+        - Free Busy
+        - Gmail Labels
+        - Gmail Messages
+        - Gmail Settings
+        - History
+        - Image Generation
+        - Permissions
+        - Profile
+        - Replies
+        - Revisions
+        - S/MIME
+        - Send As
+        - Sheet Management
+        - Speech Generation
+        - Spreadsheet Management
+        - Streaming
+        - Team Drives
+        - Threads
+        - Token Counting
+        - User Calendars
+        - User Settings
+        - Vacation Settings
+        - Video Understanding
+        - Watch
+      operations:
+        - Append Cell Values
+        - Batch Clear Cell Values
+        - Batch Clear Values By Data Filter
+        - Batch Delete Labels
+        - Batch Get Cell Values
+        - Batch Get Values By Data Filter
+        - Batch Modify Messages
+        - Batch Update Cell Values
+        - Batch Update Spreadsheet
+        - Batch Update Values By Data Filter
+        - Clear Calendar
+        - Clear Cell Values
+        - Copy Sheet To Another Spreadsheet
+        - Count Tokens
+        - Create Calendar
+        - Create CSE Identity
+        - Create CSE Keypair
+        - Create Delegate
+        - Create Draft
+        - Create Drive
+        - Create Drive Label
+        - Create Event
+        - Create File
+        - Create File Comment
+        - Create File Comment Reply
+        - Create File Permission
+        - Create Filter
+        - Create Forwarding Address
+        - Create Gmail Label
+        - Create Send As
+        - Create SMIME Info
+        - Create Spreadsheet
+        - Create Team Drive
+        - Delete Access Control Rule
+        - Delete CSE Identity
+        - Delete Calendar
+        - Delete Delegate
+        - Delete Draft
+        - Delete Drive
+        - Delete Drive Label
+        - Delete Event
+        - Delete File
+        - Delete File Comment
+        - Delete File Comment Reply
+        - Delete File Permission
+        - Delete File Revision
+        - Delete Filter
+        - Delete Forwarding Address
+        - Delete Gmail Label
+        - Delete Message
+        - Delete Send As
+        - Delete SMIME Info
+        - Delete Team Drive
+        - Delete Trash
+        - Disable CSE Keypair
+        - Disable Drive Label
+        - Enable CSE Keypair
+        - Enable Drive Label
+        - Export File
+        - Generate Content
+        - Generate Images
+        - Generate Speech
+        - Get About
+        - Get Access Control Rule
+        - Get Applications
+        - Get Attachment
+        - Get Auto Forwarding Settings
+        - Get Calendar
+        - Get Calendar Colors
+        - Get Calendar List
+        - Get Calendar Setting
+        - Get Cell Values
+        - Get Changes
+        - Get Changes Start Page Token
+        - Get CSE Identity
+        - Get CSE Keypair
+        - Get Delegate
+        - Get Developer Metadata
+        - Get Document
+        - Get Draft
+        - Get Drive
+        - Get Event
+        - Get File
+        - Get File Comment
+        - Get File Comment Reply
+        - Get File Labels
+        - Get File Permission
+        - Get File Revision
+        - Get Files
+        - Get Filter
+        - Get Forwarding Address
+        - Get Gmail Label
+        - Get IMAP Settings
+        - Get Language Settings
+        - Get Message
+        - Get POP Settings
+        - Get Profile
+        - Get Send As
+        - Get SMIME Info
+        - Get Spreadsheet
+        - Get Spreadsheet By Data Filter
+        - Get Team Drive
+        - Get Thread
+        - Get Vacation Settings
+        - Get Video Processing Status
+        - Generate File IDs
+        - Hide Drive
+        - Import Event
+        - Import Message
+        - Insert Access Control Rule
+        - Insert Calendar On List
+        - Insert Event
+        - Insert Message
+        - List Access Control Rules
+        - List Applications
+        - List CSE Identities
+        - List CSE Keypairs
+        - List Calendar Settings
+        - List Calendars
+        - List Delegates
+        - List Drafts
+        - List Drive Labels
+        - List Drives
+        - List File Comments
+        - List File Comment Replies
+        - List File Labels
+        - List File Permissions
+        - List File Revisions
+        - List Files
+        - List Filters
+        - List Forwarding Addresses
+        - List Gmail Labels
+        - List History
+        - List Messages
+        - List SMIME Info
+        - List Team Drives
+        - List Threads
+        - Modify File Labels
+        - Modify Message
+        - Modify Thread
+        - Move Event
+        - Obliterate CSE Keypair
+        - Patch Access Control Rule
+        - Patch CSE Identity
+        - Patch Drive Label Permission
+        - Publish Drive Label
+        - Query Activity
+        - Query Drive Activity
+        - Query Free Busy
+        - Quick Add Event
+        - Remove Calendar From List
+        - Retrieve Drive Label
+        - Retrieve Drive Label Limits
+        - Retrieve Drive Label Locks
+        - Retrieve Drive Label Permissions
+        - Search Developer Metadata
+        - Send Draft
+        - Send Message
+        - Set Default SMIME Config
+        - Stop Calendar Channel
+        - Stop Channel Notifications
+        - Stream Generate Content
+        - Trash Message
+        - Trash Thread
+        - Unhide Drive
+        - Untrash Message
+        - Update Access Control Rule
+        - Update Auto Forwarding
+        - Update Calendar
+        - Update Calendar List
+        - Update Cell Values
+        - Update CSE Identity
+        - Update Draft
+        - Update Drive
+        - Update Drive Label
+        - Update Drive Label Copy Mode
+        - Update Event
+        - Update File
+        - Update File Comment
+        - Update File Comment Reply
+        - Update File Permission
+        - Update File Revision
+        - Update Gmail Label
+        - Update IMAP Settings
+        - Update Language Settings
+        - Update POP Settings
+        - Update Send As Settings
+        - Update Team Drive
+        - Update Vacation Settings
+        - Upload File
+        - Verify Send As
+        - Watch Access Control Rules
+        - Watch Calendar List
+        - Watch Calendar Settings
+        - Watch Events
+        - Watch File
+        - Watch Messages
+
+  - type: GitHubHttpUrl
+    url: https://github.com/naftiko/google-sandbox
+
+  - type: GitHubSshUrl
+    url: git@github.com:naftiko/google-sandbox.git
+
+  - type: GitHubIssues
+    url: https://github.com/naftiko/google-sandbox/issues
+
+  - type: GitHubDiscussions
+    url: https://github.com/orgs/naftiko/discussions
+
+  - type: Standards
+    data:
+
+      - name: APIs.json
+        description: This uses the APIs.json
+        docUrl: http://apisjson.org/
+
+      - name: OpenAPI
+        description: This uses OpenAPI to define access to all HTTP APIs.
+        docUrl: https://spec.openapis.org/oas/latest.html
+
+      - name: JSON Schema
+        description: This uses JSON Schema to define and validate all entities used.
+        docUrl: https://json-schema.org/specification
+
+      - name: Model Context Protocol
+        description: This uses MCP expressed as JSON schema to define each MCP server.
+        docUrl: https://modelcontextprotocol.io/
+
+      - name: Bruno Collections
+        description: This uses Bruno Collections to define each executable HTTP API integration.
+        docUrl: https://docs.usebruno.com/
+
+      - name: Bruno Environments
+        description: This uses Bruno Environments to store keys for each API to use in automation.
+        docUrl: https://docs.usebruno.com/secrets-management/overview
+
+      - name: API Commons
+        description: This uses an API Commons schema to define the plans and rate limits.
+        docUrl: https://apicommons.org/
+
+  - type: Services
+    data:
+
+    - aid: google
+      name: Google
+      description: >-
+        Google is a technology company offering cloud services, productivity
+        tools, and AI platforms including Gmail, Google Drive, Google Docs,
+        Google Sheets, Google Calendar, and the Gemini AI model family.
+      docUrl: https://developers.google.com/
+      apisJson: >-
+        https://raw.githubusercontent.com/api-evangelist/google/refs/heads/main/apis.yml
+      loginUrl: https://accounts.google.com/signin
+
+maintainers:
+
+  - FN: Kin Lane
+    email: kinlane@naftiko.io
