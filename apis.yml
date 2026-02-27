@@ -16,7 +16,7 @@ tags:
   - Spreadsheets
   - Cloud Storage
 
-image: https://naftiko.s3.us-east-1.amazonaws.com/naftiko-logo-blue-icon.png
+image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
 
 created: '2026-02-13'
 modified: '2026-02-13'
@@ -31,6 +31,9 @@ apis:
         Integrate with Google Calendar to create, modify, and manage events
         and settings programmatically. Manage calendar lists, events, access
         permissions, free/busy queries, and user settings.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Calendar
         - Events
@@ -52,6 +55,9 @@ apis:
         Read and write Google Docs documents programmatically. Create
         documents, insert and modify content, apply formatting, and perform
         batch updates to document structure and text.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Documents
         - Content
@@ -72,6 +78,9 @@ apis:
         Retrieve a historical view of activity in Google Drive. Query activity
         events for files and folders including edits, shares, moves, and
         permission changes.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Drive
         - Activity
@@ -93,6 +102,9 @@ apis:
         Access and manage files, folders, and shared drives in Google Drive.
         Upload, download, search, and organize files, manage permissions and
         comments, and track changes across a user's Drive.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Drive
         - Files
@@ -114,6 +126,9 @@ apis:
         Create and manage Drive labels for classifying and organizing files.
         Define label taxonomies, publish labels, and apply or modify labels
         on Drive files.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Drive
         - Labels
@@ -135,6 +150,9 @@ apis:
         Generate text, images, and speech from multimodal inputs including
         text, images, video, and audio using Google Gemini models. Supports
         content generation, streaming, token counting, and embedding.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Artificial Intelligence
         - Content Generation
@@ -156,6 +174,9 @@ apis:
         Access Gmail mailboxes and send mail via a RESTful interface. Manage
         messages, threads, drafts, labels, filters, forwarding, delegates,
         and S/MIME configuration for authorized Gmail accounts.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Email
         - Messages
@@ -177,6 +198,9 @@ apis:
         Read and modify spreadsheet data via a RESTful interface. Create
         spreadsheets, read and write cell values, update formatting, manage
         sheets, and work with developer metadata.
+      humanURL: https://github.com/naftiko/google-sandbox
+      baseURL: http://localhost:8080/rest/google-sandbox/1.0.0
+      image: https://naftiko.github.io/docs/images/monogram/monogram_full_color_512.png
       tags:
         - Spreadsheets
         - Cell Values
@@ -195,6 +219,7 @@ apis:
 common:
 
   - type: Summary
+    url: https://github.com/naftiko/google-sandbox
     data:
 
       numberOfPaths: 140
@@ -468,6 +493,7 @@ common:
     url: https://github.com/orgs/naftiko/discussions
 
   - type: Standards
+    url: https://github.com/naftiko/google-sandbox
     data:
 
       - name: APIs.json
@@ -499,6 +525,7 @@ common:
         docUrl: https://apicommons.org/
 
   - type: Services
+    url: https://github.com/naftiko/google-sandbox
     data:
 
     - aid: google
