@@ -1,0 +1,182 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "Google Sandbox"
+  description: "Naftiko Sandbox — wraps the Google API mocks hosted at mocks.naftiko.net. Exposes MCP, REST, and Skill adapters for AI agents and downstream tools."
+  tags:
+    - "Google"
+    - "Naftiko Sandbox"
+    - MCP
+    - Mocks
+
+binds:
+  - namespace: "sandbox-env"
+    description: "Sandbox bearer token for the Naftiko Framework MCP server."
+    location: "file:///./shared/secrets.yaml"
+    keys:
+      MCP_SERVER_TOKEN: "mcp-server-token"
+
+capability:
+  consumes:
+    - import: google-calendar-api
+      location: ./shared/google-calendar-api-consumes.yml
+
+  exposes:
+    - type: mcp
+      address: "0.0.0.0"
+      port: 3001
+      namespace: google-sandbox-tools
+      authentication:
+        type: bearer
+        token: "{{MCP_SERVER_TOKEN}}"
+      description: "Google MCP tools — backed by mocks.naftiko.net"
+      tools:
+        - name: google-getaccesscontrolrule
+          description: "Get Access Control Rule"
+          call: google-calendar-api.google-getaccesscontrolrule
+          inputParameters:
+            - name: Accept
+              in: header
+              required: false
+            - name: alt
+              in: query
+              required: false
+            - name: fields
+              in: query
+              required: false
+            - name: key
+              in: query
+              required: false
+            - name: oauth_token
+              in: query
+              required: false
+            - name: prettyPrint
+              in: query
+              required: false
+            - name: quotaUser
+              in: query
+              required: false
+            - name: userIp
+              in: query
+              required: false
+            - name: calendarId
+              in: path
+              required: true
+            - name: ruleId
+              in: path
+              required: true
+            - name: Authorization
+              in: header
+              required: false
+        - name: google-getcalendar
+          description: "Get Calendar"
+          call: google-calendar-api.google-getcalendar
+          inputParameters:
+            - name: Accept
+              in: header
+              required: false
+            - name: calendarId
+              in: path
+              required: true
+            - name: Authorization
+              in: header
+              required: false
+        - name: google-getcalendarcolors
+          description: "Get Calendar Colors"
+          call: google-calendar-api.google-getcalendarcolors
+          inputParameters:
+            - name: Accept
+              in: header
+              required: false
+            - name: Authorization
+              in: header
+              required: false
+
+    - type: rest
+      address: "0.0.0.0"
+      port: 3002
+      namespace: google-sandbox-api
+      description: "Google REST adapter — exposes the same domain as REST resources."
+      resources:
+        - name: google-getaccesscontrolrule
+          path: "/google-getaccesscontrolrule"
+          operations:
+            - method: GET
+              call: google-calendar-api.google-getaccesscontrolrule
+              inputParameters:
+                - name: Accept
+                  in: header
+                  required: false
+                - name: alt
+                  in: query
+                  required: false
+                - name: fields
+                  in: query
+                  required: false
+                - name: key
+                  in: query
+                  required: false
+                - name: oauth_token
+                  in: query
+                  required: false
+                - name: prettyPrint
+                  in: query
+                  required: false
+                - name: quotaUser
+                  in: query
+                  required: false
+                - name: userIp
+                  in: query
+                  required: false
+                - name: calendarId
+                  in: path
+                  required: true
+                - name: ruleId
+                  in: path
+                  required: true
+                - name: Authorization
+                  in: header
+                  required: false
+        - name: google-getcalendar
+          path: "/google-getcalendar"
+          operations:
+            - method: GET
+              call: google-calendar-api.google-getcalendar
+              inputParameters:
+                - name: Accept
+                  in: header
+                  required: false
+                - name: calendarId
+                  in: path
+                  required: true
+                - name: Authorization
+                  in: header
+                  required: false
+        - name: google-getcalendarcolors
+          path: "/google-getcalendarcolors"
+          operations:
+            - method: GET
+              call: google-calendar-api.google-getcalendarcolors
+              inputParameters:
+                - name: Accept
+                  in: header
+                  required: false
+                - name: Authorization
+                  in: header
+                  required: false
+
+    - type: skill
+      address: "0.0.0.0"
+      port: 3003
+      namespace: google-sandbox-skills
+      description: "Google skill server for structured agent discovery."
+      groups:
+        - name: read-google
+          description: "Read-only Google operations."
+          skills:
+            - name: google-getaccesscontrolrule
+              call: google-calendar-api.google-getaccesscontrolrule
+            - name: google-getcalendar
+              call: google-calendar-api.google-getcalendar
+            - name: google-getcalendarcolors
+              call: google-calendar-api.google-getcalendarcolors

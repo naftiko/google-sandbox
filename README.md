@@ -1,31 +1,68 @@
-# Google Sandbox
-This is sandbox for the Google Sandbox API, using an OpenAPI specification with examples, Microcks and Bruno as the sandbox interface, and this GitHub repository as the vehicle for delivering as a localized sandbox, or also enabling the working directly with production APIs.
+# Naftiko Google Sandbox
 
-## APIs.json Index
-There is an APIs.yml file in the root of this repository, providing an index of all the artifacts used as part of this capability, providing a machine-readable way to read, manage, and execute the resources available here.
+One-click container deploy of a Naftiko Framework capability that wraps the Google API. Backed by mocks at [mocks.naftiko.net](https://mocks.naftiko.net) — no upstream credentials required.
 
-## OpenAPI
-This capability uses OpenAPI as the definition, providing a complete definition of all available paths for the Google Sandbox. The OpenAPI for this capability uses examples and Microcks extensions to mock the requests and responses for each API operation, something we will iterate and expand upon with richer examples as the capability evolves.
+## Run it
 
-## Microcks
-This capability uses Microcks to deliver the mock API. [You just install Microcks, with the Docker extension being the easiest](https://microcks.io/documentation/guides/installation/docker-desktop-extension/), [import the OpenAPI as a service](openapi/notion-openapi.yml), and you have a mocked API for all APIs, available via REST and MCP APIs--providing a multi-protocol sandbox.
+[![Run in Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/naftiko/google-sandbox)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/naftiko/google-sandbox)
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/naftiko/google-sandbox)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template?template=https://github.com/naftiko/google-sandbox)
+[![Run on Replit](https://replit.com/badge/github/naftiko/google-sandbox)](https://replit.com/github/naftiko/google-sandbox)
 
-## Bruno
-This capability [uses Bruno as the client](https://www.usebruno.com/), leveraging Bruno Collections pre-generated from the OpenAPI and Bruno environments that uses the localhost and port of Microcks to work with the mocked API. You just have to install Microcks, then open the collection provided in this repository, select the available environments, and begin calling the Google Sandbox via the sandbox or production.
+The Cloudflare button gives you the full three-protocol surface (MCP + REST + SKILL) via the bundled Worker proxy. The other four buttons expose the MCP server on port 3001 directly. See **[Per-platform behavior](#per-platform-behavior)** below.
 
+## What this deploys
 
-## OpenAPIs
-These are the OpenAPIs available for the Google Sandbox, which are made available via this sandbox API, which can be imported into Microcks and deployed as a sandbox using their mock feature.
+| Adapter | Path | Namespace | Tools / resources |
+|---|---|---|---|
+| MCP | `POST /mcp` | `google-sandbox-tools` | 3 starter tools |
+| REST | `/api/...` | `google-sandbox-api` | 3 REST resources mirroring the MCP tools |
+| SKILL | `/skill` | `google-sandbox-skills` | One skill group bundling the starter tools |
 
-  - [Google Calendar Api Openapi](openapi/google-calendar-api-openapi.yml)
-  - [Google Docs Api Openapi](openapi/google-docs-api-openapi.yml)
-  - [Google Drive Activity Api Openapi](openapi/google-drive-activity-api-openapi.yml)
-  - [Google Drive Api Openapi](openapi/google-drive-api-openapi.yml)
-  - [Google Drive Labels Api Openapi](openapi/google-drive-labels-api-openapi.yml)
-  - [Google Gemini Api Openapi](openapi/google-gemini-api-openapi.yml)
-  - [Google Gmail Api Openapi](openapi/google-gmail-api-openapi.yml)
-  - [Google Sheets Api Openapi](openapi/google-sheets-api-openapi.yml)
+Backed by:
+- **Google API** at `mocks.naftiko.net/rest/google-calendar-api/1.0.0` — hosted in [`naftiko/sandboxes`](https://github.com/naftiko/sandboxes/tree/main/specs)
+- 7 additional OpenAPI(s) hosted in `naftiko/sandboxes` but not yet wired into this capability
 
-## Support
-Please provide any questions or feedback via GitHub issues, or just email kinlane@naftiko.io with feedback. The goal is to keep iterating upon this sandboxes using existing OpenAPI, Microcks, and Bruno features, offering value out of the box via this forkable capability.
+The MCP server requires a bearer token. The deploy ships a dummy `sk-mcp-YYYYYYYYYYYY` so you can wire it into a client immediately. Real deployments swap before redeploying.
 
+## Starter scope vs. full surface
+
+This capability bootstraps **3 representative GET operations** from the primary OpenAPI (google-calendar-api). To expose more operations, edit `capability/shared/google-calendar-api-consumes.yml` and `capability/google-sandbox.naftiko.yml` — add a resource per OpenAPI path and a tool per operation.
+
+## Files
+
+| Path | What it is |
+|---|---|
+| `capability/google-sandbox.naftiko.yml` | The Naftiko Framework capability YAML |
+| `capability/shared/google-calendar-api-consumes.yml` | Imported `consumes` block — points at the central Microcks mock |
+| `capability/shared/secrets.yaml` | Dummy MCP server bearer token |
+| `Dockerfile` | Builds on `ghcr.io/naftiko/framework:latest`, copies `capability/` into `/app/` — read by every platform |
+| `wrangler.toml` | Cloudflare-only — Durable Object–backed `GoogleSandboxContainer` |
+| `src/index.ts` | Cloudflare-only — Worker proxy fronting the three engine ports |
+| `render.yaml` | Render-only — Blueprint that pins `PORT=3001` to the Dockerfile |
+
+Cloud Run, Railway, and Replit auto-detect the Dockerfile and need no extra config in the repo.
+
+## Per-platform behavior
+
+| Button | Public surface | Notes |
+|---|---|---|
+| **Cloudflare** | `/mcp` + `/api/...` + `/skill` + landing page on `/` | Worker proxies three ports through one hostname. |
+| **Render** | MCP only on `PORT=3001` | Free tier with cold-starts. |
+| **Google Cloud Run** | MCP only on `PORT=3001` | Scales to zero. |
+| **Railway** | MCP only on the assigned hostname | Auto-detects Dockerfile. |
+| **Replit** | MCP only inside the Replit container | Best for "kick the tires" exploration. |
+
+## Local development
+
+```sh
+npm install
+npm run dev
+```
+
+## Source
+
+- OpenAPI source: <https://github.com/naftiko/sandboxes/blob/main/specs/google-calendar-api-openapi.yml>
+- Naftiko Framework: <https://github.com/naftiko/framework>
+- Mock host: <https://mocks.naftiko.net>

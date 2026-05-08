@@ -1,0 +1,72 @@
+naftiko: "1.0.0-alpha2"
+consumes:
+  - namespace: google-calendar-api
+    type: http
+    baseUri: "https://mocks.naftiko.net/rest/google-calendar-api/1.0.0"
+    resources:
+      - name: google-getaccesscontrolrule
+        path: "/calendars/{{calendarId}}/acl/{{ruleId}}"
+        operations:
+          - name: google-getaccesscontrolrule
+            method: GET
+            inputParameters:
+              - name: Accept
+                in: header
+                required: false
+              - name: alt
+                in: query
+                required: false
+              - name: fields
+                in: query
+                required: false
+              - name: key
+                in: query
+                required: false
+              - name: oauth_token
+                in: query
+                required: false
+              - name: prettyPrint
+                in: query
+                required: false
+              - name: quotaUser
+                in: query
+                required: false
+              - name: userIp
+                in: query
+                required: false
+              - name: calendarId
+                in: path
+                required: true
+              - name: ruleId
+                in: path
+                required: true
+              - name: Authorization
+                in: header
+                required: false
+      - name: google-getcalendar
+        path: "/calendars/{{calendarId}}"
+        operations:
+          - name: google-getcalendar
+            method: GET
+            inputParameters:
+              - name: Accept
+                in: header
+                required: false
+              - name: calendarId
+                in: path
+                required: true
+              - name: Authorization
+                in: header
+                required: false
+      - name: google-getcalendarcolors
+        path: "/colors"
+        operations:
+          - name: google-getcalendarcolors
+            method: GET
+            inputParameters:
+              - name: Accept
+                in: header
+                required: false
+              - name: Authorization
+                in: header
+                required: false
